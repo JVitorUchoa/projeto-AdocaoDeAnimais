@@ -30,14 +30,12 @@ body{
 /*Animação do título aparecendo*/
 .fade-in{
         opacity: 0; /*Diz q começa com 0 opacidade, ou seja, invisível.*/
-        transform: translateY(20px);
-        transition: opacity 1s ease, transform 1s ease;
+        transition: opacity 1s ease, transform 1s ease; /*Define o tempo da mudança/animação*/
       }
       
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+.fade-in.visivel {
+        opacity: 1; /*Elemento fica visivel*/ 
+}
 
 /*#caixaTitulo{
     background-color: rgb(110, 219, 152);
