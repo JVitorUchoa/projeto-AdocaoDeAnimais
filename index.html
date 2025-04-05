@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NomeDoSite</title>
+    <title>Mialdota</title>
     <link rel="stylesheet" href="style.css">
    
     <style>
@@ -13,28 +13,18 @@
 <body>
     <header>
         <!--Cabeçalho. A parte de cima do site. Normalmente é o menu.-->
-        <img id="caoPaginaInicial" src="caosorrindo.png" alt="Cachorro sorrindo">
+        <img id="caoPaginaInicial" src="img/caosorrindo.png" alt="Cachorro sorrindo">
         <div id="caixaTitulo">
-            <h1 id="titulo" class="fade-in">PETLAR</h1>
+            <h1 id="titulo" class="fade-in">MIALDOTA</h1>
         </div>
         
     </header>
-    <main> 
+    <main>
         <button id="continuar" onclick="window.location.href='home.html';">➞</button>
 
     </main>
 
-    <script>
-        function rolarParaBaixo() {
-            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
-                clearInterval(intervalo);
-            } else {
-                window.scrollBy(0, 1.5);
-            }
-        }
-
-        const intervalo = setInterval(rolarParaBaixo, 8);
-    </script>
+    <script src="scripts js/utils_index.js"></script>
 
     <footer>
         <!--A parte de baixo do site. Onde tem as informação extra. Tipo contatos e etc...-->

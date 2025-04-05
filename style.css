@@ -30,7 +30,7 @@ body{
 /*Animação do título aparecendo*/
 .fade-in{
         opacity: 0; /*Diz q começa com 0 opacidade, ou seja, invisível.*/
-        transition: opacity 1s ease, transform 1s ease; /*Define o tempo da mudança/animação*/
+        transition: opacity 2s ease, transform 2s ease; /*Define o tempo da mudança/animação*/
       }
       
 .fade-in.visivel {
