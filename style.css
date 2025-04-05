@@ -16,19 +16,35 @@ body{
 
 
 #titulo{
-    color:rgb(240, 248, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(66, 153, 99);
+    font-family: Luckiest Guy;
+    font-weight: 100;
+    font-size: 50px;
+    letter-spacing: 1px; /*Leve espaço nas letra do título, porque tava muito junto.*/
     text-align: center;
-    margin-top: 400px; /*Dá espaçamento da imagem*/
+
+    margin-top: 300px; /*Dá espaçamento da imagem*/
     padding-top: 100px; /*Dá espaçamento com o div que ele tá*/
-
 }
 
-#caixaTitulo{
+/*Animação do título aparecendo*/
+.fade-in{
+        opacity: 0; /*Diz q começa com 0 opacidade, ou seja, invisível.*/
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 1s ease;
+      }
+      
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+/*#caixaTitulo{
     background-color: rgb(110, 219, 152);
-
+    margin: 30px;
+    border-radius: 25px;
     height:min(160vw, 400px);
-}
+}*/
 
 #continuar{
     font-weight: 600;
