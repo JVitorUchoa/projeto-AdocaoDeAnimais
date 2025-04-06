@@ -1,7 +1,7 @@
 // Função para rolar para baixo até o final da pagina
 function rolarParaBaixo() {
     
-    // Para controlar o scroll quando chegar no final da pagina
+    // Para controlar o scroll até chegar no final da pagina
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
         clearInterval(intervalo);
     } else {
@@ -15,11 +15,9 @@ const intervalo = setInterval(rolarParaBaixo, 8);
 
 // Função para verificar a posição do titulo
 function verificarPosicaoTitulo() {
-    const titulo = document.getElementById('titulo');
-    const rect = titulo.getBoundingClientRect(); // Pega a posição do titulo na tela
     
-    // Verifica se o titulo esta aparecendo na tela faz o fade-in quando o titulo entra na tela e fade-out quando sai
-    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+    // Verifica se o scroll chegou no fim da pagina e quando chegar faz o fade-in e quando sair fade-out
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
         titulo.classList.add('visivel');
     } else {
         titulo.classList.remove('visivel');
@@ -29,5 +27,5 @@ function verificarPosicaoTitulo() {
 // Verifica a rolagem da pagina
 window.addEventListener('scroll', verificarPosicaoTitulo);
 
-// Verifica a posição do titulo quando carrega a pagina
+// Verifica a posição da tela quando inicia a pagina
 verificarPosicaoTitulo();
