@@ -14,23 +14,22 @@ body{
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);  /*Efeito de esfumaçado na imagem */
 }
 
-
 #titulo{
     color:rgb(66, 153, 99);
     font-family: Luckiest Guy;
     font-weight: 100;
-    font-size: 50px;
+    font-size: 80px;
     letter-spacing: 1px; /*Leve espaço nas letra do título, porque tava muito junto.*/
     text-align: center;
 
-    margin-top: 300px; /*Dá espaçamento da imagem*/
+    margin-top: 100px; /*Dá espaçamento da imagem*/
     padding-top: 100px; /*Dá espaçamento com o div que ele tá*/
 }
 
 /*Animação do título aparecendo*/
 .fade-in{
         opacity: 0; /*Diz q começa com 0 opacidade, ou seja, invisível.*/
-        transition: opacity 4s ease /*Define o tempo da mudança/animação*/
+        transition: opacity 3s ease /*Define o tempo da mudança/animação*/
       }
       
 .fade-in.visivel {
@@ -38,11 +37,11 @@ body{
 }
 
 #caixadepapelao{
-    position: fixed;
+    position: relative;
     bottom: 2vw;
     right: 2vw;
-    width: 20vw;
-    max-width: 150px;
+    left: 55vw;
+    max-width: 20vw;
     height: auto;
 }
 
@@ -54,23 +53,23 @@ body{
     left: 0;
 }
 
-
 #continuar{
     font-weight: 600;
     background-color:rgb(110, 219, 152);
     
     border-radius:50%;
     border: solid rgb(35, 173, 35) 1px;
-    width: 40px;  /* Largura baseada na tela */
-    height: 40px;;
+    width: 60px;  /* Largura baseada na tela */
+    height: 50px;
     margin-top: 250px;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
 
     
     position: relative;
     left: 40%; /*Deixa o botão sempre 40% do lado esquerdo*/
 
-    cursor: pointer;transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 3s ease;
     /*Dá transição pro botão vir pra frente*/
 
     z-index: 10000;
