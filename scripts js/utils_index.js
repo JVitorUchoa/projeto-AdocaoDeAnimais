@@ -25,10 +25,6 @@ function verificarPosicaoTitulo() {
         titulo.classList.add('visivel');
         caixa1.classList.add('visivel');
         continuar.classList.add('visivel');
-    } else {
-        titulo.classList.remove('visivel');
-        caixa1.classList.remove('visivel');
-        continuar.classList.remove('visivel');
     }
 
 }
