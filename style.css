@@ -1,6 +1,9 @@
+<meta charset="UTF-8">
+
 body{
     margin: 0px;
-    background-color: aliceblue
+    padding: 0px;
+    background-color: rgb(255, 255, 255)
 }
 
 #caoPaginaInicial{
@@ -14,44 +17,79 @@ body{
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);  /*Efeito de esfumaçado na imagem */
 }
 
-
 #titulo{
-    color:rgb(240, 248, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(66, 153, 99);
+    font-family: Luckiest Guy;
+    font-weight: 100;
+    font-size: clamp(35px, 4vw, 130px);
+    letter-spacing: 1px; /*Leve espaço nas letra do título, porque tava muito junto.*/
     text-align: center;
-    margin-top: 400px; /*Dá espaçamento da imagem*/
-    padding-top: 100px; /*Dá espaçamento com o div que ele tá*/
 
+    margin-top: 50px; /*Dá espaçamento da imagem*/
+    padding-top: 100px; /*Dá espaçamento com o div que ele tá*/
 }
 
-#caixaTitulo{
-    background-color: rgb(110, 219, 152);
+.fade-in{
+        opacity: 0; /*Começa com 0 opacidade, invisível.*/
+        transition: opacity 3s ease, transform 3s ease; /*Tempo da mudança, animação*/
+        transform: translateY(1px);
+}
+      
+.fade-in.visivel {
+        opacity: 1; /*Elemento fica visivel*/
+        transform: translateY(0px);
+}
 
-    height:min(160vw, 400px);
+#caixadepapelao {
+    position: relative;
+    width: clamp(200px, 25vw, 300px);
+    height: clamp(200px, 25vw, 300px); /* Altura igual à largura */
+    margin: 100px auto; /* Centraliza na tela */
+}
+
+#caixadepapelao > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Para cobrir toda a div */
+    object-fit: contain;
 }
 
 #continuar{
     font-weight: 600;
     background-color:rgb(110, 219, 152);
     
-    border-radius:50%;
+    border-radius:20px;
     border: solid rgb(35, 173, 35) 1px;
-    width: 40px;  /* Largura baseada na tela */
-    height: 40px;;
-    margin-top: 200px;
-    margin-bottom: 200px;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 80px;
 
-    
     position: relative;
-    left: 40%;
-    /*Deixa o botão sempre 40% do lado esquerdo*/
 
-    cursor: pointer;transition: transform 0.3s ease, background-color 0.3s ease;
-    /*Dá transição pro botão vir pra frente*/
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 3s ease;
+    /*Efeito pro botão vir pra frente*/
+
+    z-index: 10000;
 }
 
 #continuar:hover{
   background-color: rgb(55, 201, 99);
   transform: scale(1.05);
-  /*Efeito do botão ir pra frente*/
+  /*Efeito do botão vir pra frente*/
 }
+
+/*#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: none;
+    z-index: 9999;
+}*/

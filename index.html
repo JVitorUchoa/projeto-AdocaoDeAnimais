@@ -3,37 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NomeDoSite</title>
+    <title>Miaudota</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+   
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
+    </style>
 </head>
 <body>
+    
+    <div id="overlay"></div>
     <header>
-        <!--Cabeçalho. A parte de cima do site. Normalmente é o menu.-->
-        <img id="caoPaginaInicial" src="caosorrindo.png" alt="Cachorro sorrindo">
-        <div id="caixaTitulo">
-            <h1 id="titulo">Titulo do Site</h1>
-        </div> 
+        <img id="caoPaginaInicial" src="img/caosorrindo.png" alt="Cachorro sorrindo">
     </header>
-    <main> 
-        <button id="continuar" onclick="window.location.href='home.html';">➞</button>
-        <p>testando</p>
+    <main>
+        <div id="caixaTitulo">
+            <h1 id="titulo" class="fade-in">MIAUDOTA</h1>
+        </div>
+
+        <div id="caixadepapelao">
+            <img id="caixa1" class="fade-in" src="img/caixavaziasemfundo.png" alt="caixa de papelão vazia">
+            <img id="caixa2" class="fade-in" src="img/caixa Filhote1semf.png" alt="caixa com 1 filhote">
+            <img id="caixa3" class="fade-in" src="img/caixa Filhote2semf.png" alt="caixa com 2 filhotes">
+            <img id="caixa4" class="fade-in" src="img/caixa Filhote3semf.png" alt="caixa com 3 filhotes">
+        </div>
+
+        <button id="continuar" class="fade-in" onclick="window.location.href='home.html';">➞</button>
     </main>
-
-    <script>
-        function rolarParaBaixo() {
-            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
-                clearInterval(intervalo);
-            } else {
-                window.scrollBy(0, 1.5);
-            }
-        }
-
-        const intervalo = setInterval(rolarParaBaixo, 8);
-    </script>
-
     <footer>
         <!--A parte de baixo do site. Onde tem as informação extra. Tipo contatos e etc...-->
     </footer>
+    <script src="scripts js/utils_index.js"></script>
 </body>
 </html>
