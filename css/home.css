@@ -16,9 +16,12 @@ header {
     text-align: center;
 }
 
-header h1 {
+header h1{
     margin: 0;
     color: white;
+    font-family: Luckiest Guy;
+    font-weight: 100;
+    letter-spacing: 1px;
 }
 
 nav ul {

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MIAUDOTA</h1>
+        <p>Você é a esperança que eles estavam esperando.</p>
+    </header>
+    <main>
+        <div class="opcoes">
+            <input type="radio" id="login" name="toggle" checked>
+            <label for="login">Login</label>
+    
+            <input type="radio" id="cadastro" name="toggle">
+            <label for="cadastro">Cadastro</label>
+        </div>
+
+        <div id="caixa-login" class="caixa-form">
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <button class="entrar-btn">Entrar</button>
+        </div>
+
+        <div id="caixa-cadastro" class="caixa-form">
+            <input type="text" placeholder="Nome completo" required>
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <input type="password" placeholder="Confirme a senha" required>
+            <input type="text" placeholder="CPF" required>
+            <button class="cadastrar-btn">Cadastrar</button>
+        </div>
+    </main>
+
+</body>
+</html>

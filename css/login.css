@@ -1,0 +1,118 @@
+body {
+    margin: 0px;
+    background-image: linear-gradient(to right, rgb(171, 104, 3), rgb(239, 198, 78));
+}
+
+header {
+    margin: 0px;
+    padding: 0px;
+}
+
+header > h1 {
+    text-align: center;
+    font-family: Luckiest Guy;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 300%;
+    font-size: clamp(5vw,15vw,40px);
+    color: aliceblue;
+    margin: 0px;
+    padding: 60px 0px 0px 0px;
+}
+
+header > p {
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif, Helvetica;
+    font-size: larger;
+    text-align: center;
+    margin-top: 30px;
+    padding: 30px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.opcoes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="radio"] {
+    display: none; /* Esconde os botões de rádio */
+}
+
+/*Os botão de Login e Cadastro*/
+label {
+    padding: 10px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #989892;
+    color: rgb(243, 243, 243);
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #3e391f; /* Fica Marrom quando selecionado */
+}
+
+/*A caixa em que os input estão.*/
+.caixa-form {
+    background-color: rgba(255, 255, 255, 0.144);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Tamanho máximo da caixa */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os inputs */
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 10px 9px 10px rgba(0, 0, 0, 0.278);
+}
+
+/*As entradas de dados (senha, email...)*/
+#caixa-login > input,
+#caixa-cadastro > input {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/*Botão de Entrar e Cadastrar*/
+.cadastrar-btn, .entrar-btn {
+    background-color: #3e391f; /* Cor do botão */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px; /* Limita o tamanho máximo do botão */
+    margin-top: 20px; /* Espaço acima do botã */
+    transition: background-color 0.3s ease;
+}
+
+.cadastrar-btn:hover, .entrar-btn:hover {
+    background-color:rgb(97, 84, 51); /* Cor do botão ao passar o mouse */
+}
+
+nav > a{
+    margin: 15px 15px 20px 15px;
+}
+
+nav{
+    padding: 20px;
+    margin-top: 100px
+}
