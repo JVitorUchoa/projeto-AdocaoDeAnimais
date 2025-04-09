@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    background-color: #fff8e1; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    background-color: #ff9800; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav li a {
+    font-weight: bold;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+nav li a:hover {
+    background-color: #fb8c00;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imagem-home {
+    width: 280px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.imagem-home:hover {
+    transform: scale(1.03);
+}
+
+.texto-adocao {
+    max-width: 500px;
+    color: #5a4033;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.texto-adocao h2 {
+    font-size: 28px;
+    color: #E38B29;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #ffb300;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #fb8c00;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #ff9800;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+}
