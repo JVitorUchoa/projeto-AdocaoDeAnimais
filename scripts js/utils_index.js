@@ -20,15 +20,11 @@ const continuar = document.getElementById('continuar');
 // Função para verificar a posição do titulo
 function verificarPosicaoTitulo() {
     
-    // Verifica se o scroll chegou no fim da pagina e quando chegar faz o fade-in e quando sair fade-out
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
+    // Verifica se o scroll chegou no fim da pagina e quando chegar faz o fade-in
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
         titulo.classList.add('visivel');
         caixa1.classList.add('visivel');
         continuar.classList.add('visivel');
-    } else {
-        titulo.classList.remove('visivel');
-        caixa1.classList.remove('visivel');
-        continuar.classList.remove('visivel');
     }
 
 }
@@ -38,3 +34,4 @@ window.addEventListener('scroll', verificarPosicaoTitulo);
 
 // Verifica a posição da tela quando inicia a pagina
 verificarPosicaoTitulo();
+
