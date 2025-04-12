@@ -31,6 +31,7 @@ function verificarPosicaoTitulo() {
 function bloquearTela(){
       // Mostra a camada de bloqueio
     document.getElementById("bloqueio").style.display = "block";
+    document.body.style.overflow = "hidden";
 }
 
 // Verifica a rolagem da página
