@@ -1,94 +1,37 @@
-// Função para rolar para baixo até o final da página 
+// Função para rolar para baixo até o final da pagina
+function rolarParaBaixo() {
+    
+    // Para controlar o scroll até chegar no final da pagina
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
+        clearInterval(intervalo);
+    } else {
+        // Define quantos pixeis vao ser escrolados para baixo
+        window.scrollBy(0, 1.5);
+    }
+}
 
-function rolarParaBaixo() { 
+// Seta o intervalo para o window.scrollBy ser ativado
+const intervalo = setInterval(rolarParaBaixo, 8);
 
-    // Para controlar o scroll até chegar no final da página 
+const titulo = document.getElementById('titulo');
+const caixa1 = document.getElementById("caixa1");
+const continuar = document.getElementById('continuar');
 
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) { 
+// Função para verificar a posição do titulo
+function verificarPosicaoTitulo() {
+    
+    // Verifica se o scroll chegou no fim da pagina e quando chegar faz o fade-in
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        titulo.classList.add('visivel');
+        caixa1.classList.add('visivel');
+        continuar.classList.add('visivel');
+    }
 
-        clearInterval(intervalo); 
+}
 
-        bloquearTela(); 
+// Verifica a rolagem da pagina
+window.addEventListener('scroll', verificarPosicaoTitulo);
 
-    } else { 
-
-        // Define quantos pixels vão ser rolados para baixo 
-
-        window.scrollBy(0, 1.5); 
-
-    } 
-
-} 
-
- 
-
-// Seta o intervalo para o window.scrollBy ser ativado 
-
-const intervalo = setInterval(rolarParaBaixo, 8); 
-
- 
-
-const titulo = document.getElementById('titulo'); 
-
-const caixa1 = document.getElementById("caixa1"); 
-
-const continuar = document.getElementById('continuar'); 
-
- 
-
-// Função para verificar a posição do título 
-
-function verificarPosicaoTitulo() { 
-
-    // Verifica se o scroll chegou no fim da página e, quando chegar, faz o fade-in 
-
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) { 
-
-      
-
-        titulo.classList.add('visivel'); 
-
-        caixa1.classList.add('visivel'); 
-
-        continuar.classList.add('visivel'); 
-
-    } 
-
-}  
-
- 
-
-function bloquearTela(){ 
-
-      // Mostra a camada de bloqueio 
-
-    document.getElementById("bloqueio").style.display = "block"; 
-
-} 
-
- 
-
-// Verifica a rolagem da página 
-
-window.addEventListener('scroll', verificarPosicaoTitulo); 
-
- 
-
-// Verifica a posição da tela quando inicia a página 
-
-verificarPosicaoTitulo(); 
-
- 
-
-// Função que permite o botão "continuar" desbloquear a tela 
-
-document.getElementById("continuar").addEventListener("click", function() { 
-
-    // Remove o bloqueio da tela quando o botão for clicado 
-
-    document.getElementById("bloqueio").style.display = "none"; 
-
-}); 
-
- 
+// Verifica a posição da tela quando inicia a pagina
+verificarPosicaoTitulo();
 
