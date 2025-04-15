@@ -1,7 +1,9 @@
 // Função para rolar para baixo até o final da página
+let intervalo; // Declare a variável intervalo fora da função
+
 function rolarParaBaixo() {
     // Para controlar o scroll até chegar no final da página
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 1) {
         clearInterval(intervalo);
         bloquearTela();
     } else {
@@ -11,40 +13,53 @@ function rolarParaBaixo() {
 }
 
 // Seta o intervalo para o window.scrollBy ser ativado
-const intervalo = setInterval(rolarParaBaixo, 8);
+function iniciarRolagem() {
+    intervalo = setInterval(rolarParaBaixo, 8);
+}
 
 const titulo = document.getElementById('titulo');
 const caixa1 = document.getElementById("caixa1");
 const continuar = document.getElementById('continuar');
+const bloqueio = document.getElementById("bloqueio"); // Captura o elemento de bloqueio
 
 // Função para verificar a posição do título
 function verificarPosicaoTitulo() {
     // Verifica se o scroll chegou no fim da página e, quando chegar, faz o fade-in
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-     
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 1) {
         titulo.classList.add('visivel');
         caixa1.classList.add('visivel');
         continuar.classList.add('visivel');
     }
-} 
+}
 
 function bloquearTela(){
       // Mostra a camada de bloqueio
-    document.getElementById("bloqueio").style.display = "block";
+    if (bloqueio) {
+        bloqueio.style.display = "block";
+    }
     document.body.style.overflow = "hidden";
 }
 
 // Verifica a rolagem da página
 window.addEventListener('scroll', verificarPosicaoTitulo);
 
-// Verifica a posição da tela quando inicia a página
+// Inicia a rolagem quando a página carregar
+window.onload = iniciarRolagem;
+
+// Verifica a posição da tela quando inicia a página (redundante com window.onload, mas ok)
 verificarPosicaoTitulo();
 
-// Função que permite o botão "continuar" desbloquear a tela
-document.getElementById("continuar").addEventListener("click", function() {
-    alert("Você clicou no botão continuar!");
-    //document.getElementById("bloqueio").style.display = "none"; //Comando removido
-});
+// Função que permite o botão "continuar"
+if (continuar) {
+    continuar.addEventListener("click", function() {
+        alert("Você clicou no botão continuar!");
+        // A linha abaixo foi removida para não desbloquear a tela
+        // desbloquearTela();
+    });
+}
+
+// Recalcula a altura do documento em caso de redimensionamento da tela
+window.addEventListener('resize', verificarPosicaoTitulo);
 
 
 
