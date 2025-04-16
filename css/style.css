@@ -24,12 +24,16 @@ body{
     text-align: center;
 
     margin-top: 25px; /*Dá espaçamento da imagem*/
-    padding-top: 100px; /*Dá espaçamento com o div que ele tá*/
+    padding-top: 100px;
+}
+
+#subtitulo{
+    text-align: center;
 }
 
 .fade-in{
         opacity: 0; /*Começa com 0 opacidade, invisível.*/
-        transition: opacity 3s ease, transform 3s ease; /*Tempo da mudança, animação*/
+        transition: opacity 2s ease, transform 3s ease; /*Tempo da mudança, animação*/
         transform: translateY(1px);
 }
       
@@ -42,7 +46,8 @@ body{
     position: relative;
     width: clamp(200px, 25vw, 300px);
     height: clamp(200px, 25vw, 300px); /* Altura igual à largura */
-    margin: 100px auto; /* Centraliza na tela */
+    margin: 20px auto; /* Centraliza na tela */
+    padding-bottom: 65px;
 }
 
 #caixadepapelao > img {
@@ -55,12 +60,16 @@ body{
     z-index: 10000;
 }
 
+.botaoCentralizado{
+   text-align: center; 
+}
+
 #continuar{
     font-weight: 600;
     background-color:rgb(227, 159, 24);
     
     border-radius:20px;
-    border: solid rgb(122, 103, 24) 1px;
+    border: solid rgb(160, 106, 26) 1px;
     width: 50px;
     height: 50px;
     margin-bottom: 80px;
@@ -75,9 +84,9 @@ body{
 }
 
 #continuar:hover{
-  background-color: rgb(55, 201, 99);
-  transform: scale(1.05);
-  /*Efeito do botão vir pra frente*/
+    background-color:rgb(225, 140, 36);
+    transform: scale(1.05);
+    /*Efeito do botão vir pra frente*/
 }
 
 #bloqueio{

@@ -19,20 +19,27 @@
     <main>
         <div id="caixaTitulo">
             <h1 id="titulo" class="fade-in">MIAUDOTA</h1>
+            <p id="subtitulo" class="fade-in"></p>
         </div>
 
         <div id="caixadepapelao">
             <img id="caixa1" class="fade-in" src="img/caixavaziasemfundo.png" alt="caixa de papelão vazia">
-            <img id="caixa2" class="fade-in" src="img/caixa Filhote1semf.png" alt="caixa com 1 filhote">
-            <img id="caixa3" class="fade-in" src="img/caixa Filhote2semf.png" alt="caixa com 2 filhotes">
-            <img id="caixa4" class="fade-in" src="img/caixa Filhote3semf.png" alt="caixa com 3 filhotes">
+            <img id="caixa2" class="fade-in" style="display: none;" src="img/caixa Filhote1semf.png" alt="caixa com 1 filhote">
+            <img id="caixa3" class="fade-in" style="display: none;" src="img/caixa Filhote2semf.png" alt="caixa com 2 filhotes">
+            <img id="caixa4" class="fade-in" style="display: none;" src="img/caixa Filhote3semf.png" alt="caixa com 3 filhotes">
         </div>
 
-        <button id="continuar" class="fade-in" onclick="window.location.href='home.html';">➞</button>
+        <div class="botaoCentralizado">
+            <a href="home.html">
+                <button id="continuar" class="fade-in">➞</button>
+            </a>
+        </div>
+        
     </main>
     <footer>
         <!--A parte de baixo do site. Onde tem as informação extra. Tipo contatos e etc...-->
     </footer>
+
     <script src="scripts js/utils_index.js"></script>
 </body>
 </html>
