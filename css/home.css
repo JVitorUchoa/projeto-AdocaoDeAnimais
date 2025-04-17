@@ -24,6 +24,59 @@ header h1{
     letter-spacing: 1px;
 }
 
+#caixa{
+    margin: 15px;
+}
+
+#caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #090908;
+    border-radius: 14px;
+    padding: 0 0 0 10px;
+    width: 100%;
+    max-width: 400px;
+   
+}
+
+#caixa-pesquisa{
+    display: flex;
+    align-items: center;
+}
+
+#pesquisa {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#lupa{
+    width: 15px;
+    height: 15px;
+    background-color: black;
+}
+
+.botao-lupa{
+    all: unset; /*Remove todos os estilos padrões*/
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-lupa:hover{
+    background-color: black;
+    transform: none;
+}
+  
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -39,7 +92,7 @@ nav li a {
     color: white;
     padding: 6px 10px;
     border-radius: 8px;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
 nav li a:hover {
