@@ -16,7 +16,7 @@ body{
 }
 
 #titulo{
-    color:rgb(227, 159, 24);
+    color:#f39406;
     font-family: Luckiest Guy;
     font-weight: 100;
     font-size: clamp(35px, 5vw, 130px);
@@ -29,28 +29,35 @@ body{
 
 #subtitulo{
     text-align: center;
+    padding: 0px;
+    margin:0px;
+
+    color:rgb(143, 104, 75);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
 }
 
 .fade-in{
-        opacity: 0; /*Começa com 0 opacidade, invisível.*/
-        transition: opacity 2s ease, transform 3s ease; /*Tempo da mudança, animação*/
-        transform: translateY(1px);
-       
+    opacity: 0; /*Começa com 0 opacidade, invisível.*/
+    transition: opacity 2s ease, transform 3s ease; /*Tempo da mudança, animação*/
+    transform: translateY(1px);       
 }
       
 .fade-in.visivel {
-        opacity: 1; /*Elemento fica visivel*/
-        transform: translateY(0px);
-
-       
+    opacity: 1; /*Elemento fica visivel*/
+    transform: translateY(0px);
+    display: block;
 }
 
 #caixadepapelao {
     position: relative;
-    width: clamp(200px, 25vw, 300px);
-    height: clamp(200px, 25vw, 300px); /* Altura igual à largura */
-    margin: 20px auto; /* Centraliza na tela */
+    margin: 0px auto; /* Centraliza na tela */
     padding-bottom: 65px;
+    aspect-ratio: 4 / 3;
+    width: clamp(200px, 30vw, 400px);
+    height: auto;
+    overflow: visible;
 }
 
 #caixadepapelao > img {
@@ -59,35 +66,36 @@ body{
     left: 0;
     width: 100%;
     height: 100%; /* Para cobrir toda a div */
-    object-fit: contain;
+    object-fit: cover;
     z-index: 10000;
 }
 
 .botaoCentralizado{
-   text-align: center; 
+   text-align: center;
+   padding-bottom: 90px;
+   padding-top: 40px;
 }
 
 #continuar{
     font-weight: 600;
-    background-color:rgb(227, 159, 24);
+    background-color:#ff9800;
     
     border-radius:20px;
     border: solid rgb(160, 106, 26) 1px;
     width: 50px;
     height: 50px;
-    margin-bottom: 80px;
-
     position: relative;
 
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, opacity 3s ease;
     /*Efeito pro botão vir pra frente*/
-
     z-index: 10000;
+    display: block;
+    margin: 0 auto;
 }
 
 #continuar:hover{
-    background-color:rgb(225, 140, 36);
+    background-color:rgb(225, 134, 23);
     transform: scale(1.05);
     /*Efeito do botão vir pra frente*/
 }
