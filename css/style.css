@@ -35,11 +35,14 @@ body{
         opacity: 0; /*Começa com 0 opacidade, invisível.*/
         transition: opacity 2s ease, transform 3s ease; /*Tempo da mudança, animação*/
         transform: translateY(1px);
+       
 }
       
 .fade-in.visivel {
         opacity: 1; /*Elemento fica visivel*/
         transform: translateY(0px);
+
+       
 }
 
 #caixadepapelao {
