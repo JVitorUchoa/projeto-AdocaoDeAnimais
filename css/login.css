@@ -53,7 +53,7 @@ label {
     padding: 10px 40px;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #989892;
+    background-color: #93938e;
     color: rgb(243, 243, 243);
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
@@ -61,7 +61,8 @@ label {
 }
 
 input[type="radio"]:checked + label {
-    background-color: #3e391f; /* Fica Marrom quando selecionado */
+    background-color: #3e391f;
+    /*Os botões fica Marrom enquanto selecionado*/
 }
 
 /*A caixa em que os input estão.*/

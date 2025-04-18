@@ -49,15 +49,6 @@ window.onload = iniciarRolagem;
 // Verifica a posição da tela quando inicia a página (redundante com window.onload, mas ok)
 verificarPosicaoTitulo();
 
-// Função que permite o botão "continuar"
-if (continuar) {
-    continuar.addEventListener("click", function() {
-        alert("Você clicou no botão continuar!");
-        // A linha abaixo foi removida para não desbloquear a tela
-        // desbloquearTela();
-    });
-}
-
 // Recalcula a altura do documento em caso de redimensionamento da tela
 window.addEventListener('resize', verificarPosicaoTitulo);
 
