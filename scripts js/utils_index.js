@@ -21,7 +21,7 @@ const titulo = document.getElementById('titulo');
 const caixa1 = document.getElementById("caixa1");
 const continuar = document.getElementById('continuar');
 const bloqueio = document.getElementById("bloqueio"); // Captura o elemento de bloqueio
-const subtitulo = document.getElementById('subtitulo'); // Manipulando o subtítulo
+const subtitulo = document.getElementById('subtitulo');
 
 // Função para verificar a posição do título
 function verificarPosicaoTitulo() {
@@ -71,9 +71,9 @@ const imagensCaixas = [
 ];
 
 const textosSubtitulos = [
-    "Aqui, histórias começam com um olhar e um clique.",
+    "Aqui, histórias de amor começam com um olhar e um clique.",
     "Um gesto simples, um grande impacto.",
-    "Cada clique, uma esperança."
+    "Seja a esperança de um bichinho."
 ];
 
 let passoAtual = 0;
@@ -82,11 +82,11 @@ continuar.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (passoAtual < textosSubtitulos.length) {
-        subtitulo.classList.remove('fade-in');//Remove a classe de fade-in para que a transição possa ocorrer novamente.
+        subtitulo.classList.remove('fade-in', 'visivel');//Remove a classe de fade-in para que a transição possa ocorrer novamente.
         // Força um reflow para reiniciar a animação
         void subtitulo.offsetWidth;
         subtitulo.textContent = textosSubtitulos[passoAtual];//A cada clique, atualiza o texto do subtítulo.
-        subtitulo.classList.add('fade-in');//Adiciona a classe de fade-in novamente, fazendo com que o novo texto apareça com a animação.
+        subtitulo.classList.add('fade-in', 'visivel');//Adiciona a classe de fade-in novamente, fazendo com que o novo texto apareça com a animação.
 
         // Remove .visivel de todas as caixas
         imagensCaixas.forEach((img) => {

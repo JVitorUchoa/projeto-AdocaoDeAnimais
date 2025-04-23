@@ -33,9 +33,9 @@ body{
     margin:0px;
 
     color:rgb(143, 104, 75);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Ubuntu;
     font-size: 20px;
-
+    font-weight: 400;
 }
 
 .fade-in{
@@ -47,7 +47,7 @@ body{
 .fade-in.visivel {
     opacity: 1; /*Elemento fica visivel*/
     transform: translateY(0px);
-    display: block;
+    
 }
 
 #caixadepapelao {
