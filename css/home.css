@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    padding: 0;
     background-color: #fff8e1; 
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
@@ -12,7 +13,7 @@ a {
 
 header {
     background-color: #ff9800; 
-    padding: 35px 0px 8px 0px;
+    padding: 35px 0px 1px 0px;
     text-align: center;
 }
 
@@ -87,10 +88,9 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: px 0 0;
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
@@ -98,7 +98,7 @@ nav li {
     font-weight: 100;
     font-size: 14px;
     color: white;
-    padding: 10px 10px;
+    padding: 14px 10px;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -106,6 +106,31 @@ nav li {
 
 nav li:hover {
     background-color: #fb8c00;
+}
+
+#submenu{
+    display: none;
+    position: absolute;
+    list-style: none;
+
+    background-color: #ff9800;
+    color: white;
+    margin-top: 9px;
+    left:0;
+    border-radius: 6px;
+    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093);
+}
+
+#categ-gatos{
+    border-radius: 0px;
+}
+
+.menu-agrupado{
+    position: relative;
+}
+
+.menu-agrupado:hover #submenu{
+    display: block;
 }
 
 #banner {
@@ -123,6 +148,7 @@ nav li:hover {
     gap: 50px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .imagem-home {
@@ -141,19 +167,19 @@ nav li:hover {
 .texto-adocao {
     max-width: 500px;
     color: #5a4033;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
     text-align: left;
 }
 
 .texto-adocao h2 {
-    font-size: 28px;
+    font-size: 30px;
     color: #E38B29;
     margin-bottom: 10px;
 }
 
 button {
-    background-color: #ffb300;
+    background-color: #ff9800;
     color: white;
     padding: 10px 25px;
     border: none;
@@ -166,14 +192,20 @@ button {
 }
 
 button:hover {
-    background-color: #fb8c00;
+    background-color: #e9910c;
     transform: scale(1.05);
 }
 
 footer {
-    background-color: #c78625;
+    background-color: #ca8011;
     color: white;
     text-align: center;
-    padding: 15px;
-    margin-top: 50px;
+    font-size: 13px;
+    padding:3px;
+    margin: 0 0;
+}
+
+#contato-footer p{
+    display: inline-block;
+    margin: 10px 15px 0px 15px;
 }

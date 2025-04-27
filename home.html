@@ -22,43 +22,46 @@
         </div>
         
         <nav>
-            <ul>
-                <li>Categorias</li>
-                <li>Todos os Pets</li>
+            <ul id="menu">
+                <li class="menu-agrupado">Categorias
+                    <ul id="submenu">
+                        <li id="categ-gatos"><a href="resultados.html?pesquisa=gatos">Gatos</a></li>
+                        <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
+                    </ul>
+                </li>
+                <li><a href="resultados.html?pesquisa=">Todos os Pets</a></li>
                 <li><a href="processo.html">Processo de Adoção</a></li>
                 <li>Histórias de Adoção</li>
                 <li>Seja Anunciante</li>
                 <li>Dúvidas frequentes</li>
-                <li><a href="sobrenos.html">Sobre Nós</a></li>
+                <li><a href="Html extras/sobrenos.html">Sobre Nós</a></li>
                 <li>Contatos</li>
             </ul>
         </nav>
     </header>
 
+    <main>
     <section id="banner">
         <div class="container">
-          <div class="texto-adocao">
+        <div class="texto-adocao">
             <h2>Adote um amigo hoje!</h2>
             <p>
                 Dê um lar cheio de amor para um animal que precisa. Milhares de animais esperão por um lar cheio de carinho e proteção. 
                 Ao adotar, você não apenas ganha um amigo leal mas também transforma uma vida. <br>Adotar é um ato de amor!
             </p>
             <button>Ver Animais Disponíveis</button>
-          </div>
+        </div>
           <img class="imagem-home" src="img/miaudota.JPG" alt="Cachorro caramelo e gato cinza">
         </div>
-      </section>
-
-      <section id="contato">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <p><strong>Telefone:</strong> (85) 99668-6861</p>
-            <p><strong>Endereço:</strong> Rua Bétel 1800,Fortaleza-Ce</p>
-        </div>
     </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Adoção de Animais - Todos os direitos reservados.</p>
+        <section id="contato-footer">
+            <p><strong>Telefone:</strong> (85) 98667-9134</p>
+            <p><strong>Endereço:</strong> Rua Otávio Soares 1800, Aldeota, Fortaleza-Ce</p>
+        </section>
+        <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
     </footer>
 
     <script src="scripts js/utils_home.js"></script>

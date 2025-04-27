@@ -87,10 +87,9 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: px 0 0;
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
@@ -98,7 +97,7 @@ nav li {
     font-weight: 100;
     font-size: 14px;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -106,4 +105,29 @@ nav li {
 
 nav li:hover {
     background-color: #fb8c00;
+}
+
+#submenu{
+    display: none;
+    position: absolute;
+    list-style: none;
+
+    background-color: #ff9800;
+    color: white;
+    margin-top: 9px;
+    left:0;
+    border-radius: 6px;
+    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093);
+}
+
+#categ-gatos{
+    border-radius: 0px;
+}
+
+.menu-agrupado{
+    position: relative;
+}
+
+.menu-agrupado:hover #submenu{
+    display: block;
 }
