@@ -214,6 +214,37 @@ button:hover {
     transform: scale(1.05);
 }
 
+#grade{
+    padding: 25px 15px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#grade img{
+    width: clamp(30px, 10vw, 120px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 5px clamp(3px, 2vw, 12px);
+}
+
+#grade a{
+    color:  #5a4033;
+    font-size: clamp(9px, 2vw, 17px);
+    text-align: center;
+    padding: 0px 5px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#grade-caes, #grade-gatos {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    padding-top: 25px;
+}
+
 footer {
     background-color: #ca8011;
     color: white;
