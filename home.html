@@ -17,61 +17,67 @@
             
             <form id="caixa-pesquisa" action="resultados.html" method="get">
                 <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
-                <button type="submit" class="botao-lupa"><img id="lupa" src="img/lupa.png" alt="lupa de pesquisa">
-              </form>
+                <button type="submit" class="botao-lupa">
+                    <img id="lupa" src="img/lupa.png" alt="lupa de pesquisa">
+                </button>
+            </form>
         </div>
         
         <nav>
             <ul id="menu">
-                <li class="menu-agrupado">Categorias
+                <li><a href="home.html">Home</a></li>
+
+                <li class="menu-agrupado">Animais Disponíveis
                     <ul id="submenu">
-                        <li id="categ-gatos"><a href="resultados.html?pesquisa=gatos">Gatos</a></li>
+                        <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
                         <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
+                        <li><a href="resultados.html?pesquisa=">Todos os Pets</a></li>
                     </ul>
                 </li>
-                <li><a href="resultados.html?pesquisa=">Todos os Pets</a></li>
+
+                <li><a href="#">Histórias de Adoção</a></li>
+                <li><a href="#">Seja Anunciante</a></li>
                 <li><a href="processo.html">Processo de Adoção</a></li>
-                <li>Histórias de Adoção</li>
-                <li>Seja Anunciante</li>
-                <li>Dúvidas frequentes</li>
+                <li><a href="Html extras/perguntasfrequentes.html">Dúvidas Frequentes</a></li>
                 <li><a href="Html extras/sobrenos.html">Sobre Nós</a></li>
-                <li>Contatos</li>
+                <li><a href="#contato-footer">Contatos</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-    <section id="banner">
-        <div class="container">
-        <div class="texto-adocao">
-            <h2>Adote um amigo hoje!</h2>
-            <p>
-                Dê um lar cheio de amor a quem precisa. Milhares de animais esperam por um lar cheio de carinho. 
-                Ao adotar, você não apenas ganha um amigo leal mas também transforma uma vida. <br>Adotar é um ato de amor!
-            </p>
-            <button>Ver Animais Disponíveis</button>
-        </div>
-          <img class="imagem-home" src="img/miaudota.JPG" alt="Cachorro caramelo e gato cinza">
-        </div>
-    </section>
+        <section id="banner">
+            <div class="container">
+                <div class="texto-adocao">
+                    <h2>Adote um amigo hoje!</h2>
+                    <p>
+                        Dê um lar cheio de amor a quem precisa. Milhares de animais esperam por um lar cheio de carinho. 
+                        Ao adotar, você não apenas ganha um amigo leal mas também transforma uma vida. <br>Adotar é um ato de amor!
+                    </p>
+                    <!-- Atualizando o botão para direcionar à seção de animais disponíveis -->
+                    <button onclick="window.location.href='#grade'">Ver Animais Disponíveis</button>
+                </div>
+                <img class="imagem-home" src="img/miaudota.JPG" alt="Cachorro caramelo e gato cinza">
+            </div>
+        </section>
 
-    <section id="grade">
-    <div id="grade-caes">
-      <a class="imagens-grade" href=""><img src="img/categorias/raça-pequena.jpg" alt="Cães de raças pequenas"><br>Raças pequenas</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/raça-media.jpg" alt="Cães de raças médias"><br>Raças médias</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/raça-grande.jpg" alt="Cães de raças grandes"><br>Raças grandes</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/cão-filhote.jpg" alt="Cães filhotes"><br>Cães filhotes</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/cao-adulto.jpg" alt="Cães adultos"><br>Cães adultos</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/cão-idoso.jpg" alt="Cães idosos"><br>Cães idosos</a>
-    </div>
-    <div id="grade-gatos">
-      <a class="imagens-grade" href=""><img src="img/categorias/gato-raça.jpeg" alt="Gatos de raça"><br>Gatos de raça</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/gato mestiço.jpg" alt="Gatos mestiços"><br>Gatos mestiços</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/gato-filhote.jpg" alt="Gatos filhotes"><br>Gatos filhotes</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/gato-adulto.png" alt="Gatos adultos"><br>Gatos adultos</a>
-      <a class="imagens-grade" href=""><img src="img/categorias/gato-idoso.jpg" alt="Gatos idosos"><br>Gatos idosos</a>
-    </div>
-    </section>
+        <section id="grade">
+            <div id="grade-caes">
+                <a class="imagens-grade" href=""><img src="img/categorias/raça-pequena.jpg" alt="Cães de raças pequenas"><br>Raças pequenas</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/raça-media.jpg" alt="Cães de raças médias"><br>Raças médias</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/raça-grande.jpg" alt="Cães de raças grandes"><br>Raças grandes</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/cão-filhote.jpg" alt="Cães filhotes"><br>Cães filhotes</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/cao-adulto.jpg" alt="Cães adultos"><br>Cães adultos</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/cão-idoso.jpg" alt="Cães idosos"><br>Cães idosos</a>
+            </div>
+            <div id="grade-gatos">
+                <a class="imagens-grade" href=""><img src="img/categorias/gato-raça.jpeg" alt="Gatos de raça"><br>Gatos de raça</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/gato mestiço.jpg" alt="Gatos mestiços"><br>Gatos mestiços</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/gato-filhote.jpg" alt="Gatos filhotes"><br>Gatos filhotes</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/gato-adulto.png" alt="Gatos adultos"><br>Gatos adultos</a>
+                <a class="imagens-grade" href=""><img src="img/categorias/gato-idoso.jpg" alt="Gatos idosos"><br>Gatos idosos</a>
+            </div>
+        </section>
     </main>
 
     <footer>
