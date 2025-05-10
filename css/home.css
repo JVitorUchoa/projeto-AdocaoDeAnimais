@@ -12,102 +12,14 @@ html, body{
     height: 100%;
 }
 
-a {<!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Miaudota</title>
-        <link rel="stylesheet" href="css/home.css">
-    
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
-        </style>
-    </head>
-    <body>
-        <header>
-            <div id="caixa">
-                <a id="titulo" href="home.html">MIAUDOTA</a>
-                
-                <form id="caixa-pesquisa" action="resultados.html" method="get">
-                    <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
-                    <button type="submit" class="botao-lupa">
-                        <img id="lupa" src="img/lupa.png" alt="lupa de pesquisa">
-                    </button>
-                </form>
-            </div>
-            
-            <nav>
-                <ul id="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="home.html">Home</a></li>
-    
-                    <li class="menu-agrupado">Animais Disponíveis
-                        <ul id="submenu">
-                            <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-                            <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-                            <li><a href="resultados.html?pesquisa=">Todos os Pets</a></li>
-                        </ul>
-                    </li>
-    
-                    <li><a href="#">Histórias de Adoção</a></li>
-                    <li><a href="#">Seja Anunciante</a></li>
-                    <li><a href="processo.html">Processo de Adoção</a></li>
-                    <li><a href="Html extras/perguntasfrequentes.html">Dúvidas Frequentes</a></li>
-                    <li><a href="Html extras/sobrenos.html">Sobre Nós</a></li>
-                    <li><a href="#contato-footer">Contatos</a></li>
-                </ul>
-            </nav>
-        </header>
-    
-        <main>
-            <section id="banner">
-                <div class="container">
-                    <div class="texto-adocao">
-                        <h2>Adote um amigo hoje!</h2>
-                        <p>
-                            Dê um lar cheio de amor a quem precisa. Milhares de animais esperam por um lar cheio de carinho. 
-                            Ao adotar, você não apenas ganha um amigo leal mas também transforma uma vida. <br>Adotar é um ato de amor!
-                        </p>
-                        <a href="#grade"><button>Ver Animais Disponíveis</button></a>
-                    </div>
-                    <img class="imagem-home" src="img/miaudota.JPG" alt="Cachorro caramelo e gato cinza">
-                </div>
-            </section>
-    
-            <section id="grade">
-                <div id="grade-caes">
-                    <a class="imagens-grade" href=""><img src="img/categorias/raça-pequena.jpg" alt="Cães de raças pequenas"><br>Raças pequenas</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/raça-media.jpg" alt="Cães de raças médias"><br>Raças médias</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/raça-grande.jpg" alt="Cães de raças grandes"><br>Raças grandes</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/cão-filhote.jpg" alt="Cães filhotes"><br>Cães filhotes</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/cao-adulto.jpg" alt="Cães adultos"><br>Cães adultos</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/cão-idoso.jpg" alt="Cães idosos"><br>Cães idosos</a>
-                </div>
-                <div id="grade-gatos">
-                    <a class="imagens-grade" href=""><img src="img/categorias/gato-raça.jpeg" alt="Gatos de raça"><br>Gatos de raça</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/gato mestiço.jpg" alt="Gatos mestiços"><br>Gatos mestiços</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/gato-filhote.jpg" alt="Gatos filhotes"><br>Gatos filhotes</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/gato-adulto.png" alt="Gatos adultos"><br>Gatos adultos</a>
-                    <a class="imagens-grade" href=""><img src="img/categorias/gato-idoso.jpg" alt="Gatos idosos"><br>Gatos idosos</a>
-                </div>
-            </section>
-        </main>
-    
-        <footer>
-            <section id="contato-footer">
-                <p>Telefone: (85) 98667-9134</p>
-                <p>Endereço: Rua Otávio Soares 1800, Aldeota, Fortaleza-Ce</p>
-            </section>
-            <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
-        </footer>
-    
-        <script src="scripts js/utils_home.js"></script>
-    </body>
-    </html>
-    
+a {
     text-decoration: none;
     color: white;
+    display: inline-block;
+}
+
+#seta {
+ cursor: pointer;   
 }
 
 header {
@@ -248,8 +160,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
-    background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
+    padding: 30px 20px;
+    background: linear-gradient(to bottom, #fff3e1, #ffe0b2);
 }
 
 .container {
@@ -285,7 +197,7 @@ main{
 
 .texto-adocao h2 {
     font-size: 30px;
-    color: #E38B29;
+    color:  #663822;
     margin-bottom: 10px;
 }
 
@@ -334,7 +246,8 @@ button:hover {
 #grade-caes, #grade-gatos {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: clamp(10px, 3vw, 40px); /* controla o espaçamento */
     padding-top: 25px;
 }
 
