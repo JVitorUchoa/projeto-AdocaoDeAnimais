@@ -4,6 +4,30 @@ body{
     background-color: white;
 }
 
+#menu-inicial {
+  text-align: center;
+  background-color: #fce4ec;
+  padding: 10px 0;
+}
+
+#menu-inicial ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-inicial ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+#menu-inicial ul li a {
+  text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  color: #444;
+}
+
 #caoPaginaInicial{
     max-width: 100%; /* Impede que a imagem ultrapasse o tamanho do contêiner */
     display: block; /* Evita espaçamento extra abaixo da imagem */
