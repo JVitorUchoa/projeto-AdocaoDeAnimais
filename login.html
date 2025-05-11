@@ -32,12 +32,12 @@
         </div>
 
         <div id="caixa-cadastro" class="caixa-form">
-            <input type="text" placeholder="Nome completo" required>
-            <input type="email" placeholder="E-mail" required>
-            <input type="password" placeholder="Senha" required>
-            <input type="password" placeholder="Confirme a senha" required>
-            <input type="text" placeholder="CPF" required>
-            <button class="cadastrar-btn">Cadastrar</button>
+            <input type="text" id="nome" placeholder="Nome completo" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <input type="text" id="cpf" placeholder="CPF (Somente números)" maxlength="11" required>
+            <p id="resultado"></p>
+            <button onclick="validar()" class="cadastrar-btn">Cadastrar</button>
         </div>
     </main>
 

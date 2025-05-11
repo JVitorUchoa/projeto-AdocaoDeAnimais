@@ -12,9 +12,14 @@ html, body{
     height: 100%;
 }
 
-a { 
+a {
     text-decoration: none;
     color: white;
+    display: inline-block;
+}
+
+#seta {
+ cursor: pointer;   
 }
 
 header {
@@ -155,8 +160,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
-    background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
+    padding: 30px 20px;
+    background: linear-gradient(to bottom, #fff3e1, #ffe0b2);
 }
 
 .container {
@@ -192,7 +197,7 @@ main{
 
 .texto-adocao h2 {
     font-size: 30px;
-    color: #E38B29;
+    color:  #663822;
     margin-bottom: 10px;
 }
 
@@ -241,7 +246,8 @@ button:hover {
 #grade-caes, #grade-gatos {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: clamp(10px, 3vw, 40px); /* controla o espaçamento */
     padding-top: 25px;
 }
 
