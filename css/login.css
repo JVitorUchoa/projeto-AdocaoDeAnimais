@@ -105,6 +105,10 @@ input[type="radio"]:checked + label {
     transition: background-color 0.3s ease;
 }
 
+#resultado {
+    color: white;/*Cor da letra do resultado do cadastro*/
+}
+
 .cadastrar-btn:hover, .entrar-btn:hover {
     background-color:rgb(97, 84, 51); /* Cor do botão ao passar o mouse */
 }
