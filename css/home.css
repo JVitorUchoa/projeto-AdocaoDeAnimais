@@ -140,6 +140,11 @@ nav li:hover {
     box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093);
 }
 
+#logar{
+    width: 30px;
+    height: auto;
+}
+
 #categ-gatos{
     border-radius: 0px;
 }
