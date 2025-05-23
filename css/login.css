@@ -1,123 +1,172 @@
-body {
-    margin: 0px;
-    background-image: linear-gradient(to right, rgb(125, 77, 5), rgb(244, 166, 70));
-}
-
-header {
-    margin: 0px;
-    padding: 0px;
-}
-
-header > h1 {
-    text-align: center;
-    font-family: Luckiest Guy;
-    font-weight: 100;
-    letter-spacing: 1px;
-    font-size: 300%;
-    font-size: clamp(5vw,15vw,40px);
-    color: aliceblue;
-    margin: 0px;
-    padding: 60px 0px 0px 0px;
-}
-
-header > p {
-    color: rgb(255, 255, 255);
-    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif, Helvetica;
-    font-size: larger;
-    text-align: center;
-    margin-top: 30px;
-    padding: 30px;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-}
-
-.opcoes {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-input[type="radio"] {
-    display: none; /* Esconde os botões de rádio */
-}
-
-/*Os botão de Login e Cadastro*/
-label {
-    padding: 10px 40px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #93938e;
-    color: rgb(243, 243, 243);
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: background-color 0.3s ease;
-}
-
-input[type="radio"]:checked + label {
-    background-color: #3e391f;
-    /*Os botões fica Marrom enquanto selecionado*/
-}
-
-/*A caixa em que os input estão.*/
-.caixa-form {
-    background-color: rgba(255, 255, 255, 0.144);
-    padding: 20px;
-    width: 100%;
-    max-width: 400px; /* Tamanho máximo da caixa */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza os inputs */
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 10px 9px 10px rgba(0, 0, 0, 0.278);
-}
-
-/*As entradas de dados (senha, email...)*/
-#caixa-login > input,
-#caixa-cadastro > input {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-/*Botão de Entrar e Cadastrar*/
-.cadastrar-btn, .entrar-btn {
-    background-color: #3e391f; /* Cor do botão */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    max-width: 300px; /* Limita o tamanho máximo do botão */
-    margin-top: 20px; /* Espaço acima do botã */
-    transition: background-color 0.3s ease;
-}
-
-#resultado {
-    color: white;/*Cor da letra do resultado do cadastro*/
-}
-
-.cadastrar-btn:hover, .entrar-btn:hover {
-    background-color:rgb(97, 84, 51); /* Cor do botão ao passar o mouse */
-}
-
-nav > a{
-    margin: 15px 15px 20px 15px;
-}
-
-nav{
-    padding: 20px;
-    margin-top: 100px
-}
+body { 
+    margin: 0px; 
+    background-image: linear-gradient(to right, rgb(125, 77, 5), rgb(244, 166, 
+70)); 
+} 
+ 
+header { 
+    margin: 0px; 
+    padding: 0px; 
+} 
+ 
+header > h1 { 
+    text-align: center; 
+    font-family: Luckiest Guy; 
+    font-weight: 100; 
+    letter-spacing: 1px; 
+    font-size: 300%; 
+    font-size: clamp(5vw,15vw,40px); 
+    color: aliceblue; 
+    margin: 0px; 
+    padding: 60px 0px 0px 0px; 
+} 
+ 
+header > p { 
+    color: rgb(255, 255, 255); 
+    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif, 
+Helvetica; 
+    font-size: larger; 
+    text-align: center; 
+    margin-top: 30px; 
+    padding: 30px; 
+} 
+ 
+main { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    margin: 0; 
+    padding: 0; 
+} 
+ 
+.opcoes { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+} 
+ 
+input[type="radio"] { 
+    display: none; /* Esconde os botões de rádio */ 
+} 
+ 
+/*Os botão de Login e Cadastro*/ 
+label { 
+    padding: 10px 40px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    background-color: #93938e; 
+    color: rgb(243, 243, 243); 
+    font-weight: 600; 
+    font-family: Arial, Helvetica, sans-serif; 
+    transition: background-color 0.3s ease; 
+} 
+ 
+input[type="radio"]:checked + label { 
+    background-color: #3e391f; 
+    /*Os botões fica Marrom enquanto selecionado*/ 
+} 
+ 
+/*A caixa em que os input estão.*/ 
+.caixa-form { 
+    background-color: rgba(255, 255, 255, 0.144); 
+    padding: 20px; 
+    width: 100%; 
+    max-width: 400px; /* Tamanho máximo da caixa */ 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Centraliza os inputs */ 
+    box-sizing: border-box; 
+    border-radius: 10px; 
+    box-shadow: 10px 9px 10px rgba(0, 0, 0, 0.278); 
+} 
+ 
+/*As entradas de dados (senha, email...)*/ 
+#caixa-login > input, 
+#caixa-cadastro > input { 
+    display: block; 
+    width: 100%; 
+    max-width: 300px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+} 
+ 
+/*Botão de Entrar e Cadastrar*/ 
+.cadastrar-btn, .entrar-btn { 
+    background-color: #3e391f; /* Cor do botão */ 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    width: 100%; 
+    max-width: 300px; /* Limita o tamanho máximo do botão */ 
+    margin-top: 20px; /* Espaço acima do botã */ 
+    transition: background-color 0.3s ease; 
+} 
+ 
+#resultado { 
+    color: white;/*Cor da letra do resultado do cadastro*/ 
+} 
+ 
+.cadastrar-btn:hover, .entrar-btn:hover { 
+    background-color:rgb(97, 84, 51); /* Cor do botão ao passar o mouse */ 
+} 
+ 
+nav > a{ 
+    margin: 15px 15px 20px 15px; 
+} 
+ 
+nav{ 
+    padding: 20px; 
+    margin-top: 100px 
+}  
+ 
+/* Área onde a caixa e os cachorrinhos ficam */ 
+.area-cachorros { 
+  position: fixed; /* Fixa no canto da tela */ 
+  bottom: 50px; 
+  right: 20px; 
+  width: 250px;  /* ajuste conforme tamanho da caixa */ 
+  height: 250px; 
+  z-index: 100;  /* para garantir que fique acima dos elementos de fundo */  
+transition: opacity 0.5s ease; /* Adiciona a transição suave */ 
+} 
+ 
+/* Caixa vazia sempre visível */ 
+.imagem-base { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1; 
+} 
+ 
+/* Cachorrinhos que vão aparecendo com fade-in */ 
+.cachorrinho-animado { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  opacity: 0; 
+  z-index: 2; 
+  animation: fadeInCachorrinho 0.6s ease-in-out forwards; 
+} 
+ 
+/* Animação apenas de fade-in */ 
+@keyframes fadeInCachorrinho { 
+  to { 
+    opacity: 1; 
+  } 
+} 
+ 
+/* FADE-OUT para telas pequenas */ 
+ 
+@media (max-width: 780px) { 
+  .area-cachorros { 
+    opacity: 0; 
+    pointer-events: none; /* impede interações e cliques */ 
+  } 
+} 

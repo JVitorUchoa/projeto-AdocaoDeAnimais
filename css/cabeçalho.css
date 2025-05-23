@@ -1,44 +1,61 @@
-body { 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
     margin: 0;
     padding: 0;
-    background-color: #fff8e1;
+    background-color: #fff8e1; 
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     display: flex;
     flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 html, body {
-    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    height: auto;
 }
+
 
 a {
     text-decoration: none;
     color: white;
+    display: inline-block;
+}
+
+#seta {
+ cursor: pointer;   
 }
 
 header {
-    background-color: #ff9800;
+    background-color: #ff9800; 
     padding: 35px 0px 1px 0px;
     text-align: center;
 }
 
-#titulo {
+#titulo{
     font-size: clamp(2rem, 4.5vw, 2.5rem);
     margin: 0;
     color: white;
     font-family: Luckiest Guy;
     font-weight: 100;
+
     letter-spacing: 1px;
-    white-space: nowrap;
+    white-space: nowrap; /* impede quebra de linha */
 }
 
 #caixa {
     display: flex;
     align-items: center;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 15px; /* Espaço entre o título e a pesquisa */
+    justify-content: center; /* ou flex-start, se quiser tudo colado à esquerda */
+    flex-wrap: wrap; /* opcional: quebra em telas menores */
 }
 
 #caixa-pesquisa {
@@ -49,8 +66,14 @@ header {
     border-radius: 14px;
     padding: 0 0 0 10px;
     margin: 15px;
+
     width: 100%;
     max-width: 400px;
+}
+
+#caixa-pesquisa{
+    display: flex;
+    align-items: center;
 }
 
 #pesquisa {
@@ -60,26 +83,32 @@ header {
     background-color: transparent;
 }
 
-#lupa {
+#pesquisa::-webkit-search-cancel-button {
+    display: none;
+}
+/*Tira o X padrão (de limpar tudo) do input.*/
+
+#lupa{
     width: 15px;
     height: 15px;
     background-color: rgb(0, 0, 0);
 }
 
-.botao-lupa {
-    all: unset;
+.botao-lupa{
+    all: unset; /*Remove todos os estilos padrões*/
     background-color: black;
     width: 30px;
     height: 30px;
     border-radius: 40%;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.botao-lupa:hover {
-    background-color: black;
+.botao-lupa:hover{
+    background-color: black !important;
     transform: none;
 }
 
@@ -90,87 +119,51 @@ nav ul {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+
+    
 }
 
 nav li {
     font-weight: 100;
     font-size: clamp(11px, 4vw, 14px);
-    color: white;
+    color: white !important;
     padding: clamp(10px, 4vw, 14px) clamp(8px, 3vw, 10px);
+
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 nav li:hover {
-    background-color: #fb8c00;
+    background-color: #fb8c00 !important;
 }
 
-#submenu {
+#submenu{
     display: none;
     position: absolute;
     list-style: none;
-    background-color: #ff9800;
+
+    background-color: #ff9800 !important;
     color: white;
-    margin-top: 9px;
-    left: 0;
+    margin-top: 9px !important;
+    left:0;
     border-radius: 6px;
-    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093);
+    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
 }
 
-.menu-agrupado {
+#logar{
+    width: 30px;
+    height: auto;
+}
+
+#categ-gatos{
+    border-radius: 0px;
+}
+
+.menu-agrupado{
     position: relative;
 }
 
-.menu-agrupado:hover #submenu {
+.menu-agrupado:hover #submenu{
     display: block;
-}
-
-main {
-    flex: 1;
-}
-
-.sobre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    text-align: center;
-    padding: 20px;
-}
-
-.texto-sobre {
-    max-width: 600px;
-}
-
-.texto-sobre h2 {
-    color: #E38B29;
-    font-size: 30px;
-}
-
-.imagem-sobre {
-    max-width: 300px;
-    max-height: 300px;
-}
-
-.imagem-sobre img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-footer {
-    background-color: #ca8011;
-    color: white;
-    text-align: center;
-    font-size: 13px;
-    padding: 3px;
-    margin: 0 0;
-}
-
-#contato-footer p {
-    display: inline-block;
-    margin: 10px 15px 0px 15px;
 }
