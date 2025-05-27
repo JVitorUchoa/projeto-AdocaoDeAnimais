@@ -20,42 +20,45 @@
 </head>
 
 <body>
-  <header>
+   <header>
     <div id="caixa">
-      <a id="titulo" href="home.html">MIAUDOTA</a>
+        <a id="titulo" href="home.html">MIAUDOTA</a>
 
-      <form id="caixa-pesquisa" action="resultados.html" method="get">
-        <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar" />
-        <button type="submit" class="botao-lupa">
-          <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa" />
-        </button>
-      </form>
-
-      <div class="icones-header">
-        <a href="login.html"><img id="logar" src="img/usuario.png" alt="Ícone de login" /></a>
-        <a href="Html extras/perguntasfrequentes.html"><img src="img/ajuda.png" alt="Ícone de ajuda" /></a>
-        <a href="curtidas.html"><img src="img/coracao.png" alt="Ícone de curtidas" /></a>
-      </div>
+        <form id="caixa-pesquisa" action="resultados.html" method="get">
+            <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
+            <button type="submit" class="botao-lupa">
+                <img id="lupa" src="/img/lupa.png" alt="lupa de pesquisa">
+            </button>
+        </form>
+        <a href="/Html/login.html"><img id='logar' src="/img/usuario.png" alt="Ícone de login"></a>
+        <a href="Html extras/perguntasfrequentes.html"><img src="" alt="Ícone de ajuda"></a>
+        <a href=""><img src="" alt="Ícone de curtidas"></a>
     </div>
 
     <nav>
-      <ul id="menu">
-       <li><a href="../home.html">Home</a></li>
-        <li class="menu-agrupado">
-          Categorias
-          <ul id="submenu">
-            <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-            <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-            <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-          </ul>
-        </li>
-        <!-- <li><a href="#">Histórias de Adoção</a></li> -->
-        <li><a href="anunciante.html">Seja Anunciante</a></li>
-     <!-- <li><a href="processo.html">Processo de Adoção</a></li> -->
-        <li><a href="../Html extras/sobrenos.html">Sobre Nós</a></li>
-      </ul>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="menu-agrupado">Categorias
+                <ul id="submenu">
+                    <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
+                    <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
+                    <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Histórias de Adoção</a></li>
+            <li><a href="#">Seja Anunciante</a></li>
+            <li><a href="#">Processo de Adoção</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+        </ul>
+        <form>
+            <span id="seta">
+                <img style="width:9%; max-width: 35px; display: none;" src="img/caret.png">
+            </span>
+        </form>
     </nav>
-  </header>
+    </header>
 
   <main class="container my-5">
     <h2 class="mb-4">Seja um Anunciante</h2>

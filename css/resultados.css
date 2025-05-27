@@ -1,98 +1,344 @@
-#categ-gatos {
-    border-radius: 0px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.animal-detalhes {
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffdf5; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #fffbe6;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.imagem-grande img {
-    width: 350px;
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.info-pet {
-    max-width: 500px;
-}
-
-.info-pet h1 {
-    font-size: 2rem;
-    color: #cc5c36;
-}
-
-.info-pet p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-}
-
-.btn-adotar {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 12px 24px;
-    background-color: #cc5c36;
-    color: #fff;
+/*Cabeçalho*/
+a {
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
+    color: white;
+    display: inline-block;
 }
 
-.btn-adotar:hover {
-    background-color: #a94324;
+#seta {
+ cursor: pointer;   
 }
 
-/* Cards de animais */
-#template-card {
+header {
+    background-color: #ff9800; 
+    padding: 35px 0px 1px 0px;
+    text-align: center;
+}
+
+#titulo{
+    font-size: clamp(2rem, 4.5vw, 2.5rem);
+    margin: 0;
+    color: white;
+    font-family: Luckiest Guy;
+    font-weight: 100;
+
+    letter-spacing: 1px;
+    white-space: nowrap; /* impede quebra de linha */
+}
+
+#caixa {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o título e a pesquisa */
+    justify-content: center; /* ou flex-start, se quiser tudo colado à esquerda */
+    flex-wrap: nowrap;
+    
+}
+
+#caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #090908;
+    border-radius: 14px;
+    padding: 0 0 0 10px;
+    margin: 15px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0; /* importante para ela dividir o espaço e encolher */
+
+    min-width: 80px; /* permite encolher bastante */
+    max-width: 500px;
+
+    transition: all 0.3s ease;
+}
+
+#pesquisa {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    min-width: 0; /* permite que ele encolha de verdade */
+}
+
+#pesquisa::-webkit-search-cancel-button {
     display: none;
 }
+/*Tira o X padrão (de limpar tudo) do input.*/
 
-#cards {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    padding: 10px;
-    margin: 20px;
-    max-width: 200px;
-    text-align: center;
-    transition: transform 0.2s;
+#lupa{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(0, 0, 0);
 }
 
-#cards:hover {
-    transform: translateY(-5px);
+.botao-lupa{
+    all: unset; /*Remove todos os estilos padrões*/
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.imagens-animais {
-    width: 100%;
-    border-radius: 10px;
+.botao-lupa:hover{
+    background-color: black !important;
+    transform: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    
+}
+
+nav li {
+    font-weight: 100;
+    font-size: clamp(11px, 4vw, 14px);
+    color: white !important;
+    padding: clamp(10px, 4vw, 14px) clamp(8px, 3vw, 10px);
+
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+nav li:hover {
+    background-color: #fb8c00 !important;
+}
+
+#submenu{
+    display: none;
+    position: absolute;
+    list-style: none;
+
+    background-color: #ff9800 !important;
+    color: white;
+    margin-top: 9px !important;
+    left:0;
+    border-radius: 6px;
+    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
+}
+
+#logar{
+    width: 30px;
     height: auto;
 }
 
-.nomes-animais {
-    font-size: 1.2rem;
-    color: #cc5c36;
-    margin: 0.5rem 0 0;
-    font-weight: bold;
-}
-
-main {
+#imagens-simbolos{
+    flex-wrap: nowrap;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem 1rem;
 }
 
-#titulo-busca {
-    width: 100%;
+.icones{
+    width: 28px;
+    height: auto;
+}
+
+#icone-login{
+    width: 30px;
+    height: auto;
+}
+
+
+/*Main*/
+
+h1{
+    margin:25px;
     text-align: center;
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 2rem;
-    color: #cc5c36;
-    margin-bottom: 2rem;
+    font-size: clamp(23px, 4vw, 30px);
+}
+
+.card-animais {
+  width: clamp(200px, 90vw, 800px);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+
+
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card-animais img {
+  width: clamp(150px, 35vw, 300px);
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.info-animal {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nome-animal, .tipo-animal, .descricao {
+  margin: 5px 0;
+}
+
+.nome-animal{
+  font-size: clamp(20px, 2vw, 35px);
+}
+
+.tipo-animal, .descricao{
+    font-size: clamp(11px, 2vw, 17px);
+}
+
+@media (max-width: 600px) {
+  .card-animais {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-animal {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+#botao-fechar{
+  width: clamp(30px, 4vw, 50px);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (max-width: 300px) {
+  #botao-fechar{
+    right: 0px;
+  }
+
+  .card-animais{
+    padding: 10px;
+  }
+}
+
+#btn-adotar{
+  background-color: rgb(213, 108, 33);
+  color: white;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+  width: clamp(180px, 40vw, 400px);
+
+  cursor: pointer;
+  align-self: center;
+  position: absolute;
+}
+
+@media (max-width: 600px){
+  #btn-adotar{
+    position: relative;
+  }
+}
+
+
+
+.grade-cards {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+.produto-card {
+    width: 180px;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    background-color: rgb(255, 255, 255);
+}
+
+.produto-card:hover {
+    transform: scale(1.03);
+}
+
+.produto-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.produto-card .nome {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+/*FOOTER*/
+footer {
+    background-color: #ca8011;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    padding:3px;
+    margin: 0 0;
+}
+
+#contato-footer p{
+    display: inline-block;
+    margin: 10px 15px 0px 15px;
 }

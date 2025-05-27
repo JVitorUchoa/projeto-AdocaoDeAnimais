@@ -41,7 +41,7 @@ header {
 
 #titulo{
     font-size: clamp(2rem, 4.5vw, 2.5rem);
-    margin: 0;
+    margin: 10px;
     color: white;
     font-family: Luckiest Guy;
     font-weight: 100;
@@ -55,7 +55,8 @@ header {
     align-items: center;
     gap: 15px; /* Espaço entre o título e a pesquisa */
     justify-content: center; /* ou flex-start, se quiser tudo colado à esquerda */
-    flex-wrap: wrap; /* opcional: quebra em telas menores */
+    flex-wrap: nowrap;
+    
 }
 
 #caixa-pesquisa {
@@ -67,13 +68,14 @@ header {
     padding: 0 0 0 10px;
     margin: 15px;
 
-    width: 100%;
-    max-width: 400px;
-}
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0; /* importante para ela dividir o espaço e encolher */
 
-#caixa-pesquisa{
-    display: flex;
-    align-items: center;
+    min-width: 80px; /* permite encolher bastante */
+    max-width: 500px;
+
+    transition: all 0.3s ease;
 }
 
 #pesquisa {
@@ -81,6 +83,7 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
+    min-width: 0; /* permite que ele encolha de verdade */
 }
 
 #pesquisa::-webkit-search-cancel-button {
@@ -110,6 +113,21 @@ header {
 .botao-lupa:hover{
     background-color: black !important;
     transform: none;
+}
+
+#imagens-simbolos{
+    flex-wrap: nowrap;
+    display: flex;
+}
+
+.icones{
+    width: 28px;
+    height: auto;
+}
+
+#icone-login{
+    width: 30px;
+    height: auto;
 }
 
 nav ul {
@@ -151,11 +169,6 @@ nav li:hover {
     box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
 }
 
-#logar{
-    width: 30px;
-    height: auto;
-}
-
 #categ-gatos{
     border-radius: 0px;
 }
@@ -167,3 +180,5 @@ nav li:hover {
 .menu-agrupado:hover #submenu{
     display: block;
 }
+
+
