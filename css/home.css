@@ -272,29 +272,56 @@ button:hover {
     align-items: center;
 }
 
-#grade .imagens-grade img{
-    width: clamp(30px, 10vw, 120px);
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 5px clamp(3px, 2vw, 12px);
-}
-
-#grade a{
-    color:  #5a4033;
-    font-size: clamp(9px, 2vw, 17px);
-    text-align: center;
-    padding: 0px 5px;
-    font-weight: 600;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 #grade-caes, #grade-gatos {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: clamp(10px, 3vw, 40px); /* controla o espaçamento */
-    padding-top: 25px;
+    flex-wrap: wrap; /* garante a quebra de linha */
+    justify-content: flex-start; /* alinha os itens à esquerda */
+    gap: clamp(10px, 2vw, 20px); /* espaçamento entre os itens */
+    padding: 20px; /* adiciona um preenchimento ao redor das grades para dar espaço entre os itens */
+    overflow-x: auto; /* para o caso de poucos itens em telas grandes */
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+}
+
+#grade-caes::-webkit-scrollbar,
+#grade-gatos::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.imagens-grade {
+    display: flex;
+    flex-direction: column; /* coloca a imagem acima do texto */
+    align-items: center; /* centraliza a imagem e o texto horizontalmente */
+    text-align: center;
+    color: #5a4033;
+    font-size: clamp(9px, 2vw, 17px);
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none; /* para remover o sublinhado do link */
+    width: auto; /* permite que a largura se ajuste ao conteúdo */
+    min-width: clamp(80px, 15vw, 120px); /* largura mínima para cada item */
+    margin: 5px; /* espaçamento ao redor de cada item */
+} 
+
+@media screen and (max-width: 768px) {/*esse media será aplicado somente quando a tela visualizada for de 768px ou menos */
+     .gatos-adultos {
+        margin-left: 30px; /* aplica a margem em telas pequenas */
+    }
+
+    .gatos-idosos {
+        margin-left: 30px; /* aplica a margem em telas pequenas */
+    }
+}
+
+.imagens-grade img {
+    width: clamp(50px, 12vw, 100px); /* ajuste de imagem */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 5px; /* espaço entre a imagem e o texto */
 }
 
 footer {
