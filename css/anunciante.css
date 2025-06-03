@@ -1,5 +1,32 @@
-/* Fonte geral e corpo */
-/* Cabeçalho */
+/*variaveis das cores e das fontes */
+:root {
+    --cor-laranja: #ff9800;
+    --cor-laranja-hover: #fb8c00;
+    --cor-marrom: #663822;
+    --cor-branco: #ffffff;
+    --cor-amarelo-claro: #fff8e1;
+    --cor-amarelo-bege: #fffef5;
+    --cor-bege-form: #fff9e6;
+    --cor-mensagem-sucesso: #d4edda;
+    --cor-borda-sucesso: #c3e6cb;
+    --cor-texto-sucesso: #155724;
+    --fonte-titulo: 'Luckiest Guy', cursive;
+    --fonte-padrao: Arial, Helvetica, sans-serif;
+}
+
+/* ================================
+   GERAL E CORPO
+   ================================ */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-amarelo-claro);
+    font-family: var(--fonte-padrao);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
 a {
     text-decoration: none;
     color: white;
@@ -7,33 +34,34 @@ a {
 }
 
 #seta {
- cursor: pointer;   
+    cursor: pointer;
 }
 
+/* ================================
+   CABEÇALHO
+   ================================ */
 header {
-    background-color: #ff9800; 
-    padding: 35px 0px 1px 0px;
+    background-color: var(--cor-laranja);
+    padding: 35px 0 1px 0;
     text-align: center;
 }
 
-#titulo{
+#titulo {
     font-size: clamp(2rem, 4.5vw, 2.5rem);
     margin: 0;
     color: white;
-    font-family: Luckiest Guy;
+    font-family: var(--fonte-titulo);
     font-weight: 100;
-
     letter-spacing: 1px;
-    white-space: nowrap; /* impede quebra de linha */
+    white-space: nowrap;
 }
 
 #caixa {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaço entre o título e a pesquisa */
-    justify-content: center; /* ou flex-start, se quiser tudo colado à esquerda */
+    justify-content: center;
+    gap: 15px;
     flex-wrap: nowrap;
-    
 }
 
 #caixa-pesquisa {
@@ -42,16 +70,13 @@ header {
     background-color: white;
     border: 1px solid #090908;
     border-radius: 14px;
-    padding: 0 0 0 10px;
+    padding-left: 10px;
     margin: 15px;
-
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 0; /* importante para ela dividir o espaço e encolher */
-
-    min-width: 80px; /* permite encolher bastante */
+    flex-basis: 0;
+    min-width: 80px;
     max-width: 500px;
-
     transition: all 0.3s ease;
 }
 
@@ -60,35 +85,33 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
-    min-width: 0; /* permite que ele encolha de verdade */
+    min-width: 0;
 }
 
 #pesquisa::-webkit-search-cancel-button {
     display: none;
 }
-/*Tira o X padrão (de limpar tudo) do input.*/
 
-#lupa{
+#lupa {
     width: 15px;
     height: 15px;
-    background-color: rgb(0, 0, 0);
+    background-color: black;
 }
 
-.botao-lupa{
-    all: unset; /*Remove todos os estilos padrões*/
+.botao-lupa {
+    all: unset;
     background-color: black;
     width: 30px;
     height: 30px;
     border-radius: 40%;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.botao-lupa:hover{
-    background-color: black !important;
+.botao-lupa:hover {
+    background-color: black;
     transform: none;
 }
 
@@ -99,83 +122,63 @@ nav ul {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-
-    
 }
 
 nav li {
     font-weight: 100;
     font-size: clamp(11px, 4vw, 14px);
-    color: white !important;
+    color: white;
     padding: clamp(10px, 4vw, 14px) clamp(8px, 3vw, 10px);
-
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 nav li:hover {
-    background-color: #fb8c00 !important;
+    background-color: var(--cor-laranja-hover);
 }
 
-#submenu{
+#submenu {
     display: none;
     position: absolute;
     list-style: none;
-
-    background-color: #ff9800 !important;
+    background-color: var(--cor-laranja);
     color: white;
-    margin-top: 9px !important;
-    left:0;
+    margin-top: 9px;
+    left: 0;
     border-radius: 6px;
-    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
+    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093);
+    z-index: 999;
 }
 
-#logar{
+#logar {
     width: 30px;
     height: auto;
 }
 
-#imagens-simbolos{
-    flex-wrap: nowrap;
+#imagens-simbolos {
     display: flex;
+    flex-wrap: nowrap;
 }
 
-.icones{
+.icones,
+#icone-login {
     width: 28px;
     height: auto;
 }
 
-#icone-login{
-    width: 30px;
-    height: auto;
-}
-
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #fff8e1; 
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Container principal */
 main.container {
     max-width: 800px;
-    background-color: #fffef5;
+    background-color: var(--cor-amarelo-bege);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     margin: 30px auto;
 }
 
-/* Título */
 main h2 {
-    font-family: 'Luckiest Guy', cursive;
-    color: #663822;
+    font-family: var(--fonte-titulo);
+    color: var(--cor-marrom);
     font-size: clamp(2rem, 4.5vw, 2.5rem);
     text-align: center;
     margin-bottom: 30px;
@@ -183,32 +186,29 @@ main h2 {
     white-space: nowrap;
 }
 
-/* Formulário */
 #form-anuncio {
-    background-color: #fff9e6;
+    background-color: var(--cor-bege-form);
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Labels */
 #form-anuncio .form-label {
     font-weight: 600;
-    color: #663822;
-    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cor-marrom);
+    font-family: var(--fonte-padrao);
     display: block;
     margin-bottom: 8px;
 }
 
-/* Inputs, selects e textarea */
 #form-anuncio input,
 #form-anuncio select,
 #form-anuncio textarea {
     width: 100%;
-    border: 1.5px solid #ff9800;
+    border: 1.5px solid var(--cor-laranja);
     border-radius: 10px;
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fonte-padrao);
     font-size: 1rem;
     margin-bottom: 15px;
     box-sizing: border-box;
@@ -218,44 +218,44 @@ main h2 {
 #form-anuncio input:focus,
 #form-anuncio select:focus,
 #form-anuncio textarea:focus {
-    border-color: #e9910c;
+    border-color: var(--cor-laranja-hover);
     outline: none;
-    box-shadow: 0 0 5px #e9910c;
+    box-shadow: 0 0 5px var(--cor-laranja-hover);
 }
 
-/* Botão */
 #form-anuncio button {
-    background-color: #ff9800;
+    background-color: var(--cor-laranja);
     border: none;
     border-radius: 25px;
     padding: 12px 25px;
     color: white;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fonte-padrao);
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     display: block;
     margin: 20px auto 0 auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #form-anuncio button:hover {
-    background-color: #e9910c;
+    background-color: var(--cor-laranja-hover);
     transform: scale(1.05);
 }
 
-/* Mensagem de sucesso */
 #mensagem-sucesso {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fonte-padrao);
     font-size: 1.2rem;
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
+    color: var(--cor-texto-sucesso);
+    background-color: var(--cor-mensagem-sucesso);
+    border: 1px solid var(--cor-borda-sucesso);
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    display: none   ;
 }
+
