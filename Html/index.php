@@ -14,51 +14,7 @@
 
 <body>
     <header>
-    <div id="caixa">
-        <a id="titulo" href="home.html">MIAUDOTA</a>
-
-        <form id="caixa-pesquisa" action="resultados.html" method="get">
-            <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
-            <button type="submit" class="botao-lupa">
-                <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
-            </button>
-        </form>
-      <div id="imagens-simbolos">
-            <!--Simbolo do Login-->
-            <a href="../Html/login.html"><img src="../img/icones/usuario.png" alt="Ícone de login" id="icone-login"></a>
-
-            <!--Simbolo de ajuda-->
-            <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
-
-            <!--Simbolo de curtidos-->
-            <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
-        </div>
-    </div>
-
-    <nav>
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-
-            <li class="menu-agrupado">Categorias
-                <ul id="submenu">
-                    <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-                    <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-                    <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Histórias de Adoção</a></li>
-            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
-            <li><a href="#">Processo de Adoção</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Contatos</a></li>
-            <li><a href="#">login</a></li>
-        </ul>
-        <form>
-            <span id="seta">
-                <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png">
-            </span>
-        </form>
-    </nav>
+        <?php include('Modulos/cabecalho.php'); ?>
     </header>
 
     <main>
@@ -100,11 +56,7 @@
             </main>
 
     <footer>
-        <section id="contato-footer">
-            <p>Telefone: (85) 98667-9134</p>
-            <p>Endereço: Rua Otávio Soares 1800, Aldeota, Fortaleza-Ce</p>
-        </section>
-        <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
+        <?php include("Modulos/rodape.php"); ?>
     </footer>
 
 </body>

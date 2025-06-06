@@ -1,3 +1,28 @@
+<?php
+// Inclua o arquivo de conexão com o banco de dados
+include('../backend/conexao.php');
+
+// Verificar se o formulário foi enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome = $_POST['nome_anunciante'];
+    $email = $_POST['email_anunciante'];
+    $nome_animal = $_POST['nome_animal'];
+    $tipo_animal = $_POST['tipo_animal'];
+    $descricao = $_POST['descricao'];
+
+    // Inserir os dados no banco de dados
+    $query = "INSERT INTO animais (nome, especie, raca, descricao) VALUES (?, ?, ?, ?)";
+    $stmt = $conexao->prepare($query);
+    $stmt->bind_param("ssss", $nome_animal, $tipo_animal, $nome, $descricao);
+
+    if ($stmt->execute()) {
+        $mensagem = "Anúncio enviado com sucesso!";
+    } else {
+        $mensagem = "Erro ao enviar anúncio!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,46 +35,7 @@
 
 <body>
   <header>
-    <div id="caixa">
-      <a id="titulo" href="home.html">MIAUDOTA</a>
-
-      <form id="caixa-pesquisa" action="resultados.html" method="get">
-        <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
-        <button type="submit" class="botao-lupa">
-          <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
-        </button>
-      </form>
-
-      <div id="imagens-simbolos">
-        <a href="../Html/login.html"><img src="../img/icones/usuario.png" alt="Ícone de login" id="icone-login"></a>
-        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
-        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
-      </div>
-    </div>
-
-    <nav>
-      <ul id="menu">
-        <li><a href="index.html">Home</a></li>
-        <li class="menu-agrupado">Categorias
-          <ul id="submenu">
-            <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-            <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-            <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-          </ul>
-        </li>
-        <li><a href="../Html/index.html">Home</a></li>
-        <li><a href="anunciante.html">Seja Anunciante</a></li>
-        <li><a href="#">Processo de Adoção</a></li>
-        <li><a href="#">Sobre Nós</a></li>
-        <li><a href="#">Contatos</a></li>
-        <li><a href="#">login</a></li>
-      </ul>
-      <form>
-        <span id="seta">
-          <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png" alt="seta menu">
-        </span>
-      </form>
-    </nav>
+    <?php include('Modulos/cabecalho.php'); ?>
   </header>
 
   <main id="container">
@@ -92,8 +78,6 @@
 
       <button type="submit" id="botao-enviar">Enviar Anúncio</button>
     </form>
-
-   
   </main>
 
   <script src="../scripts js/anunciante.js"></script>
