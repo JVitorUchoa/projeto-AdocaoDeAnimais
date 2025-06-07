@@ -91,6 +91,10 @@ input[type="radio"]:checked + label {
     margin-bottom: 10px; 
     box-sizing: border-box; 
 } 
+
+input.erro {/* adiciona classe erro e borda vermelha aos campos inválidos */
+  border: 2px solid red;
+}
  
 /*Botão de Entrar e Cadastrar*/ 
 .cadastrar-btn, .entrar-btn { 
