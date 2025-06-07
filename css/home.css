@@ -40,23 +40,22 @@ header {
 }
 
 #titulo{
-    font-size: clamp(2rem, 4.5vw, 2.5rem);
-    margin: 0;
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 0px 0px 0px 10px;
+    padding: 0;
     color: white;
     font-family: Luckiest Guy;
-    font-weight: 100;
 
     letter-spacing: 1px;
-    white-space: nowrap; /* impede quebra de linha */
+    white-space: nowrap;
 }
 
-#caixa {
+#caixa{
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaço entre o título e a pesquisa */
-    justify-content: center; /* ou flex-start, se quiser tudo colado à esquerda */
+    gap: 15px;
+    justify-content: center;
     flex-wrap: nowrap;
-    
 }
 
 #caixa-pesquisa {
@@ -66,13 +65,13 @@ header {
     border: 1px solid #090908;
     border-radius: 14px;
     padding: 0 0 0 10px;
-    margin: 15px;
+    margin: 15px 10px;
 
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 0; /* importante para ela dividir o espaço e encolher */
+    flex-basis: 0; /*divide o espaço e encolher*/
 
-    min-width: 80px; /* permite encolher bastante */
+    min-width: 80px; /*permite encolher*/
     max-width: 500px;
 
     transition: all 0.3s ease;
@@ -83,7 +82,7 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
-    min-width: 0; /* permite que ele encolha de verdade */
+    min-width: 0; /*permite que ele encolha*/
 }
 
 #pesquisa::-webkit-search-cancel-button {
@@ -122,8 +121,6 @@ nav ul {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-
-    
 }
 
 nav li {
@@ -162,6 +159,8 @@ nav li:hover {
 #imagens-simbolos{
     flex-wrap: nowrap;
     display: flex;
+    margin: 0px 10px 0px 0px;
+    padding: 0;
 }
 
 .icones{
@@ -174,8 +173,22 @@ nav li:hover {
     height: auto;
 }
 
+#titulo-none{
+    display: none;
+}
 
-/*Main*/
+@media (max-width: 450px){
+    #titulo{
+        display: none;
+    }
+    #titulo-none{
+    font-size: clamp(30px, 5vw, 40px);
+    color: white;
+    font-family: Luckiest Guy;
+    display: block;
+    letter-spacing: 1px;
+    };
+}
 
 .menu-agrupado{
     position: relative;
@@ -185,32 +198,32 @@ nav li:hover {
     display: block;
 }
 
+/*Main*/
+
 main{
     flex: 1;
 }
 
-#banner {
+#banner{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 25px;
     background-color: #fbd69e;
-
 }
 
-.container {
+.container{
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 1100px;
-  gap: 30px;
-  flex-wrap: nowrap; /* impede quebra de linha */
+  gap: 23px;
 }
 
-.imagem-home {
+.imagem-home{
   flex-shrink: 0;
-  width: clamp(130px, 25vw, 280px);
+  width: clamp(100px, 25vw, 280px);
   height: auto;
   border-radius: 10%;
   object-fit: cover;
@@ -219,25 +232,25 @@ main{
 }
 
 
-.imagem-home:hover {
+.imagem-home:hover{
     transform: scale(1.03);
 }
 
-.texto-adocao {
+.texto-adocao{
   flex: 1;
   min-width: 0;
   color: rgb(83, 61, 20);
-  font-size: clamp(12px, 1.8vw, 17px);
+  font-size: clamp(11px, 1.8vw, 17px);
   line-height: 1.6;
 }
 
-.texto-adocao h2 {
+.texto-adocao h2{
   font-size: clamp(17px, 3vw, 30px);
   color: rgb(93, 68, 22);
   margin-bottom: 20px;
 }
 
-button {
+button{
     background-color: #ff9800;
     color: white;
     padding: 10px 25px;
@@ -250,12 +263,12 @@ button {
     margin-top: 20px;
 }
 
-button:hover {
+button:hover{
     background-color: #e9910c;
     transform: scale(1.05);
 }
 
-.transicao-degrade {
+.transicao-degrade{
   height: 60px;
   background: linear-gradient(#fbd69e, #fffdf5);
 }
@@ -284,7 +297,7 @@ button:hover {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#grade-caes, #grade-gatos {
+#grade-caes, #grade-gatos{
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -292,7 +305,7 @@ button:hover {
     padding-top: 25px;
 }
 
-@media (max-width: 780px) { 
+@media (max-width: 780px){ 
     .imagens-grade img{
         margin: 0px;
     }
@@ -312,7 +325,7 @@ button:hover {
     }
 }
 
-footer {
+footer{
     background-color: #ca8011;
     color: white;
     text-align: center;
