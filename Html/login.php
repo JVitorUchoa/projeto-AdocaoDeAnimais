@@ -1,40 +1,3 @@
-<?php
-// Inclua o arquivo de conexão com o banco de dados
-include('../backend/conexao.php');
-
-// Verificar se o formulário foi enviado
-if (isset($_POST['email']) && isset($_POST['senha'])) {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    // Consultar o banco de dados para verificar o usuário
-    $query = "SELECT * FROM usuarios WHERE email = ? LIMIT 1";
-    $stmt = $conexao->prepare($query);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $usuario = $result->fetch_assoc();
-
-        // Verificar se a senha está correta
-        if (password_verify($senha, $usuario['senha'])) {
-            // Sucesso no login
-            session_start();
-            $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            header("Location: index.php"); // Redirecionar para a página inicial
-        } else {
-            $erro = "Senha incorreta!";
-        }
-    } else {
-        $erro = "Usuário não encontrado!";
-    }
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +18,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     </header>
     <main>
      <div id="area-cachorros" class="area-cachorros"> 
-         <img src="../img/caixavaziasemfundo.png" alt="Caixa vazia" 
-class="imagem-base"/> 
+         <img src="../img/caixavaziasemfundo.png" alt="Caixa vazia" class="imagem-base"/> 
         </div> 
 
         <div class="opcoes">
@@ -68,21 +30,72 @@ class="imagem-base"/>
         </div>
 
         <div id="caixa-login" class="caixa-form">
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <button type="submit" class="entrar-btn">Entrar</button>
+            <form action="login.php" method="post">
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <button type="submit" name="submit" class="entrar-btn">Entrar</button>
+            </form>
         </div>
 
         <div id="caixa-cadastro" class="caixa-form">
-            <input type="text" id="nome" placeholder="Nome completo" required>
-            <input type="email" id="email" placeholder="E-mail" required>
-            <input type="password" id="senha" placeholder="Senha" required>
-            <input type="text" id="cpf" placeholder="CPF (Somente números)" maxlength="11" required>
-            <p id="resultado"></p>
-            <button onclick="validar()" class="cadastrar-btn">Cadastrar</button>
+            <form action="login.php" method="post" >
+                <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <input type="text" id="cpf" name="cpf" placeholder="CPF (Somente números)" maxlength="11" required>
+                <p id="resultado"></p>
+                <button type="submit" name="submit" class="cadastrar-btn">Cadastrar</button>
+            </form>
         </div>
     </main>
+
+    <!--Configuração do PHP-->
+
+    <?php
+    include('../backend/conexao.php');
+
+    // Verificar se o formulário foi enviado
+    if (isset($_POST['email']) || isset($_POST['senha'])) {
+        if(strlen($_POST['email']) == 0) {
+            echo "Prencha seu email";
+        } else if(strlen($_POST['senha']) == 0) {
+            echo "Prencha sua senha";
+        } else {
+            $email = $conexao->real_scape_string($_POST['email']);
+            $senha = $conexao->real_scape_string($_POST['senha']);
+
+            // Consultar o banco de dados para verificar o usuário
+            $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+            $sql_query = $conexao->prepare($query);
+
+            $resultado = $sql_query->num_rows;
+
+            if ($result == 1) {
+                $usuario = $sql_query->fetch_assoc();
+
+                // Verificar se a senha está correta
+                if (!isset($SESSION)) {
+                    session_start();
+                    }
+                    // Sucesso no login
+                    
+                    $_SESSION['id_usuario'] = $usuario['id_usuario'];
+                    $_SESSION['nome_usuario'] = $usuario['nome_usuario'];
+                    header("Location: index.php"); // Redirecionar para a página inicial
+                } else {
+                    echo "Falha em logar";
+            }
+        }
+    }
+
+    ?>
+
+    <?php include('../backend/cadastrar.php'); ?>
+
+    <!--Configuração do JS-->
+
     <script src="../scripts js/utils_login.js"></script>
+
 </body>
 </html>
 
