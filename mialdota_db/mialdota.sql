@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/06/2025 às 04:41
+-- Tempo de geração: 08/06/2025 às 21:30
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `animais` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `especie` varchar(50) NOT NULL,
-  `raça` varchar(100) NOT NULL,
-  `idade` int(11) NOT NULL,
-  `descrição` text NOT NULL
+  `id_animal` int(11) NOT NULL,
+  `nome_animal` varchar(100) NOT NULL,
+  `especie_animal` varchar(50) NOT NULL,
+  `raça_animal` varchar(100) NOT NULL,
+  `idade_animal` int(11) NOT NULL,
+  `descrição_animal` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -43,12 +43,20 @@ CREATE TABLE `animais` (
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `cpf` varchar(11) NOT NULL
+  `id_usuario` int(11) NOT NULL,
+  `nome_usuario` varchar(100) NOT NULL,
+  `email_usuario` varchar(100) NOT NULL,
+  `senha_usuario` varchar(255) NOT NULL,
+  `cpf_usuario` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `email_usuario`, `senha_usuario`, `cpf_usuario`) VALUES
+(1, 'junin', 'junin@gmail.com', 'asdawdawsd', '12345678909'),
+(2, 'junin2000', 'junin@gmail.comfdgdfg', 'jdskhfksdhjf', '35746358473');
 
 --
 -- Índices para tabelas despejadas
@@ -58,13 +66,13 @@ CREATE TABLE `usuarios` (
 -- Índices de tabela `animais`
 --
 ALTER TABLE `animais`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_animal`);
 
 --
 -- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -74,13 +82,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `animais`
 --
 ALTER TABLE `animais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

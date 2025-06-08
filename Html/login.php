@@ -51,45 +51,6 @@
 
     <!--Configuração do PHP-->
 
-    <?php
-    include('../backend/conexao.php');
-
-    // Verificar se o formulário foi enviado
-    if (isset($_POST['email']) || isset($_POST['senha'])) {
-        if(strlen($_POST['email']) == 0) {
-            echo "Prencha seu email";
-        } else if(strlen($_POST['senha']) == 0) {
-            echo "Prencha sua senha";
-        } else {
-            $email = $conexao->real_scape_string($_POST['email']);
-            $senha = $conexao->real_scape_string($_POST['senha']);
-
-            // Consultar o banco de dados para verificar o usuário
-            $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-            $sql_query = $conexao->prepare($query);
-
-            $resultado = $sql_query->num_rows;
-
-            if ($result == 1) {
-                $usuario = $sql_query->fetch_assoc();
-
-                // Verificar se a senha está correta
-                if (!isset($SESSION)) {
-                    session_start();
-                    }
-                    // Sucesso no login
-                    
-                    $_SESSION['id_usuario'] = $usuario['id_usuario'];
-                    $_SESSION['nome_usuario'] = $usuario['nome_usuario'];
-                    header("Location: index.php"); // Redirecionar para a página inicial
-                } else {
-                    echo "Falha em logar";
-            }
-        }
-    }
-
-    ?>
-
     <?php include('../backend/cadastrar.php'); ?>
 
     <!--Configuração do JS-->
