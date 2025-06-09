@@ -29,10 +29,6 @@ a {
     display: inline-block;
 }
 
-#seta {
- cursor: pointer;   
-}
-
 header {
     background-color: #ff9800; 
     padding: 35px 0px 1px 0px;
@@ -197,6 +193,40 @@ nav li:hover {
 .menu-agrupado:hover #submenu{
     display: block;
 }
+
+#seta{
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  margin: 10px;
+  width:9%;
+  max-width: 35px;
+}
+
+@media (max-width: 856px) {
+  #seta {
+    display: contents;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  nav ul {
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    transition: max-height 0.4s ease-out;
+  }
+
+  nav ul.ativo {
+    max-height: 500px;
+    transition: max-height 0.4s ease-in;
+  }
+}
+
 
 /*Main*/
 
