@@ -295,3 +295,23 @@ main h2 {
     display: none   ;
 }
 
+
+#preview-imagens {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+#preview-imagens img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.campo-form input[type="file"] {
+  margin-top: 5px;
+  width: 100%;
+}

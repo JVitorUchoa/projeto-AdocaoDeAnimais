@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animais para Adoção</title>
+  <style>
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card-animal {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card-animal:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+.card-imagem {
+  width: 100%;
+  height: 220px; /* altura maior que largura */
+  object-fit: cover;
+  display: block;
+}
+
+
+    .card-corpo {
+      padding: 15px;
+    }
+
+    .card-titulo {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .card-tipo {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .card-descricao {
+      color: #666;
+      font-size: 0.9rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .modal-detalhes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .modal-conteudo {
+      background: white;
+      border-radius: 10px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .fechar-modal {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .galeria-animal {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .galeria-animal img {
+      height: 200px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .detalhes-info h2 {
+      margin-bottom: 10px;
+    }
+
+    .detalhes-info p {
+      margin: 8px 0;
+    }
+
+    @media (max-width: 768px) {
+      .modal-conteudo {
+        width: 95%;
+        padding: 15px;
+      }
+
+      .galeria-animal img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="cards-animais" class="grid-cards"></section>
+
+  <div id="detalhes-animal" class="modal-detalhes" style="display: none;">
+    <div class="modal-conteudo">
+      <span class="fechar-modal">&times;</span>
+      <div id="detalhes-conteudo"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('cards-animais');
+      const modal = document.getElementById('detalhes-animal');
+      const detalhesConteudo = document.getElementById('detalhes-conteudo');
+      const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
+
+      function formatarTipo(tipo) {
+        return tipo
+          .split('-')
+          .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+          .join(' ')
+          .replace('Caes', 'Cães');
+      }
+
+      function renderizarCards() {
+  container.innerHTML = '';
+  anuncios.forEach(animal => {
+    // Verificação robusta das fotos
+    const temFotosValidas = animal.fotos && 
+                          Array.isArray(animal.fotos) && 
+                          animal.fotos.length > 0 && 
+                          animal.fotos[0].data;
+    
+    // Se não tiver fotos válidas, usa uma imagem padrão
+    const imagemSrc = temFotosValidas ? animal.fotos[0].data : '../img/placeholder-animal.jpg';
+    
+    const card = document.createElement('div');
+    card.className = 'card-animal';
+    card.innerHTML = `
+      <img src="${imagemSrc}" alt="${animal.nomeAnimal || 'Animal sem nome'}" class="card-imagem">
+      <div class="card-corpo">
+        <h3 class="card-titulo">${animal.nomeAnimal || 'Animal sem nome'}</h3>
+        <span class="card-tipo">${animal.tipo ? formatarTipo(animal.tipo) : 'Sem tipo especificado'}</span>
+        <p class="card-descricao">${animal.descricao ? animal.descricao.substring(0, 100) + '...' : 'Sem descrição'}</p>
+      </div>
+    `;
+    card.addEventListener('click', () => mostrarDetalhes(animal));
+    container.appendChild(card);
+  });
+}
+
+      function mostrarDetalhes(animal) {
+  // Verifica se existem fotos antes de tentar renderizar
+  const galeriaFotos = animal.fotos && Array.isArray(animal.fotos) 
+    ? animal.fotos.map(foto => `<img src="${foto.data || '../img/placeholder-animal.jpg'}" alt="${animal.nomeAnimal}">`).join('')
+    : `<img src="../img/placeholder-animal.jpg" alt="Sem fotos disponíveis">`;
+
+  detalhesConteudo.innerHTML = `
+    <div class="galeria-animal">
+      ${galeriaFotos}
+    </div>
+    <div class="detalhes-info">
+      <h2>${animal.nomeAnimal || 'Animal sem nome'}</h2>
+      <p><strong>Tipo:</strong> ${animal.tipo ? formatarTipo(animal.tipo) : 'Não especificado'}</p>
+      <p><strong>Anunciante:</strong> ${animal.nomeAnunciante || 'Anônimo'}</p>
+      <p><strong>Contato:</strong> ${animal.email || 'Não informado'}</p>
+      <p><strong>Descrição completa:</strong></p>
+      <p>${animal.descricao || 'Nenhuma descrição fornecida.'}</p>
+      <p><small>Anúncio publicado em: ${animal.data || 'Data não registrada'}</small></p>
+    </div>
+  `;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+      document.querySelector('.fechar-modal').addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      renderizarCards();
+    });
+  </script>
+</body>
+</html>

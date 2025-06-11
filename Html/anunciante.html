@@ -104,9 +104,17 @@
         <textarea id="descricao" name="descricao" rows="4" placeholder="Fale um pouco sobre o animal: aparência, saúde, personalidade, o que ele gosta e se precisa de cuidados específicos." required></textarea>
       </div>
 
+      <div class="campo-form">
+        <label for="fotos-animal">Fotos do Animal (Máx. 3)</label>
+        <input type="file" id="fotos-animal" name="fotos" accept="image/*" multiple max="3" required>
+        <small>Selecione até 3 imagens do animal</small>
+          <div id="preview-imagens"></div> <!-- Container para pré-visualização -->
+      </div>
+
       <button type="submit" id="botao-enviar">Enviar Anúncio</button>
     </form>
 
+    
    
   </main>
 
