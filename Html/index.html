@@ -24,16 +24,17 @@
                 <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
             </button>
         </form>
-      <div id="imagens-simbolos">
-            <!--Simbolo do Login-->
-            <a href="../Html/login.html"><img src="../img/icones/usuario.png" alt="Ícone de login" id="icone-login"></a>
+    <div id="imagens-simbolos">
+        <!-- Simbolo do Login - Mantemos o ID para manipulação -->
+        <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login">
+        </a>
 
-            <!--Simbolo de curtidos-->
-            <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
+        <!-- Simbolo de curtidos -->
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
 
-            <!--Simbolo de ajuda-->
-            <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
-        </div>
+        <!-- Simbolo de ajuda -->
+        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
+    </div>
     </div>
 
     <nav>
@@ -51,12 +52,12 @@
             <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
             <li><a href="#">Processo de Adoção</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Contatos</a></li>
         </ul>
-            <button type="button" id="seta" onclick="alternarMenu()">
-                <img src="../img/caret.png" alt="Abrir/Fechar menu" style="width: 30px;">
-            </button>
-
+        <form>
+            <span id="seta">
+                <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png">
+            </span>
+        </form>
     </nav>
     </header>
 
@@ -96,7 +97,6 @@
                 <a class="imagens-grade gatos-idosos" href="#"><img src="../img/categorias/gato-idoso.jpg" alt="Gatos idosos"><br>Gatos idosos</a> <!--criado uma classe para gatos idosos, em razão do espaçamento no css -->
                 </div>
             </section>
-            <script src="../scripts js/utils_home.js"></script>
             </main>
 
     <footer>
@@ -106,6 +106,19 @@
         </section>
         <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
     </footer>
+
+<script src="../scripts js/utils_login.js"></script>
+<script src="../scripts js/utils_home.js"></script>
+    <!-- Adicione esta seção em algum lugar do body (normalmente no final) -->
+<section id="perfil-section" style="display: none;">
+    <div class="perfil-container">
+        <h3>Meu Perfil</h3>
+        <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+        <button id="logout-btn">Desconectar</button>
+    </div>
+</section>
 
 </body>
 

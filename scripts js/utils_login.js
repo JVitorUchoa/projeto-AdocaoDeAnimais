@@ -160,17 +160,74 @@ campos.forEach(campo => {
   }); 
 }
  
-// função chamada ao clicar em login 
-function mostrarLogin() { 
-  document.getElementById('caixa-login').style.display = 'flex'; 
-  document.getElementById('caixa-cadastro').style.display = 'none'; 
-} 
- 
-// função chamada ao clicar em cadastro 
-function mostrarCadastro() { 
-  document.getElementById('caixa-login').style.display = 'none'; 
-  document.getElementById('caixa-cadastro').style.display = 'flex'; 
-} 
- 
 // assim que a página for carregada a função monitorarCampos é ativada 
 document.addEventListener('DOMContentLoaded', monitorarCampos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function cadastrarUsuario(nome, email, senha, cpf) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  // Verifica se o e-mail já está cadastrado
+  const existe = usuarios.some(u => u.email === email);
+  if (existe) {
+    alert("E-mail já cadastrado!");
+    return false; // Retorna false para indicar falha
+  }
+
+  // Adiciona o novo usuário
+  usuarios.push({ nome, email, senha, cpf });
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  alert("Cadastro realizado com sucesso!");
+  mostrarLogin(); // Alterna para a tela de login
+  return true;
+}
+
+function enviarCadastro() {
+  if (validarCadastro()) { // Só continua se os dados forem válidos
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const cpf = document.getElementById("cpf").value;
+    
+    cadastrarUsuario(nome, email, senha, cpf); // Chama a função que já redireciona
+  }
+}
+
+function fazerLogin(email, senha) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  const usuario = usuarios.find(u => u.email === email && u.senha === senha);
+
+  if (usuario) {
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+    window.location.href = "index.html"; // redireciona pro home
+  } else {
+    alert("Email ou senha incorretos!");
+  }
+}
+
+function enviarLogin() {
+  const email = document.getElementById("email-login").value;
+  const senha = document.getElementById("senha-login").value;
+  
+  if (validarLogin()) {
+    fazerLogin(email, senha);
+  }
+}
+

@@ -44,7 +44,7 @@
                 </ul>
             </li>
             <li><a href="#">Histórias de Adoção</a></li>
-            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+            <li><a href="anunciante.html">Seja Anunciante</a></li>
             <li><a href="#">Processo de Adoção</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#">Contatos</a></li>
@@ -84,15 +84,24 @@
         <label for="tipo-animal">Tipo do Animal</label>
         <select id="tipo-animal" name="tipoAnimal" required>
           <option value="">Selecione</option>
-          <option value="gato">Gato</option>
-          <option value="cachorro">Cachorro</option>
-          <option value="outro">Outro</option>
+          <option value="racas-pequenas">Raças pequenas</option>
+          <option value="racas-medias">Raças médias</option>
+          <option value="racas-grandes">Raças grandes</option>
+          <option value="caes-filhotes">Cães filhotes</option>
+          <option value="caes-adultos">Cães adultos</option>
+          <option value="caes-idosos">Cães idosos</option>
+          <option value="gatos-raca">Gatos de raça</option>
+          <option value="gatos-mesticos">Gatos mestiços</option>
+          <option value="gatos-filhotes">Gatos filhotes</option>
+          <option value="gatos-adultos">Gatos adultos</option>
+          <option value="gatos-idosos">Gatos idosos</option>
+          <option value="outros">Outros</option>
         </select>
       </div>
 
       <div class="campo-form">
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+        <label for="descricao">Descrição do animal</label>
+        <textarea id="descricao" name="descricao" rows="4" placeholder="Fale um pouco sobre o animal: aparência, saúde, personalidade, o que ele gosta e se precisa de cuidados específicos." required></textarea>
       </div>
 
       <button type="submit" id="botao-enviar">Enviar Anúncio</button>

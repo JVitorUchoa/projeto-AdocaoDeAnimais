@@ -29,6 +29,10 @@ a {
     display: inline-block;
 }
 
+#seta {
+ cursor: pointer;   
+}
+
 header {
     background-color: #ff9800; 
     padding: 35px 0px 1px 0px;
@@ -194,40 +198,6 @@ nav li:hover {
     display: block;
 }
 
-#seta{
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-  margin: 10px;
-  width:9%;
-  max-width: 35px;
-}
-
-@media (max-width: 856px) {
-  #seta {
-    display: contents;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    cursor: pointer;
-    z-index: 1000;
-  }
-
-  nav ul {
-    max-height: 0;
-    overflow: hidden;
-    flex-direction: column;
-    transition: max-height 0.4s ease-out;
-  }
-
-  nav ul.ativo {
-    max-height: 500px;
-    transition: max-height 0.4s ease-in;
-  }
-}
-
-
 /*Main*/
 
 main{
@@ -367,4 +337,65 @@ footer{
 #contato-footer p{
     display: inline-block;
     margin: 10px 15px 0px 15px;
+}
+
+
+/*Section de Mostrar perfil e Sair*/
+#perfil-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #f7961f, #df8013);
+    padding: 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    width: 320px;
+    max-width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.perfil-container {
+    text-align: center;
+}
+
+#perfil-section h3 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+#perfil-section p {
+    margin: 10px 0;
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#perfil-section p strong {
+    display: inline-block;
+    width: 70px;
+    font-weight: 600;
+    color: #fff3d1;
+}
+
+#logout-btn {
+    margin-top: 25px;
+    padding: 10px 24px;
+    background-color: #fff;
+    color: #df8013;
+    border: none;
+    border-radius: 30px;  
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: #f7f7f7;
+    transform: scale(1.05);
 }
