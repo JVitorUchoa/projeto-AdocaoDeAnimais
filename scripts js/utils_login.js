@@ -215,10 +215,23 @@ function fazerLogin(email, senha) {
   const usuario = usuarios.find(u => u.email === email && u.senha === senha);
 
   if (usuario) {
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-    window.location.href = "index.html"; // redireciona pro home
+    // Remove qualquer usuário logado anterior
+    localStorage.removeItem('usuarioLogado');
+    
+    // Adiciona apenas os dados essenciais
+    const usuarioParaArmazenar = {
+      nome: usuario.nome,
+      email: usuario.email,
+      cpf: usuario.cpf
+      // Não armazena a senha por segurança
+    };
+    
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuarioParaArmazenar));
+    window.location.href = "index.html";
   } else {
     alert("Email ou senha incorretos!");
+    // Garante que não há usuário logado em caso de falha
+    localStorage.removeItem('usuarioLogado');
   }
 }
 

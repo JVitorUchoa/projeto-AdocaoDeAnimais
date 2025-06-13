@@ -1,4 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se o usuário está logado
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const bloqueioLogin = document.getElementById('bloqueio-login');
+    
+    if (!usuarioLogado) {
+        // Mostra o overlay de bloqueio
+        if (bloqueioLogin) bloqueioLogin.style.display = 'block';
+        
+        // Desabilita o formulário
+        const form = document.getElementById('form-anuncio');
+        if (form) form.style.display = 'none';
+        
+        const tituloForm = document.getElementById('titulo-form');
+        if (tituloForm) tituloForm.style.display = 'none';
+        
+        return; // Interrompe a execução do resto do script
+    }
+
   const form = document.getElementById('form-anuncio');
   const inputFotos = document.getElementById('fotos-animal');
   const previewContainer = document.getElementById('preview-imagens');
@@ -15,8 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
       reader.onload = () => resolve({ name: file.name, data: reader.result });
       reader.onerror = error => reject(error);
       reader.readAsDataURL(file);
-    });
-  }
+    
+});
+}
 
   // Pré-visualização das imagens
   inputFotos.addEventListener('change', function () {

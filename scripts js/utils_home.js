@@ -31,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configura o botão de logout
     document.getElementById('logout-btn')?.addEventListener('click', function() {
-        localStorage.removeItem('usuarioLogado');
-        window.location.reload(); // Recarrega a página para atualizar o estado
-    });
+    // Remove apenas o usuário logado, mantendo outros dados
+    localStorage.removeItem('usuarioLogado');
+    // Redireciona para a página inicial
+    window.location.href = 'index.html'; // Ou 'login.html' se preferir
+});
 
     // Fecha o perfil ao clicar fora
     document.addEventListener('click', function(e) {
