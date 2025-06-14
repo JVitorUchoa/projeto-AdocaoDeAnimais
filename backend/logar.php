@@ -1,35 +1,36 @@
 <?php
-    // Inclua o arquivo de conexão com o banco de dados
-    include('../backend/conexao.php');
+// ** aqui estou usando caminho relativo. Mais seguro para conexao.
+$conexao = include(__DIR__ . '/conexao.php');
 
-    // Verificar se o formulário foi enviado
-    if (isset($_POST['email']) && isset($_POST['senha'])) {
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+// Verifica se o formulário foi enviado com e-mail e senha
+if (isset($_POST['email']) && isset($_POST['senha'])) {
+    $email = trim($_POST['email']);
+    $senha = $_POST['senha'];
 
-        // Consultar o banco de dados para verificar o usuário
-        $query = "SELECT * FROM usuarios WHERE email_usuario = ? LIMIT 1";
+    try {
+        // Consulta segura com parâmetro nomeado
+        $query = "SELECT * FROM usuarios WHERE email_usuario = :email";
         $stmt = $conexao->prepare($query);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->execute([':email' => $email]); // Forma prática de passar os parâmetros
 
-        if ($result->num_rows > 0) {
-            $usuario = $result->fetch_assoc();
+        // Verifica se encontrou o usuário
+        if ($stmt->rowCount() > 0) {
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Verificar se a senha está correta
-            if (password_verify($senha, $usuario['senha_usuario'])) {
-                // Sucesso no login
+            // Verifica se a senha está correta
+            if ($senha === $usuario['senha_usuario']) {
                 session_start();
-                $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nome_usuario'] = $usuario['nome_usuario'];
-                header("Location: index.php"); // Redirecionar para a página inicial
+                header("Location: ../Html/index.php");
+                exit();
             } else {
-                $erro = "Senha incorreta!";
+                echo "Senha incorreta!";
             }
         } else {
-            $erro = "Usuário não encontrado!";
+            echo "Usuário não encontrado!";
         }
+    } catch (PDOException $e) {
+        echo "Erro ao acessar o banco de dados: " . $e->getMessage();
     }
-
-    ?>
+}
+?>

@@ -1,3 +1,10 @@
+<!--Configuração do PHP-->
+
+<?php include('../backend/cadastrar.php');
+include('../backend/logar.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,29 +36,25 @@
             <label for="cadastro">Cadastro</label>
         </div>
 
-        <div id="caixa-login" class="caixa-form">
-            <form action="login.php" method="post">
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <button type="submit" name="submit" class="entrar-btn">Entrar</button>
-            </form>
+        <div>
+        <form action="../backend/logar.php" method="post" id="caixa-login" class="caixa-form">
+        <input type="email" name="email" id="email_login" placeholder="E-mail" required>
+        <input type="password" name="senha" id="senha_login" placeholder="Senha" required>
+        <button type="submit" class="entrar-btn">Entrar</button>
+        </form>
         </div>
 
-        <div id="caixa-cadastro" class="caixa-form">
-            <form action="login.php" method="post" >
-                <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
-                <input type="email" id="email" name="email" placeholder="E-mail" required>
-                <input type="password" id="senha" name="senha" placeholder="Senha" required>
-                <input type="text" id="cpf" name="cpf" placeholder="CPF (Somente números)" maxlength="11" required>
-                <p id="resultado"></p>
-                <button type="submit" name="submit" class="cadastrar-btn">Cadastrar</button>
-            </form>
+        <div>
+        <form action="../backend/cadastrar.php" method="post" onsubmit="return validar()" id="caixa-cadastro" class="caixa-form">
+        <input type="text" id="nome" name="nome_usuario" placeholder="Nome completo" required>
+        <input type="email" id="email" name="email_usuario" placeholder="E-mail" required>
+        <input type="password" id="senha" name="senha_usuario" placeholder="Senha" required>
+        <input type="text" id="cpf" name="cpf_usuario" placeholder="CPF (Somente números)" maxlength="11" required>
+        <p id="resultado"></p>
+        <button type="submit" class="cadastrar-btn">Cadastrar</button>
+        </form>
         </div>
     </main>
-
-    <!--Configuração do PHP-->
-
-    <?php include('../backend/cadastrar.php'); ?>
 
     <!--Configuração do JS-->
 

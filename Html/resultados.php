@@ -1,3 +1,6 @@
+<?php include('Modulos/cabecalho.php'); ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,10 +13,6 @@
     </style>
 </head>
 <body>
-    <header>
-    <?php include('Modulos/cabecalho.php'); ?>
-    </header>
-
     <main>
         <h1>Animais encontrados</h1>
 
@@ -53,11 +52,7 @@
     </main>
 
     <footer>
-        <section id="contato-footer">
-            <p>Telefone: (85) 98667-9134</p>
-            <p>Endereço: Rua Otávio Soares 1800, Aldeota, Fortaleza-Ce</p>
-        </section>
-        <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
+        <?php include("Modulos/rodape.php"); ?>
     </footer>
 
     <script src="../scripts js/utils_resultados.js"></script>

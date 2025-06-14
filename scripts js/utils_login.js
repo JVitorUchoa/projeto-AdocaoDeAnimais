@@ -15,70 +15,76 @@ window.onload = mostrarLogin;
 
 // função para verificar nome,email,CPF e senha
 function validar() {
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const cpf = document.getElementById('cpf').value;
-    const senha = document.getElementById('senha').value;
-    const resultado = document.getElementById('resultado');
-    
-    // Limpa o conteúdo do parágrafo antes de exibir novos resultados
-    resultado.innerHTML = '';
-    let cadastroValido = true; // Variável para controle da validação
+      // Limpa a área de mensagens a cada validação
+      const resultado = document.getElementById("resultado");
+      resultado.innerHTML = "";
 
-    // Validação do Nome
-    if (nome.trim() == "") {
-        resultado.innerHTML += 'Nome inválido: O nome não pode estar vazio.<br>';
+      const nome  = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const senha = document.getElementById("senha").value;
+      const cpf   = document.getElementById("cpf").value.trim();
+      
+      // Variável para checar se todos os campos são válidos
+      let cadastroValido = true;
+      
+      // Validação do Nome
+      if (nome.length < 5) {
+        resultado.innerHTML += 'O nome deve ter pelo menos 5 caracteres.<br>';
         cadastroValido = false;
-    }
-
-    // Validação do E-mail
-    const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!regexEmail.test(email)) {
-        resultado.innerHTML += 'E-mail inválido: O formato do e-mail está incorreto.<br>';
+      }
+      
+      // Validação do E-mail
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regexEmail.test(email)) {
+        resultado.innerHTML += 'E-mail inválido.<br>';
         cadastroValido = false;
-    }
-
-    // Validação da Senha
-    const regexSenha = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
-    if (!regexSenha.test(senha)) {
-        resultado.innerHTML += 'Senha inválida: A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial.<br>';
+      }
+      
+      // Validação da Senha
+      if (senha.length < 6) {
+        resultado.innerHTML += 'A senha deve ter pelo menos 6 caracteres.<br>';
         cadastroValido = false;
-    }
+      }
+      
+      // Validação do CPF
+      if (cpf.length != 11 || !/^\d+$/.test(cpf)) {
+          resultado.innerHTML += 'CPF inválido: O CPF precisa de 11 dígitos numéricos.<br>';
+          cadastroValido = false;
+      } else {
+          // Não permite CPF com números repetidos (como 11111111111)
+          if (/^(\d)\1{10}$/.test(cpf)) {
+              resultado.innerHTML += 'CPF inválido: sequência repetida.<br>';
+              cadastroValido = false;
+          } else {
+              const calcDigito = (cpf, factor) => {
+                  let total = 0;
+                  for (let i = 0; i < factor - 1; i++) {
+                      total += parseInt(cpf.charAt(i)) * (factor - i);
+                  }
+                  const resto = total % 11;
+                  return resto < 2 ? 0 : 11 - resto;
+              };
 
-    // Validação do CPF
-    if (cpf.length != 11 || !/^\d+$/.test(cpf)) {
-        resultado.innerHTML += 'CPF inválido: O CPF precisa de 11 dígitos numéricos.<br>';
-        cadastroValido = false;
-    } else {
-        // Não deixa botar cpf com números repetidos (Como 111.111.111.11)
-        if (/^(\d)\1{10}$/.test(cpf)) {
-            resultado.innerHTML += 'CPF inválido: sequência repetida.<br>';
-            cadastroValido = false;
-        } else {
-            // Função para calcular o dígito verificador
-            const calcDigito = (cpf, factor) => {
-                let total = 0;
-                for (let i = 0; i < factor - 1; i++) {
-                    total += parseInt(cpf.charAt(i)) * (factor - i);
-                }
-                const resto = total % 11;
-                return resto < 2 ? 0 : 11 - resto;
-            };
+              const digito1 = calcDigito(cpf, 10);
+              const digito2 = calcDigito(cpf, 11);
 
-            const digito1 = calcDigito(cpf, 10);
-            const digito2 = calcDigito(cpf, 11);
-
-            if (digito1 != parseInt(cpf.charAt(9)) || digito2 != parseInt(cpf.charAt(10))) {
-                resultado.innerHTML += 'CPF inválido!<br>';
-                cadastroValido = false;
-            }
-        }
-    }
-
-    // Se houver algum erro, exibe os erros
-    if (!cadastroValido) {
-        resultado.className = 'invalid';
-    }
+              if (digito1 !== parseInt(cpf.charAt(9)) || digito2 !== parseInt(cpf.charAt(10))) {
+                  resultado.innerHTML += 'CPF inválido!<br>';
+                  cadastroValido = false;
+              }
+          }
+      }
+      
+      // Exibe mensagem de sucesso se o cadastro for válido
+      if (cadastroValido) {
+        resultado.style.color = "green";
+        resultado.innerHTML = "Todos os campos estão corretos!";
+      } else {
+        resultado.style.color = "red";
+      }
+      
+      // Retorna o status do cadastro (true = enviar, false = cancelar o submit)
+      return cadastroValido;
 }
 
 // seleciona a área onde os cachorrinhos vão aparecer, onde fica no canto direito 
@@ -135,18 +141,3 @@ campos.forEach(campo => {
     } 
   }); 
 }
- 
-// função chamada ao clicar em login 
-function mostrarLogin() { 
-  document.getElementById('caixa-login').style.display = 'flex'; 
-  document.getElementById('caixa-cadastro').style.display = 'none'; 
-} 
- 
-// função chamada ao clicar em cadastro 
-function mostrarCadastro() { 
-  document.getElementById('caixa-login').style.display = 'none'; 
-  document.getElementById('caixa-cadastro').style.display = 'flex'; 
-} 
- 
-// assim que a página for carregada a função monitorarCampos é ativada 
-document.addEventListener('DOMContentLoaded', monitorarCampos);

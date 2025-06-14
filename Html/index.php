@@ -1,3 +1,6 @@
+<?php include('Modulos/cabecalho.php'); ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,10 +16,6 @@
 </head>
 
 <body>
-    <header>
-        <?php include('Modulos/cabecalho.php'); ?>
-    </header>
-
     <main>
         <section id="banner">
             <div class="container">
@@ -54,7 +53,9 @@
                 </div>
             </section>
             </main>
-
+            
+            
+            
     <footer>
         <?php include("Modulos/rodape.php"); ?>
     </footer>

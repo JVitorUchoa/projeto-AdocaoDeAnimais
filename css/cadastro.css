@@ -80,6 +80,18 @@ input[type="radio"]:checked + label {
     border-radius: 10px; 
     box-shadow: 10px 9px 10px rgba(0, 0, 0, 0.278); 
 }
+
+.btn-sair {
+    background-color: #3e391f; /* Cor do botão */ 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    width: 100%; 
+    max-width: 300px; /* Limita o tamanho máximo do botão */ 
+    margin-top: 20px; /* Espaço acima do botã */ 
+}
  
 /*As entradas de dados (senha, email...)*/ 
 #caixa-login > input, 
@@ -91,14 +103,7 @@ input[type="radio"]:checked + label {
     margin-bottom: 10px; 
     box-sizing: border-box; 
 } 
-
-#mensagem-erro {
-    color: red;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
+ 
 /*Botão de Entrar e Cadastrar*/ 
 .cadastrar-btn, .entrar-btn { 
     background-color: #3e391f; /* Cor do botão */ 

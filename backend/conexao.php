@@ -1,12 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mialdota";
 
-$conexao = new mysqli($servername, $username, $password, $dbname);
+$host = 'localhost';
+$dbname = 'mialdota';
+$usuario = 'root';
+$senha = '';
+$porta = '3306';  
 
-// Verificando a conexão
-if ($conexao->connect_errno) {
-    echo "Erro de conexão com o banco de dados";
+try {
+    $conexao = new PDO("mysql:host=$host;dbname=$dbname", "root", ""); 
+    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $conexao;
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
 }
+?>

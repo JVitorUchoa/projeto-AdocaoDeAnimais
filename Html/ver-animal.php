@@ -1,3 +1,5 @@
+<?php include('Modulos/cabecalho.php'); ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,10 +11,6 @@
     </style>
 </head>
 <body>
-      <header>
-        <?php include('Modulos/cabecalho.php'); ?>
-      </header>
-
 
   <main class="animal-detalhes">
     <div class="imagem-grande">
