@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08/06/2025 às 21:30
+-- Tempo de geração: 14/06/2025 às 21:13
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animais` (
   `id_animal` int(11) NOT NULL,
+  `nome_anunciante` varchar(50) NOT NULL,
+  `email_anunciante` varchar(50) NOT NULL,
   `nome_animal` varchar(100) NOT NULL,
-  `especie_animal` varchar(50) NOT NULL,
-  `raça_animal` varchar(100) NOT NULL,
-  `idade_animal` int(11) NOT NULL,
-  `descrição_animal` text NOT NULL
+  `tipo_animal` varchar(50) NOT NULL,
+  `descricao` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -49,14 +49,6 @@ CREATE TABLE `usuarios` (
   `senha_usuario` varchar(255) NOT NULL,
   `cpf_usuario` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `email_usuario`, `senha_usuario`, `cpf_usuario`) VALUES
-(1, 'junin', 'junin@gmail.com', 'asdawdawsd', '12345678909'),
-(2, 'junin2000', 'junin@gmail.comfdgdfg', 'jdskhfksdhjf', '35746358473');
 
 --
 -- Índices para tabelas despejadas
@@ -88,7 +80,7 @@ ALTER TABLE `animais`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
