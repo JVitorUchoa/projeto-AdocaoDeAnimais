@@ -27,6 +27,7 @@ body {
     flex-direction: column;
 }
 
+/*Cabeçalho*/
 a {
     text-decoration: none;
     color: white;
@@ -34,33 +35,31 @@ a {
 }
 
 #seta {
-    cursor: pointer;
+ cursor: pointer;   
 }
 
-/* ================================
-   CABEÇALHO
-   ================================ */
 header {
-    background-color: var(--cor-laranja);
-    padding: 35px 0 1px 0;
+    background-color: #ff9800; 
+    padding: 35px 0px 1px 0px;
     text-align: center;
 }
 
-#titulo {
-    font-size: clamp(2rem, 4.5vw, 2.5rem);
-    margin: 0;
+#titulo{
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 0px 0px 0px 10px;
+    padding: 0;
     color: white;
-    font-family: var(--fonte-titulo);
-    font-weight: 100;
+    font-family: Luckiest Guy;
+
     letter-spacing: 1px;
     white-space: nowrap;
 }
 
-#caixa {
+#caixa{
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 15px;
+    justify-content: center;
     flex-wrap: nowrap;
 }
 
@@ -70,13 +69,16 @@ header {
     background-color: white;
     border: 1px solid #090908;
     border-radius: 14px;
-    padding-left: 10px;
-    margin: 15px;
+    padding: 0 0 0 10px;
+    margin: 15px 10px;
+
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 0;
-    min-width: 80px;
+    flex-basis: 0; /*divide o espaço e encolher*/
+
+    min-width: 80px; /*permite encolher*/
     max-width: 500px;
+
     transition: all 0.3s ease;
 }
 
@@ -85,33 +87,35 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
-    min-width: 0;
+    min-width: 0; /*permite que ele encolha*/
 }
 
 #pesquisa::-webkit-search-cancel-button {
     display: none;
 }
+/*Tira o X padrão (de limpar tudo) do input.*/
 
-#lupa {
+#lupa{
     width: 15px;
     height: 15px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 
-.botao-lupa {
-    all: unset;
+.botao-lupa{
+    all: unset; /*Remove todos os estilos padrões*/
     background-color: black;
     width: 30px;
     height: 30px;
     border-radius: 40%;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.botao-lupa:hover {
-    background-color: black;
+.botao-lupa:hover{
+    background-color: black !important;
     transform: none;
 }
 
@@ -127,46 +131,79 @@ nav ul {
 nav li {
     font-weight: 100;
     font-size: clamp(11px, 4vw, 14px);
-    color: white;
+    color: white !important;
     padding: clamp(10px, 4vw, 14px) clamp(8px, 3vw, 10px);
+
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 nav li:hover {
-    background-color: var(--cor-laranja-hover);
+    background-color: #fb8c00 !important;
 }
 
-#submenu {
+#submenu{
     display: none;
     position: absolute;
     list-style: none;
-    background-color: var(--cor-laranja);
+
+    background-color: #ff9800 !important;
     color: white;
-    margin-top: 9px;
-    left: 0;
+    margin-top: 9px !important;
+    left:0;
     border-radius: 6px;
-    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093);
-    z-index: 999;
+    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
 }
 
-#logar {
+#logar{
     width: 30px;
     height: auto;
 }
 
-#imagens-simbolos {
-    display: flex;
+#imagens-simbolos{
     flex-wrap: nowrap;
+    display: flex;
+    margin: 0px 10px 0px 0px;
+    padding: 0;
 }
 
-.icones,
-#icone-login {
+.icones{
     width: 28px;
     height: auto;
 }
 
+#icone-login{
+    width: 30px;
+    height: auto;
+}
+
+#titulo-none{
+    display: none;
+}
+
+@media (max-width: 450px){
+    #titulo{
+        display: none;
+    }
+    #titulo-none{
+    font-size: clamp(30px, 5vw, 40px);
+    color: white;
+    font-family: Luckiest Guy;
+    display: block;
+    letter-spacing: 1px;
+    };
+}
+
+.menu-agrupado{
+    position: relative;
+}
+
+.menu-agrupado:hover #submenu{
+    display: block;
+}
+
+/* Main */
 main.container {
     max-width: 800px;
     background-color: var(--cor-amarelo-bege);
@@ -179,11 +216,10 @@ main.container {
 main h2 {
     font-family: var(--fonte-titulo);
     color: var(--cor-marrom);
-    font-size: clamp(2rem, 4.5vw, 2.5rem);
+    font-size: clamp(23px, 4.5vw, 33px);
     text-align: center;
     margin-bottom: 30px;
     letter-spacing: 1px;
-    white-space: nowrap;
 }
 
 #form-anuncio {

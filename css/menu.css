@@ -193,18 +193,13 @@ header {
     text-align: left; /* Alinha o texto à esquerda */
 }
 
-#submenu li a {
-    color: white;
-    display: block; /* Faz o link preencher todo o item de lista */
-}
-
 .menu-agrupado {
     position: relative;
 }
 
 .menu-agrupado:hover #submenu {
-    display: block;
-}
+    display: block !important;
+} 
 
 /* MAIN CONTENT - seus estilos existentes (mantidos para referência) */
 main {
@@ -350,12 +345,6 @@ footer {
     #main-nav li {
         margin: 0 5px; /* Espaço entre os itens do menu */
     }
-
-    #submenu {
-        position: absolute;
-        top: 100%; /* Abaixo do item pai */
-        left: 0; /* Alinhado à esquerda do item pai */
-    }
 }
 
 
@@ -439,8 +428,9 @@ footer {
     }
 
     .menu-agrupado:hover #submenu {
-        display: block; /* Permite hover em mobile se precisar, mas JS vai controlar */
+        display: block !important; 
     }
+    /* Permite hover em mobile se precisar, mas JS vai controlar */
 
     /* Ajustes para a seção de grade */
     #grade-caes, #grade-gatos {

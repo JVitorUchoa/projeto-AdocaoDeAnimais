@@ -40,23 +40,22 @@ header {
 }
 
 #titulo{
-    font-size: clamp(2rem, 4.5vw, 2.5rem);
-    margin: 0;
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 0px 0px 0px 10px;
+    padding: 0;
     color: white;
     font-family: Luckiest Guy;
-    font-weight: 100;
 
     letter-spacing: 1px;
-    white-space: nowrap; /* impede quebra de linha */
+    white-space: nowrap;
 }
 
-#caixa {
+#caixa{
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaço entre o título e a pesquisa */
-    justify-content: center; /* ou flex-start, se quiser tudo colado à esquerda */
+    gap: 15px;
+    justify-content: center;
     flex-wrap: nowrap;
-    
 }
 
 #caixa-pesquisa {
@@ -66,13 +65,13 @@ header {
     border: 1px solid #090908;
     border-radius: 14px;
     padding: 0 0 0 10px;
-    margin: 15px;
+    margin: 15px 10px;
 
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 0; /* importante para ela dividir o espaço e encolher */
+    flex-basis: 0; /*divide o espaço e encolher*/
 
-    min-width: 80px; /* permite encolher bastante */
+    min-width: 80px; /*permite encolher*/
     max-width: 500px;
 
     transition: all 0.3s ease;
@@ -83,7 +82,7 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
-    min-width: 0; /* permite que ele encolha de verdade */
+    min-width: 0; /*permite que ele encolha*/
 }
 
 #pesquisa::-webkit-search-cancel-button {
@@ -122,8 +121,6 @@ nav ul {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-
-    
 }
 
 nav li {
@@ -162,6 +159,8 @@ nav li:hover {
 #imagens-simbolos{
     flex-wrap: nowrap;
     display: flex;
+    margin: 0px 10px 0px 0px;
+    padding: 0;
 }
 
 .icones{
@@ -172,6 +171,31 @@ nav li:hover {
 #icone-login{
     width: 30px;
     height: auto;
+}
+
+#titulo-none{
+    display: none;
+}
+
+@media (max-width: 450px){
+    #titulo{
+        display: none;
+    }
+    #titulo-none{
+    font-size: clamp(30px, 5vw, 40px);
+    color: white;
+    font-family: Luckiest Guy;
+    display: block;
+    letter-spacing: 1px;
+    };
+}
+
+.menu-agrupado{
+    position: relative;
+}
+
+.menu-agrupado:hover #submenu{
+    display: block;
 }
 
 
@@ -290,8 +314,6 @@ h1{
     position: relative;
   }
 }
-
-
 
 .grade-cards {
     display: flex;

@@ -1,83 +1,108 @@
-// Função para mostrar o login
+//funções para alternar entre login e cadastro
 function mostrarLogin() {
-    document.getElementById("caixa-login").style.display = "flex";
-    document.getElementById("caixa-cadastro").style.display = "none";
+  document.getElementById("caixa-login").style.display = "flex";//exibe a caixa de login assim que a página carrega 
+  document.getElementById("caixa-cadastro").style.display = "none";//faz com que a caixa de cadastro não apareça em primeiro momento  
 }
-// Função para mostrar o cadastro
+
 function mostrarCadastro() {
-    document.getElementById("caixa-login").style.display = "none";
-    document.getElementById("caixa-cadastro").style.display = "flex";
+  document.getElementById("caixa-login").style.display = "none";//a caixa de login não aparecerá 
+  document.getElementById("caixa-cadastro").style.display = "flex";//mostra a caixa de cadastro  
 }
 
-// Quando carregar a pagina deixa o login visivel por padrão
-window.onload = mostrarLogin;
+window.onload = mostrarLogin;//garante que o login aparecerá assim que a página carrega  
 
-// função para verificar nome,email,CPF e senha
-function validar() {
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const cpf = document.getElementById('cpf').value;
-    const senha = document.getElementById('senha').value;
-    const resultado = document.getElementById('resultado');
-    
-    // Limpa o conteúdo do parágrafo antes de exibir novos resultados
-    resultado.innerHTML = '';
-    let cadastroValido = true; // Variável para controle da validação
+document.addEventListener('DOMContentLoaded', () => {//adicionando um ouvinte de ação 
+  //remove borda vermelha antes de fazer a validação de cadastro
+  const camposCadastro = document.querySelectorAll('#caixa-cadastro input[required]');//responsável por selecionar  o campo de cadastro
+  camposCadastro.forEach(campo => {
+    campo.addEventListener('input', () => campo.classList.remove('erro'));//adiciona um listener para remover a classe erro assim que o usuário tenta corrigir 
+  });
 
-    // Validação do Nome
-    if (nome.trim() == "") {
-        resultado.innerHTML += 'Nome inválido: O nome não pode estar vazio.<br>';
-        cadastroValido = false;
+  //remove borda vermelha antes de fazer a validação de login
+  const camposLogin = document.querySelectorAll('#caixa-login input[required]');//responsável por selecionar o campo de login
+  camposLogin.forEach(campo => {
+    campo.addEventListener('input', () => campo.classList.remove('erro'));//adiciona um listener para remover a classe erro assim que o usuário tenta corrigir 
+  });
+});
+
+// função para validar o cadastro
+function validarCadastro() {
+  const novo_nome = document.getElementById('nome');
+  const novo_email = document.getElementById('email');
+  const novo_cpf = document.getElementById('cpf');
+  const novo_senha = document.getElementById('senha');
+
+  // remove bordas vermelhas anteriores
+  [novo_nome, novo_email, novo_cpf, novo_senha].forEach(f => f.classList.remove('erro'));
+
+  let cadastroValido = true;//variável para controlar a validação
+
+  const regexNome = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;// permite letras maiúsculas e minúsculas, incluindo caracteres acentuados e espaços. 
+  if (!regexNome.test(novo_nome.value.trim())) {// se inválido, adiciona a borda vermelha e marca cadastro como inválido 
+    novo_nome.classList.add('erro');
+    cadastroValido = false;
+  }
+
+  const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; //regex para seguir formato de emails padrão 
+  if (!regexEmail.test(novo_email.value)) {
+    novo_email.classList.add('erro');
+    cadastroValido = false;
+  }
+
+   // regex para validar senha, pelo menos 8 caracteres, 1 letra maiúscula, 1 número e 1 caractere especial 
+  const regexSenha = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/; 
+  if (!regexSenha.test(novo_senha.value)) {
+    novo_senha.classList.add('erro');
+    cadastroValido = false;
+  }
+    //validação de cpf 
+  const cpf = novo_cpf.value;
+  if (cpf.length !== 11 || !/^\d+$/.test(cpf) || /^(\d)\1{10}$/.test(cpf)) {//CPF deve ter 11 dígitos, todos números, e não pode ser sequência repetida 
+    novo_cpf.classList.add('erro');
+    cadastroValido = false;
+  } else {
+    const calcDigito = (cpfStr, fator) => {// função responsávelo por calcular dígito verificador do CPF 
+      let total = 0;
+      for (let i = 0; i < fator - 1; i++) {
+        total += parseInt(cpfStr.charAt(i)) * (fator - i);
+      }
+      const resto = total % 11;
+      return resto < 2 ? 0 : 11 - resto;
+    };
+       //calcula os dois digitos verificadores
+    const d1 = calcDigito(cpf, 10);
+    const d2 = calcDigito(cpf, 11);
+    if (d1 !== parseInt(cpf.charAt(9)) || d2 !== parseInt(cpf.charAt(10))) {
+      novo_cpf.classList.add('erro');
+      cadastroValido = false;
     }
+  }
 
-    // Validação do E-mail
-    const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!regexEmail.test(email)) {
-        resultado.innerHTML += 'E-mail inválido: O formato do e-mail está incorreto.<br>';
-        cadastroValido = false;
-    }
+  return cadastroValido;// retorna verdadeiro se todos os campos do cadastro forem válidos e falso se for inválido 
+}
 
-    // Validação da Senha
-    const regexSenha = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
-    if (!regexSenha.test(senha)) {
-        resultado.innerHTML += 'Senha inválida: A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial.<br>';
-        cadastroValido = false;
-    }
+// função para validar o login
+function validarLogin() {
+  const emailLogin = document.querySelector('#caixa-login #email-login');
+  const senhaLogin = document.querySelector('#caixa-login #senha-login');
 
-    // Validação do CPF
-    if (cpf.length != 11 || !/^\d+$/.test(cpf)) {
-        resultado.innerHTML += 'CPF inválido: O CPF precisa de 11 dígitos numéricos.<br>';
-        cadastroValido = false;
-    } else {
-        // Não deixa botar cpf com números repetidos (Como 111.111.111.11)
-        if (/^(\d)\1{10}$/.test(cpf)) {
-            resultado.innerHTML += 'CPF inválido: sequência repetida.<br>';
-            cadastroValido = false;
-        } else {
-            // Função para calcular o dígito verificador
-            const calcDigito = (cpf, factor) => {
-                let total = 0;
-                for (let i = 0; i < factor - 1; i++) {
-                    total += parseInt(cpf.charAt(i)) * (factor - i);
-                }
-                const resto = total % 11;
-                return resto < 2 ? 0 : 11 - resto;
-            };
+  // remove bordas vermelhas anteriores
+  [emailLogin, senhaLogin].forEach(f => f.classList.remove('erro'));
 
-            const digito1 = calcDigito(cpf, 10);
-            const digito2 = calcDigito(cpf, 11);
+  let loginValido = true;//variável para controlar a validação
 
-            if (digito1 != parseInt(cpf.charAt(9)) || digito2 != parseInt(cpf.charAt(10))) {
-                resultado.innerHTML += 'CPF inválido!<br>';
-                cadastroValido = false;
-            }
-        }
-    }
+  const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; //regex para seguir formato de emails padrão 
+  if (!regexEmail.test(emailLogin.value)) {
+    emailLogin.classList.add('erro');
+    loginValido = false;
+  }
 
-    // Se houver algum erro, exibe os erros
-    if (!cadastroValido) {
-        resultado.className = 'invalid';
-    }
+  if (senhaLogin.value.trim() === '') {
+    senhaLogin.classList.add('erro');
+    loginValido = false;
+  }
+
+  return loginValido;// retorna verdadeiro se todos os campos do cadastro forem válidos e falso se for inválido 
 }
 
 // seleciona a área onde os cachorrinhos vão aparecer, onde fica no canto direito 
