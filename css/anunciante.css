@@ -357,3 +357,27 @@ main h2 {
     background: #45a049;
 }
 
+
+
+/* Linha do título */
+#linha-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Botão "Meus Anúncios" */
+#meus-anuncios-botao {
+  padding: 8px 16px;
+  background-color: #ff9900;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#meus-anuncios-botao:hover {
+  background-color: #e68a00;
+}

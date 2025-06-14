@@ -140,85 +140,126 @@
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const container = document.getElementById('cards-animais');
-      const modal = document.getElementById('detalhes-animal');
-      const detalhesConteudo = document.getElementById('detalhes-conteudo');
-      const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('cards-animais');
+  const modal = document.getElementById('detalhes-animal');
+  const detalhesConteudo = document.getElementById('detalhes-conteudo');
+  const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
 
-      function formatarTipo(tipo) {
-        return tipo
-          .split('-')
-          .map(p => p.charAt(0).toUpperCase() + p.slice(1))
-          .join(' ')
-          .replace('Caes', 'Cães');
-      }
+  function formatarTipo(tipo) {
+    return tipo
+      .split('-')
+      .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+      .join(' ')
+      .replace('Caes', 'Cães');
+  }
 
-      function renderizarCards() {
+const urlParams = new URLSearchParams(window.location.search);
+const categoriaSelecionada = urlParams.get('categoria');
+const termoBusca = urlParams.get('busca')?.toLowerCase() || '';
+
+
+
+  function renderizarCards() {
   container.innerHTML = '';
-  anuncios.forEach(animal => {
-    // Verificação robusta das fotos
-    const temFotosValidas = animal.fotos && 
-                          Array.isArray(animal.fotos) && 
-                          animal.fotos.length > 0 && 
-                          animal.fotos[0].data;
-    
-    // Se não tiver fotos válidas, usa uma imagem padrão
-    const imagemSrc = temFotosValidas ? animal.fotos[0].data : '../img/placeholder-animal.jpg';
-    
+
+  const anunciosFiltrados = anuncios.filter(animal => {
+    if (!animal.nomeAnimal || !animal.tipo || !animal.descricao) return false;
+
+    // 🔍 Filtrar por categoria (se tiver)
+    if (categoriaSelecionada && animal.tipo !== categoriaSelecionada) {
+      return false;
+    }
+
+    // 🔍 Filtrar por termo de busca (se tiver)
+    if (termoBusca) {
+      const nome = animal.nomeAnimal.toLowerCase();
+      const descricao = animal.descricao.toLowerCase();
+
+      if (!nome.includes(termoBusca) && !descricao.includes(termoBusca)) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  if (anunciosFiltrados.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center;">
+        <p style="font-size: 1.2rem;">Nenhum animal encontrado para essa busca.</p>
+      </div>
+    `;
+    return;
+  }
+
+  anunciosFiltrados.forEach(animal => {
+    const imagemSrc = animal.fotos?.[0]?.data || '../img/placeholder-animal.jpg';
+
     const card = document.createElement('div');
     card.className = 'card-animal';
     card.innerHTML = `
-      <img src="${imagemSrc}" alt="${animal.nomeAnimal || 'Animal sem nome'}" class="card-imagem">
+      <img src="${imagemSrc}" alt="${animal.nomeAnimal}" class="card-imagem">
       <div class="card-corpo">
-        <h3 class="card-titulo">${animal.nomeAnimal || 'Animal sem nome'}</h3>
-        <span class="card-tipo">${animal.tipo ? formatarTipo(animal.tipo) : 'Sem tipo especificado'}</span>
-        <p class="card-descricao">${animal.descricao ? animal.descricao.substring(0, 100) + '...' : 'Sem descrição'}</p>
+        <h3 class="card-titulo">${animal.nomeAnimal}</h3>
+        <span class="card-tipo">${formatarTipo(animal.tipo)}</span>
+        <p class="card-descricao">${animal.descricao.substring(0, 100)}...</p>
       </div>
     `;
+
+    if (animal.adotado) {
+      card.style.opacity = '0.5';
+      card.style.filter = 'grayscale(100%)';
+      card.title = 'Este animal já foi adotado.';
+    }
+
     card.addEventListener('click', () => mostrarDetalhes(animal));
+
     container.appendChild(card);
   });
 }
 
-      function mostrarDetalhes(animal) {
-  // Verifica se existem fotos antes de tentar renderizar
-  const galeriaFotos = animal.fotos && Array.isArray(animal.fotos) 
-    ? animal.fotos.map(foto => `<img src="${foto.data || '../img/placeholder-animal.jpg'}" alt="${animal.nomeAnimal}">`).join('')
-    : `<img src="../img/placeholder-animal.jpg" alt="Sem fotos disponíveis">`;
 
-  detalhesConteudo.innerHTML = `
-    <div class="galeria-animal">
-      ${galeriaFotos}
-    </div>
-    <div class="detalhes-info">
-      <h2>${animal.nomeAnimal || 'Animal sem nome'}</h2>
-      <p><strong>Tipo:</strong> ${animal.tipo ? formatarTipo(animal.tipo) : 'Não especificado'}</p>
-      <p><strong>Anunciante:</strong> ${animal.nomeAnunciante || 'Anônimo'}</p>
-      <p><strong>Contato:</strong> ${animal.email || 'Não informado'}</p>
-      <p><strong>Descrição completa:</strong></p>
-      <p>${animal.descricao || 'Nenhuma descrição fornecida.'}</p>
-      <p><small>Anúncio publicado em: ${animal.data || 'Data não registrada'}</small></p>
-    </div>
-  `;
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-      document.querySelector('.fechar-modal').addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      });
+  function mostrarDetalhes(animal) {
+    const galeriaFotos = animal.fotos && Array.isArray(animal.fotos) 
+      ? animal.fotos.map(foto => `<img src="${foto.data || '../img/placeholder-animal.jpg'}" alt="${animal.nomeAnimal}">`).join('')
+      : `<img src="../img/placeholder-animal.jpg" alt="Sem fotos disponíveis">`;
 
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      });
+    detalhesConteudo.innerHTML = `
+      <div class="galeria-animal">
+        ${galeriaFotos}
+      </div>
+      <div class="detalhes-info">
+        <h2>${animal.nomeAnimal || 'Animal sem nome'}</h2>
+        <p><strong>Tipo:</strong> ${animal.tipo ? formatarTipo(animal.tipo) : 'Não especificado'}</p>
+        <p><strong>Anunciante:</strong> ${animal.nomeAnunciante || 'Anônimo'}</p>
+        <p><strong>Contato:</strong> ${animal.email || 'Não informado'}</p>
+        <p><strong>Descrição completa:</strong></p>
+        <p>${animal.descricao || 'Nenhuma descrição fornecida.'}</p>
+        <p><small>Anúncio publicado em: ${animal.data || 'Data não registrada'}</small></p>
+      </div>
+    `;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
 
-      renderizarCards();
-    });
-  </script>
+  document.querySelector('.fechar-modal').addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Chama a função
+  renderizarCards();
+});
+
+ </script>
 </body>
 </html>
