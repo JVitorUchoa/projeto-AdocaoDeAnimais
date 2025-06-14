@@ -4,17 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const bloqueioLogin = document.getElementById('bloqueio-login');
     
     if (!usuarioLogado) {
-        // Mostra o overlay de bloqueio
         if (bloqueioLogin) bloqueioLogin.style.display = 'block';
-        
-        // Desabilita o formulário
+
         const form = document.getElementById('form-anuncio');
         if (form) form.style.display = 'none';
         
         const tituloForm = document.getElementById('titulo-form');
         if (tituloForm) tituloForm.style.display = 'none';
         
-        return; // Interrompe a execução do resto do script
+        return;
     }
 
   const form = document.getElementById('form-anuncio');
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   mensagemSucesso.style.display = 'none';
 
-  // Função auxiliar para converter imagem em base64
+  // Função auxiliar para converter imagem
   function toBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 }
 
-  // Pré-visualização das imagens
+  // Para a visualização das imagens
   inputFotos.addEventListener('change', function () {
     previewContainer.innerHTML = '';
 
@@ -102,7 +100,7 @@ function redimensionarPara3x4(file, callback) {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       
-      // Definimos o canvas como 3x4 (300x400px ou outra proporção similar)
+      // Definimos a largura 300px e altura 400px da imagem
       const width = 300;
       const height = 400;
       canvas.width = width;
@@ -148,7 +146,7 @@ inputFotos.addEventListener('change', function() {
   });
 });
 
-// Atualize o salvamento no form submit
+// Atualiza o salvamento no form submit
 form.addEventListener('submit', function(e) {
   e.preventDefault();
   
@@ -174,7 +172,6 @@ form.addEventListener('submit', function(e) {
     anuncios.push(animalData);
     localStorage.setItem('anuncios', JSON.stringify(anuncios));
     
-    // Feedback e reset
     document.getElementById('mensagem-sucesso').style.display = 'block';
     form.reset();
     previewContainer.innerHTML = '';
