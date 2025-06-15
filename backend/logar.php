@@ -1,5 +1,5 @@
 <?php
-// ** aqui estou usando caminho relativo. Mais seguro para conexao.
+
 $conexao = include(__DIR__ . '/conexao.php');
 
 // Verifica se o formulário foi enviado com e-mail e senha

@@ -18,8 +18,6 @@ if (isset($_POST['nome_usuario'], $_POST['email_usuario'], $_POST['senha_usuario
 
         if ($existe) {
 
-            // aqui crei uma página para retornar a mensagem com stilo. fica elegante
-            // exemplo header("Location: ../Html/avisos.php"); 
             echo "Este email já está cadastrado!";
             exit();
         }
@@ -37,7 +35,7 @@ if (isset($_POST['nome_usuario'], $_POST['email_usuario'], $_POST['senha_usuario
         // Grava sessão do usuário recém cadastrado
         $_SESSION['nome_usuario'] = $nome;
 
-        header("Location: ../Html/index.php"); // chamando o index.php novamente
+        header("Location: ../Html/index.php");
 
         exit();
 
