@@ -1,39 +1,49 @@
-.grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+#fundo-cards{
+   background:
+    linear-gradient(to bottom, #fffdf5, rgba(248, 226, 193, 0) 70px),
+    #f8e2c1;
+  margin: 15px;
+  margin-top: 30px;
+  padding-top: 50px;
+  border-radius: 0px 0px 20px 20px;
+}
+.grid-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
 
-    .card-animal {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
+.card-animal {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
 
-    .card-animal:hover {
-      transform: scale(1.02);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
+.card-animal:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-    .card-imagem {
-      width: 100%;
-      height: 220px; /* altura maior que largura */
-      object-fit: cover;
-      display: block;
-    }
+.card-imagem {
+  width: 100%;
+  height: 220px; /*Altura do card*/
+  object-fit: cover;
+  display: block;
+}
 
 
-    .card-corpo {
-      padding: 15px;
-    }
+.card-corpo {
+  padding: 15px;
+}
 
-    .card-titulo {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-    }
+.card-titulo {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
 
     .card-tipo {
       display: inline-block;

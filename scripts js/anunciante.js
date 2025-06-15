@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const previewContainer = document.getElementById('preview-imagens');
   const mensagemSucesso = document.getElementById('mensagem-sucesso');
 
+
   if (!form || !mensagemSucesso) return;
 
   mensagemSucesso.style.display = 'none';

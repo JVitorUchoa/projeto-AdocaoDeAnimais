@@ -10,45 +10,56 @@
         @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
     </style>
     <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/sobrenos.css"> 
+    <link rel="stylesheet" href="../css/sobrenos.css">
+    <link rel="stylesheet" href="../css/cabecalho.css">
 </head>
 
 <body>
     <header>
-        <a id="titulo-none" href="home.html">MIAUDOTA</a>
-        <div id="caixa">
-            <a id="titulo" href="home.html">MIAUDOTA</a>
+    <a id="titulo-none" href="home.html">MIAUDOTA</a>
+    <div id="caixa">
+        <a id="titulo" href="home.html">MIAUDOTA</a>
 
-            <form id="caixa-pesquisa" action="resul.html" method="get">
-                <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
-                <button type="submit" class="botao-lupa">
-                    <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
-                </button>
-            </form>
+        <form id="caixa-pesquisa" action="resul.html" method="get">
+            <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
+            <button type="submit" class="botao-lupa">
+                <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
+            </button>
+        </form>
+    <div id="imagens-simbolos">
+        <!-- Simbolo do Login -->
+        <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
 
-            <div id="imagens-simbolos">
-                <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
-                <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
-                <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
-            </div>
-        </div>
+        <!-- Simbolo de curtidos -->
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" id="curtida"></a>
 
-        <nav>
-            <ul id="menu">
-                <li><a href="index.html">Home</a></li>
-                <li class="menu-agrupado">Categorias
-                    <ul id="submenu">
-                        <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-                        <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-                        <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Histórias de Adoção</a></li>
-                <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
-                <li><a href="resul.html">Processo de Adoção</a></li>
-                <li><a href="sobrenos.html">Sobre Nós</a></li>
-            </ul>
-        </nav>
+        <!-- Simbolo de ajuda -->
+        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
+    </div>
+    </div>
+
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="menu-agrupado">Categorias
+                <ul id="submenu">
+                    <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
+                    <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
+                    <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Histórias de Adoção</a></li>
+            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+            <li><a href="resul.html">Processo de Adoção</a></li>
+            <li><a href="sobrenos.html">Sobre Nós</a></li>
+        </ul>
+        <form>
+            <span id="seta">
+                <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png">
+            </span>
+        </form>
+    </nav>
     </header>
 
    <main>
@@ -57,13 +68,12 @@
             <div class="texto-sobre">
                 <h2>Sobre Nós</h2>
                 <p>
-                    O <strong>MIAUDOTA</strong> é uma plataforma digital criada para aproximar animais que vivem em abrigos de pessoas dispostas a oferecer um novo lar cheio de amor. Nosso foco está em facilitar o processo de adoção de forma simples, rápida e consciente.
-                </p>
+                    O <strong>MIAUDOTA</strong> Somos uma plataforma digital que conecta animais que precisam de um lar a pessoas dispostas a oferecer cuidado, carinho e uma nova chance. Nosso objetivo é tornar o processo de adoção mais simples, rápido e, acima de tudo, consciente.
                 <p>
                     Acreditamos que todo cão e gato merece uma segunda chance. Por isso, trabalhamos exclusivamente online, dando visibilidade a pets resgatados por ONGs e protetores independentes de todo o Brasil. Não realizamos resgates nem mantemos abrigos — nosso papel é conectar histórias.
                 </p>
                 <p>
-                    O processo é fácil: quem deseja adotar pode acessar o site, buscar por um animalzinho que combine com seu estilo de vida, e quando encontrar aquele especial, é só clicar em <strong>“cadastro”</strong>. A partir daí, a pessoa entra em contato direto com a ONG responsável para combinar a adoção e dar início a essa nova amizade.
+                    O processo é fácil: quem deseja adotar pode acessar o site, buscar por um animalzinho que combine com seu estilo de vida, e quando encontrar aquele especial, é só clicar em <strong>“Adotar”</strong>. A partir daí, a pessoa entra em contato direto com o doador para combinar a adoção e dar início a essa nova amizade.
                 </p>
                 <p>
                     Mais do que um site, somos um elo entre quem quer amar e quem precisa ser amado.
