@@ -1,3 +1,4 @@
+/*Configurações Gerais*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,8 +29,10 @@ main{
     flex: 1;
 }
 
+
+/*Banner*/
 #banner{
-   display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 25px;
@@ -55,9 +58,16 @@ main{
   transition: transform 0.3s ease;
 }
 
-
 .imagem-home:hover{
     transform: scale(1.03);
+}
+
+#img-banner1{
+    display: none;
+}
+
+#img-banner2{
+    display: block;
 }
 
 .texto-adocao{
@@ -92,12 +102,79 @@ button:hover{
     transform: scale(1.05);
 }
 
+@media (max-width: 780px){ 
+#banner {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#img-banner1{
+    display: inline;
+}
+
+#img-banner2{
+    display: none;
+}
+
+.texto-adocao{
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.texto-adocao h1 {
+    font-size: 2.5rem;
+    color: #ff9800;
+    margin-bottom: 10px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.texto-adocao h2 {
+    font-size: clamp(24px, 4vw, 36px);
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.texto-adocao p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.texto-adocao button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.texto-adocao button:hover {
+    background-color: #fb8c00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+}
+
+
 .transicao-degrade{
   height: 60px;
   background: linear-gradient(#fbd69e, #fffdf5);
 }
   
 
+/*Categorias*/
 #grade{
     padding: 25px 0px; 
     display: flex;
@@ -150,6 +227,8 @@ button:hover{
     }
 }
 
+
+/*Footer*/
 footer{
     background-color: #ca8011;
     color: white;

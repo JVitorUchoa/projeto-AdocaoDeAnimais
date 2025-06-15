@@ -1,11 +1,8 @@
+/*Configurações gerais*/
 a {
     text-decoration: none;
     color: white;
     display: inline-block;
-}
-
-#seta {
- cursor: pointer;   
 }
 
 header {
@@ -25,6 +22,8 @@ header {
     white-space: nowrap;
 }
 
+
+/*Caixa de pesquisa e lupa*/
 #caixa{
     display: flex;
     align-items: center;
@@ -63,8 +62,8 @@ header {
 #pesquisa::-webkit-search-cancel-button {
     display: none;
 }
-/*Tira o X padrão (de limpar tudo) do input.*/
 
+/*Tira o X padrão (de limpar tudo) do input.*/
 #lupa{
     width: 15px;
     height: 15px;
@@ -89,6 +88,8 @@ header {
     transform: none;
 }
 
+
+/*Estilos pros tópico do Menu*/
 nav ul {
     list-style: none;
     padding: 0;
@@ -97,7 +98,6 @@ nav ul {
     gap: 20px;
     flex-wrap: wrap;
 }
-
 nav li {
     font-weight: 100;
     font-size: clamp(11px, 4vw, 14px);
@@ -108,46 +108,33 @@ nav li {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 nav li:hover {
     background-color: #fb8c00 !important;
 }
 
-#submenu{
-    display: none;
-    position: absolute;
-    list-style: none;
 
-    background-color: #ff9800 !important;
-    color: white;
-    margin-top: 9px !important;
-    left:0;
-    border-radius: 6px;
-    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
-}
-
+/*Simbolos de login, curtida e dúvidas*/
 #logar{
     width: 30px;
     height: auto;
 }
-
 #imagens-simbolos{
     flex-wrap: nowrap;
     display: flex;
     margin: 0px 10px 0px 0px;
     padding: 0;
 }
-
 .icones{
     width: 28px;
     height: auto;
 }
-
 #icone-login{
     width: 30px;
     height: auto;
 }
 
+
+/*Título "quebra" e vai pra cima, em telas menores*/
 #titulo-none{
     display: none;
 }
@@ -172,3 +159,6 @@ nav li:hover {
 .menu-agrupado:hover #submenu{
     display: block;
 }
+
+
+/*Pro Menu Burguer:*/
