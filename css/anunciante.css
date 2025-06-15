@@ -141,10 +141,7 @@ main h2 {
 }
 
 
-
-
-
-
+/*Pro bloqueio*/
 #bloqueio-login {
     position: fixed;
     top: 0;
@@ -183,25 +180,53 @@ main h2 {
 
 
 
-/* Linha do título */
+/*Caixa que agrupa título e botão*/
 #linha-titulo {
   display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem para nova linha */
+  justify-content: center; /* Centraliza quando quebrar */
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 20px;
+  gap: 10px; /* Espaço entre os itens */
+}
+
+#titulo-form {
+  flex-grow: 1;
+  text-align: center;
+  min-width: min-content;
+  padding-left: 0;
 }
 
 /* Botão "Meus Anúncios" */
 #meus-anuncios-botao {
-  padding: 8px 16px;
+  padding: 8px 10px;
   background-color: #ff9900;
   color: white;
-  border-radius: 8px;
-  text-decoration: none;
+  border-radius: 8px; 
   font-weight: bold;
   transition: background-color 0.3s;
+  margin-right: 10px;
 }
 
-#meus-anuncios-botao:hover {
-  background-color: #e68a00;
+/* Ajustes para telas pequenas */
+@media (max-width: 600px) {
+  #linha-titulo {
+    flex-direction: column; /* Empilha verticalmente */
+    text-align: center;
+  }
+  
+  #titulo-form {
+    margin-right: 0;
+    padding-left: 0;
+    order: 1; /* Garante que o título fique acima */
+  }
+  
+  #meus-anuncios-botao {
+    order: 2; /* Garante que o botão fique abaixo */
+    margin-top: 0px;
+    width: 90px;
+    height: 15px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
 }
