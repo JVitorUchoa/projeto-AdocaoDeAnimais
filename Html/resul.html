@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <header>
+    <header>
     <a id="titulo-none" href="home.html">MIAUDOTA</a>
     <div id="caixa">
         <a id="titulo" href="home.html">MIAUDOTA</a>
@@ -28,36 +28,23 @@
         <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
 
         <!-- Simbolo de curtidos -->
-        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" id="curtida"></a>
 
         <!-- Simbolo de ajuda -->
         <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
     </div>
     </div>
 
-    <nav>
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-
-            <li class="menu-agrupado">Categorias
-                <ul id="submenu">
-                    <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-                    <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-                    <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Histórias de Adoção</a></li>
-            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
-            <li><a href="resul.html">Processo de Adoção</a></li>
-            <li><a href="sobrenos.html">Sobre Nós</a></li>
-        </ul>
-        <form>
-            <span id="seta">
-                <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png">
-            </span>
-        </form>
-    </nav>
-    </header>
+<nav id="main-nav">
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Histórias de Adoção</a></li>
+        <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+        <li><a href="#">Processo de Adoção</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+    </ul>
+</nav>
+  </header>
   <main>
     <div id="fundo-cards">
       <section id="cards-animais" class="grid-cards"></section>
@@ -70,6 +57,17 @@
       </div>
     </div>
   </main>
+  <section id="perfil-section" style="display: none;">
+    <div class="perfil-container">
+        <h3>Meu Perfil</h3>
+        <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+        <button id="logout-btn">Desconectar</button>
+    </div>
+</section>
+
+<script src="../scripts js/utils_login.js"></script>
   
   <script src="../scripts js/utils_resul.js"></script>
 </body>

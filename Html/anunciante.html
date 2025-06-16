@@ -10,15 +10,15 @@
 </head>
 
 <body>
-<div id="bloqueio-login" style="display: none;">
-  <div class="mensagem">
-    <h2>Você precisa estar logado para anunciar um animal.</h2>
-    <button onclick="window.location.href='../Html/login.html'">Fazer Login</button>
+<div id="bloqueio-login">
+  <div class="mensagem-bloqueio">
+    <h2>Você precisa estar logado para acessar esta página.</h2>
+    <button onclick="window.location.href='login.html'">Fazer Login</button>
   </div>
 </div>
 
 
-  <header>
+    <header>
     <a id="titulo-none" href="home.html">MIAUDOTA</a>
     <div id="caixa">
         <a id="titulo" href="home.html">MIAUDOTA</a>
@@ -41,20 +41,15 @@
     </div>
     </div>
 
-    <nav>
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Histórias de Adoção</a></li>
-            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
-            <li><a href="resul.html">Processo de Adoção</a></li>
-            <li><a href="sobrenos.html">Sobre Nós</a></li>
-        </ul>
-        <form>
-            <span id="seta">
-                <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png">
-            </span>
-        </form>
-    </nav>
+<nav id="main-nav">
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Histórias de Adoção</a></li>
+        <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+        <li><a href="#">Processo de Adoção</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+    </ul>
+</nav>
     </header>
 
   <main id="container">
@@ -116,10 +111,17 @@
 
       <button type="submit" id="botao-enviar">Enviar Anúncio</button>
     </form>
+    <section id="perfil-section" style="display: none;">
+    <div class="perfil-container">
+        <h3>Meu Perfil</h3>
+        <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+        <button id="logout-btn">Desconectar</button>
+    </div>
+</section>
 
-  
-    
-   
+<script src="../scripts js/utils_login.js"></script>
   </main>
 
   <script src="../scripts js/anunciante.js"></script>

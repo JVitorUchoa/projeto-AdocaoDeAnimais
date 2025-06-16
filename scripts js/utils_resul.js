@@ -1,4 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se tem algum usuário logado
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const loginIconLink = document.getElementById('login-icon');
+    const loginIconImg = loginIconLink?.querySelector('img');
+    const perfilSection = document.getElementById('perfil-section');
+
+    if (usuarioLogado && loginIconLink) {
+        loginIconLink.href = "javascript:void(0);";
+        loginIconLink.onclick = function(e) {
+            e.preventDefault();
+            // Preenche os dados do perfil
+            document.getElementById('perfil-nome').textContent = usuarioLogado.nome;
+            document.getElementById('perfil-email').textContent = usuarioLogado.email;
+            document.getElementById('perfil-cpf').textContent = mascararCPF(usuarioLogado.cpf);
+            perfilSection.style.display = 'block';
+        };
+
+        function mascararCPF(cpf) {
+            if (!cpf || cpf.length !== 11) return cpf;
+            return `${cpf.substring(0, 3)}.${'*'.repeat(3)}.${'*'.repeat(3)}-${cpf.substring(9)}`;
+        }
+    }
+
+    // Configura o botão de logout
+    document.getElementById('logout-btn')?.addEventListener('click', function() {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = '../Html/index.html';
+    });
+
+    // Fecha o perfil quando clicar fora
+    document.addEventListener('click', function(e) {
+        if (perfilSection && perfilSection.style.display === 'block' && 
+            !perfilSection.contains(e.target) && 
+            e.target !== loginIconImg && 
+            !loginIconLink?.contains(e.target)) {
+            perfilSection.style.display = 'none';
+        }
+    });
   const container = document.getElementById('cards-animais');
   const modal = document.getElementById('detalhes-animal');
   const detalhesConteudo = document.getElementById('detalhes-conteudo');

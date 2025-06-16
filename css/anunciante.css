@@ -144,8 +144,6 @@ main h2 {
 /*Pro bloqueio*/
 #bloqueio-login {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
@@ -155,16 +153,19 @@ main h2 {
     align-items: center;
 }
 
-#bloqueio-login .mensagem {
-    background: white;
+.mensagem-bloqueio {
+    background-color: white;
     padding: 30px;
     border-radius: 10px;
+    max-width: 90%;
+    width: 360px;
     text-align: center;
-    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: #333;
 }
 
 #bloqueio-login button {
-    background: #4CAF50;
+    background: #472f05;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -172,10 +173,11 @@ main h2 {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 #bloqueio-login button:hover {
-    background: #45a049;
+    background: #352907;
 }
 
 
@@ -229,4 +231,66 @@ main h2 {
     font-size: 12px;
     white-space: nowrap;
   }
+}
+
+
+/*Pra permitir o deslogar*/
+/*Section de Mostrar perfil e Sair*/
+#perfil-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #f7961f, #df8013);
+    padding: 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    width: 320px;
+    max-width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.perfil-container {
+    text-align: center;
+}
+
+#perfil-section h3 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+#perfil-section p {
+    margin: 10px 0;
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#perfil-section p strong {
+    display: inline-block;
+    width: 70px;
+    font-weight: 600;
+    color: #fff3d1;
+}
+
+#logout-btn {
+    margin-top: 25px;
+    padding: 10px 24px;
+    background-color: #fff;
+    color: #df8013;
+    border: none;
+    border-radius: 30px;  
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: #f7f7f7;
+    transform: scale(1.05);
 }
