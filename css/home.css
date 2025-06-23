@@ -8,7 +8,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #fffdf5; 
+    background-color: #fffdf5;
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     display: flex;
@@ -102,7 +102,7 @@ button:hover{
     transform: scale(1.05);
 }
 
-@media (max-width: 780px){ 
+@media (max-width: 780px){
 #banner {
     padding: 60px 20px;
     text-align: center;
@@ -172,11 +172,11 @@ button:hover{
   height: 60px;
   background: linear-gradient(#fbd69e, #fffdf5);
 }
-  
+
 
 /*Categorias*/
 #grade{
-    padding: 25px 0px; 
+    padding: 25px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,7 +191,7 @@ button:hover{
 }
 
 #grade a{
-    color:  #5a4033;
+    color: #5a4033;
     font-size: clamp(8px, 2vw, 17px);
     text-align: center;
     padding: 0px 5px;
@@ -207,7 +207,7 @@ button:hover{
     padding-top: 25px;
 }
 
-@media (max-width: 780px){ 
+@media (max-width: 780px){
     .imagens-grade img{
         margin: 0px;
     }
@@ -242,7 +242,6 @@ footer{
     display: inline-block;
     margin: 10px 15px 0px 15px;
 }
-
 
 /*Section de Mostrar perfil e Sair*/
 #perfil-section {
@@ -292,7 +291,7 @@ footer{
     background-color: #fff;
     color: #df8013;
     border: none;
-    border-radius: 30px;  
+    border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);

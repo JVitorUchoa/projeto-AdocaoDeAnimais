@@ -1,0 +1,507 @@
+/* Estilos globais (já existem, mas revisados) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffdf5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    height: auto;
+}
+
+/* Cabeçalho */
+a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+header {
+    background-color: #ff9800;
+    padding: 15px 20px; /* Ajuste o padding para ficar mais compacto */
+    text-align: center;
+    position: relative; /* Para posicionar o menu hambúrguer */
+}
+
+#caixa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribui os itens */
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+#titulo {
+    font-size: clamp(2rem, 4.5vw, 2.5rem);
+    color: white;
+    font-family: 'Luckiest Guy', cursive; /* Adicionado fallback font */
+    font-weight: 100;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+#caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #090908;
+    border-radius: 14px;
+    padding: 0 0 0 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 80px;
+    max-width: 500px;
+    transition: all 0.3s ease;
+}
+
+#pesquisa {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    min-width: 0;
+    padding: 8px 0; /* Adiciona um pouco de padding interno */
+}
+
+#pesquisa::-webkit-search-cancel-button {
+    display: none;
+}
+
+.botao-lupa {
+    all: unset;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-lupa:hover {
+    background-color: black !important;
+    transform: none;
+}
+
+#lupa {
+    width: 15px;
+    height: 15px;
+}
+
+#imagens-simbolos {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os ícones */
+    flex-shrink: 0; /* Impede que encolham */
+}
+
+.icones, #icone-login {
+    width: 28px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.icones:hover, #icone-login:hover {
+    transform: scale(1.1);
+}
+
+/* BOTÃO DO MENU HAMBÚRGUER */
+#menu-toggle {
+    display: none; /* Oculta por padrão em telas grandes */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 40px; /* Tamanho do botão */
+    height: 40px;
+    position: absolute; /* Posiciona absolutamente */
+    top: 50%;
+    right: 20px; /* Distância da direita */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+}
+
+#menu-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* NAVEGAÇÃO PRINCIPAL */
+#main-nav {
+    background-color: #ff9800; /* Mesma cor do header para parecer contínuo */
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+#main-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0; /* Garante que não tenha margem padrão da ul */
+}
+
+#main-nav li {
+    font-weight: 100;
+    font-size: clamp(11px, 1.5vw, 14px); /* Ajuste para ter um limite superior */
+    color: white !important;
+    padding: 10px 15px; /* Padding fixo para itens de menu */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Evita quebra de linha nos itens do menu */
+}
+
+#main-nav li:hover {
+    background-color: #fb8c00 !important;
+}
+
+/* SUBMENU */
+#submenu {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    list-style: none;
+    background-color: #ff9800 !important;
+    color: white;
+    margin-top: 9px !important;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra mais visível */
+    z-index: 1000; /* Garante que o submenu apareça acima de outros elementos */
+    min-width: 150px; /* Largura mínima para o submenu */
+    left: 0; /* Alinha o submenu à esquerda do item pai */
+}
+
+#submenu li {
+    padding: 10px 15px;
+    width: 100%; /* Faz os itens preencherem a largura do submenu */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.menu-agrupado {
+    position: relative;
+}
+
+.menu-agrupado:hover #submenu {
+    display: block !important;
+} 
+
+/* MAIN CONTENT - seus estilos existentes (mantidos para referência) */
+main {
+    flex: 1;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 25px;
+    background-color: #fbd69e;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.imagem-home {
+    flex-shrink: 0;
+    width: clamp(130px, 25vw, 280px);
+    height: auto;
+    border-radius: 10%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.393);
+    transition: transform 0.3s ease;
+}
+
+.imagem-home:hover {
+    transform: scale(1.03);
+}
+
+.texto-adocao {
+    flex: 1;
+    min-width: 0;
+    color: rgb(83, 61, 20);
+    font-size: clamp(12px, 1.8vw, 17px);
+    line-height: 1.6;
+}
+
+.texto-adocao h2 {
+    font-size: clamp(17px, 3vw, 30px);
+    color: rgb(93, 68, 22);
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e9910c;
+    transform: scale(1.05);
+}
+
+.transicao-degrade {
+    height: 60px;
+    background: linear-gradient(#fbd69e, #fffdf5);
+}
+
+#grade {
+    padding: 25px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#grade .imagens-grade img {
+    width: clamp(25px, 10vw, 120px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0px clamp(3px, 2vw, 12px);
+}
+
+#grade a {
+    color: #5a4033;
+    font-size: clamp(8px, 2vw, 17px);
+    text-align: center;
+    padding: 0px 5px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#grade-caes, #grade-gatos {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 40px);
+    padding-top: 25px;
+}
+
+/* FOOTER - seus estilos existentes (mantidos para referência) */
+footer {
+    background-color: #ca8011;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    padding: 3px;
+    margin: 0;
+}
+
+#contato-footer p {
+    display: inline-block;
+    margin: 10px 15px 0px 15px;
+}
+
+/* MEDIA QUERIES para responsividade */
+
+/* Para telas maiores que 768px (Desktop/Tablet em paisagem) */
+@media (min-width: 769px) {
+    #menu-toggle {
+        display: none; /* Garante que o botão hambúrguer esteja oculto */
+    }
+
+    #main-nav {
+        display: block !important; /* Garante que o menu de navegação esteja visível */
+        height: auto !important; /* Reseta a altura para o conteúdo */
+        overflow: visible !important; /* Reseta o overflow */
+    }
+
+    #main-nav ul {
+        flex-direction: row; /* Itens do menu em linha */
+        justify-content: center;
+        padding: 10px 0; /* Padding superior/inferior para o menu */
+    }
+
+    #main-nav li {
+        margin: 0 5px; /* Espaço entre os itens do menu */
+    }
+}
+
+
+/* Para telas menores ou iguais a 768px (Tablet/Mobile) */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block; /* Mostra o botão hambúrguer */
+    }
+
+    #caixa {
+        justify-content: space-between; /* Distribui bem os itens no header */
+        gap: 10px;
+        position: relative; /* Para o botão do menu ficar relativo a ele */
+    }
+
+    #caixa-pesquisa {
+        flex-grow: 1; /* Permite que a caixa de pesquisa cresça */
+        max-width: none; /* Remove o limite de largura para telas menores */
+        margin: 0; /* Remove margem desnecessária */
+    }
+
+    #titulo {
+        font-size: clamp(1.5rem, 6vw, 2rem); /* Diminui o tamanho da fonte do título */
+        flex-shrink: 0; /* Impede que encolha demais */
+    }
+
+    #imagens-simbolos {
+        display: none; /* Oculta os ícones de login/ajuda/curtidas para dar espaço */
+    }
+
+    /* Estilos para o menu de navegação responsivo */
+    
+
+
+    #main-nav{
+        display: none; /* Oculta o menu por padrão */      
+        background-color: #ff9800; /* Cor de fundo do menu */
+        width: 80%;
+    }
+
+    #menu{
+        display: block;
+        position: absolute;
+        background-color: #ff9800;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+        top: 100%;
+        left: 0;
+        width: 80%;
+        z-index: 1;
+    }
+
+
+    #main-nav.active {
+        display: inline-block !important; /* Mostra o menu quando a classe 'active' é adicionada */
+        position: relative !important;
+    }
+
+    #main-nav ul {
+        flex-direction: column; /* Itens do menu em coluna */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        padding: 10px 20px; /* Padding interno para os itens */
+    }
+
+    #main-nav li {
+        width: 100%; /* Faz os itens ocuparem a largura total */
+        text-align: left;
+        margin: 5px 0; /* Espaço vertical entre os itens */
+        font-size: 16px; /* Aumenta a fonte para melhor legibilidade */
+        padding: 12px 15px; /* Mais padding para facilitar o toque */
+    }
+
+    #submenu {
+        position: static; /* Remove o posicionamento absoluto para o submenu */
+        display: none; /* Ainda oculto por padrão */
+        width: 100%;
+        background-color: #e9910c !important; /* Cor diferente para o submenu */
+        box-shadow: none !important; /* Remove a sombra */
+        margin-top: 0 !important;
+        padding-left: 20px; /* Indenta o submenu */
+    }
+
+    .menu-agrupado:hover #submenu {
+        display: block !important; 
+    }
+    /* Permite hover em mobile se precisar, mas JS vai controlar */
+
+    /* Ajustes para a seção de grade */
+    #grade-caes, #grade-gatos {
+        flex-wrap: wrap; /* Permite que os itens da grade quebrem linha */
+        gap: 15px; /* Ajusta o espaçamento */
+    }
+
+    #grade .imagens-grade {
+        flex-basis: calc(33.33% - 10px); /* 3 itens por linha */
+        max-width: calc(33.33% - 10px);
+        margin: 0;
+    }
+
+    #grade .imagens-grade img {
+        margin: 0;
+        width: 100%; /* Imagem preenche o container */
+    }
+    
+    /* Remove margens extras em mobile */
+    #img-borda-left, #img-borda-right {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Ajustes para o banner em telas muito pequenas */
+    .container {
+        flex-direction: column; /* Empilha texto e imagem */
+        text-align: center;
+    }
+
+    .imagem-home {
+        order: -1; /* Coloca a imagem acima do texto no mobile */
+        margin-bottom: 20px;
+    }
+
+    .texto-adocao {
+        text-align: center;
+    }
+}
+
+/* Para telas muito pequenas (ex: mobile retrato) */
+@media (max-width: 480px) {
+    #caixa-pesquisa {
+        width: 100%; /* Ocupa toda a largura disponível */
+        order: 3; /* Coloca a barra de pesquisa na linha de baixo no header */
+        margin-top: 10px; /* Espaçamento superior */
+    }
+
+    #caixa {
+        flex-wrap: wrap; /* Permite quebrar linha para a pesquisa */
+        justify-content: center; /* Centraliza os itens restantes */
+    }
+
+    #titulo {
+        font-size: clamp(1.2rem, 8vw, 1.8rem);
+        margin-right: auto; /* Empurra o título para a esquerda e libera espaço */
+    }
+
+    #menu-toggle {
+        position: static; /* Volta a ser estático no fluxo para não sobrepor */
+        transform: none;
+        margin-left: 10px; /* Adiciona uma pequena margem para separar */
+    }
+
+    #main-nav {
+        top: auto; /* Remove top absoluto */
+        position: relative; /* Ajusta para ser relativo ao fluxo */
+    }
+
+    #grade .imagens-grade {
+        flex-basis: calc(50% - 10px); /* 2 itens por linha */
+        max-width: calc(50% - 10px);
+    }
+}
