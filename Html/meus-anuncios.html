@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Anúncios - Miaudota</title>
+  <link rel="stylesheet" href="../css/anunciante.css" />
+  <link rel="stylesheet" href="../css/meus-anuncios.css">
+</head>
+
+<body>
+
+<main>
+  <h2>Meus Anúncios</h2>
+  <section id="lista-anuncios"></section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+  const anuncios = JSON.parse(localStorage.getItem('anuncios')) || [];
+  const lista = document.getElementById('lista-anuncios');
+
+  if (!usuario) {
+    lista.innerHTML = '<p>Você precisa estar logado para ver seus anúncios.</p>';
+    return;
+  }
+
+  const meusAnuncios = anuncios.filter(anuncio => anuncio.email === usuario.email);
+
+  if (meusAnuncios.length === 0) {
+    lista.innerHTML = '<p>Você ainda não possui anúncios.</p>';
+    return;
+  }
+
+  meusAnuncios.forEach(anuncio => {
+    const div = document.createElement('div');
+    div.className = 'card-animal';
+
+    const img = anuncio.fotos && anuncio.fotos.length > 0 ? anuncio.fotos[0].data : '../img/placeholder-animal.jpg';
+
+    div.innerHTML = `
+      <img src="${img}" alt="${anuncio.nomeAnimal}">
+      <div class="card-conteudo">
+        <h3>${anuncio.nomeAnimal}</h3>
+        <p><strong>Tipo:</strong> ${formatarTipo(anuncio.tipo)}</p>
+        <p><strong>Descrição:</strong> ${anuncio.descricao}</p>
+        <div class="botoes">
+          <button class="btn-adotado">${anuncio.adotado ? 'Disponível' : 'Marcar como Adotado'}</button>
+          <button class="btn-excluir">Excluir</button>
+        </div>
+      </div>
+    `;
+
+    // Função formata o texto do tipo
+    function formatarTipo(tipo) {
+      return tipo
+        .split('-')
+        .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+        .join(' ')
+        .replace('Caes', 'Cães');
+    }
+
+    // Evento Adotado
+    div.querySelector('.btn-adotado').addEventListener('click', () => {
+      const idxGlobal = anuncios.findIndex(a => a.nomeAnimal === anuncio.nomeAnimal && a.email === anuncio.email);
+      if (idxGlobal !== -1) {
+        anuncios[idxGlobal].adotado = !anuncios[idxGlobal].adotado;
+        localStorage.setItem('anuncios', JSON.stringify(anuncios));
+        location.reload();
+      }
+    });
+
+    // Evento Excluir
+    div.querySelector('.btn-excluir').addEventListener('click', () => {
+      const confirmar = confirm(`Deseja realmente excluir o anúncio de ${anuncio.nomeAnimal}?`);
+      if (confirmar) {
+        const idxGlobal = anuncios.findIndex(a => a.nomeAnimal === anuncio.nomeAnimal && a.email === anuncio.email);
+        if (idxGlobal !== -1) {
+          anuncios.splice(idxGlobal, 1);
+          localStorage.setItem('anuncios', JSON.stringify(anuncios));
+          location.reload();
+        }
+      }
+    });
+
+    lista.appendChild(div);
+  });
+});
+</script>
+
+</body>
+</html>

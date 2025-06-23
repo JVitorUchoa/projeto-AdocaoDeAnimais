@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miaudota - Sobre Nós</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
+    </style>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/sobrenos.css">
+    <link rel="stylesheet" href="../css/cabecalho.css">
+</head>
+
+<body>
+    <header>
+    <a id="titulo-none" href="home.html">MIAUDOTA</a>
+    <div id="caixa">
+        <a id="titulo" href="home.html">MIAUDOTA</a>
+
+        <form id="caixa-pesquisa" action="resul.html" method="get">
+            <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
+            <button type="submit" class="botao-lupa">
+                <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
+            </button>
+        </form>
+    <div id="imagens-simbolos">
+        <!-- Simbolo do Login -->
+        <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
+
+        <!-- Simbolo de curtidos -->
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" id="curtida"></a>
+
+        <!-- Simbolo de ajuda -->
+        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
+    </div>
+    </div>
+
+<nav id="main-nav">
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Histórias de Adoção</a></li>
+        <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+        <li><a href="#">Processo de Adoção</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+    </ul>
+</nav>
+    </header>
+
+   <main>
+    <section id="sobre-nos">
+        <div class="container">
+            <div class="texto-sobre">
+                <h2>Sobre Nós</h2>
+                <p>
+                    O <strong>MIAUDOTA</strong> Somos uma plataforma digital que conecta animais que precisam de um lar a pessoas dispostas a oferecer cuidado, carinho e uma nova chance. Nosso objetivo é tornar o processo de adoção mais simples, rápido e, acima de tudo, consciente.
+                <p>
+                    Acreditamos que todo cão e gato merece uma segunda chance. Por isso, trabalhamos exclusivamente online, dando visibilidade a pets resgatados por ONGs e protetores independentes de todo o Brasil. Não realizamos resgates nem mantemos abrigos — nosso papel é conectar histórias.
+                </p>
+                <p>
+                    O processo é fácil: quem deseja adotar pode acessar o site, buscar por um animalzinho que combine com seu estilo de vida, e quando encontrar aquele especial, é só clicar em <strong>“Adotar”</strong>. A partir daí, a pessoa entra em contato direto com o doador para combinar a adoção e dar início a essa nova amizade.
+                </p>
+                <p>
+                    Mais do que um site, somos um elo entre quem quer amar e quem precisa ser amado.
+                </p>
+            </div>
+            <div class="imagem-sobre">
+                <img src="../img/miasana.jpg" alt="Imagem ilustrativa de adoção de animais Megue-Sana">
+            </div>
+        </div>
+    </section>
+    
+        <section id="midias-sociais">
+        <h3>Nos acompanhe nas redes sociais!</h3>
+        <div class="icones-midias">
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="../img/icones/insta.png.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="../img/icones/face.png.png" alt="Facebook">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank">
+            <img src="../img/icones/tiktok.png.png" alt="TikTok">
+        </a>
+        </div>
+    </section>
+
+</main>
+
+
+    <footer>
+        <section id="contato-footer">
+            <p>Telefone: (85) 98667-9134</p>
+            <p>Endereço: Rua Otávio Soares 1800, Aldeota, Fortaleza-Ce</p>
+        </section>
+        <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../scripts js/utils_login.js"></script>
+    <script src="../scripts js/utils_home.js"></script>
+
+    <section id="perfil-section" style="display: none;">
+        <div class="perfil-container">
+            <h3>Meu Perfil</h3>
+            <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+            <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+            <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+            <button id="logout-btn">Desconectar</button>
+        </div>
+    </section>
+</body>
+
+</html>

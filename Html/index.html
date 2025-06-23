@@ -9,70 +9,45 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
     </style>
-    <link rel="stylesheet" href="../css/home.css" />
-    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/resul.css">
+    <link rel="stylesheet" href="../css/cabecalho.css">
 </head>
 
 <body>
     <header>
-        <div id="caixa">
-            <a id="titulo" href="home.html">MIAUDOTA</a>
+    <a id="titulo-none" href="home.html">MIAUDOTA</a>
+    <div id="caixa">
+        <a id="titulo" href="home.html">MIAUDOTA</a>
 
-            <button id="menu-toggle" aria-label="Abrir menu" type="button">
-                <img src="../img/menu.jpg - Copia.png" alt="Abrir menu" />
+        <form id="caixa-pesquisa" action="resul.html" method="get">
+            <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
+            <button type="submit" class="botao-lupa">
+                <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
             </button>
+        </form>
+    <div id="imagens-simbolos">
+        <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
 
-            <form id="caixa-pesquisa" action="resultados.html" method="get">
-                <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar" />
-                <button type="submit" class="botao-lupa">
-                    <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa" />
-                </button>
-            </form>
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" id="curtida"></a>
 
-            <div id="imagens-simbolos">
-                <a href="../Html/login.html"><img src="../img/icones/usuario.png" alt="Ícone de login"
-                        id="icone-login" /></a>
+        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
+    </div>
+    </div>
 
-                <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones" /></a>
-
-                <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" /></a>
-            </div>
-        </div>
+<nav id="main-nav">
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Histórias de Adoção</a></li>
+        <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+        <li><a href="#">Processo de Adoção</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+    </ul>
+</nav>
     </header>
 
-    <nav id="main-nav">
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
+                <img id="img-banner2" class="imagem-home" src="../img/miaudota.JPG" alt="Cachorro caramelo e gato cinza">
 
-            <li class="menu-agrupado">
-                Categorias
-                <ul id="submenu">
-                    <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-                    <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-                    <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Histórias de Adoção</a></li>
-            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
-            <li><a href="#">Processo de Adoção</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Contatos</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="banner">
-            <div class="container">
-                <div class="texto-adocao">
-                    <h2>Adote um amigo hoje!</h2>
-                    <p>
-                        Dê um lar cheio de amor a quem precisa. Milhares de animais esperam por um lar cheio de carinho.
-                        Ao adotar, você não apenas ganha um amigo leal mas também transforma uma vida. Adotar é um
-                        ato de amor!
-                    </p>
-                    <button onclick="window.location.href='#grade'">Ver Animais Disponíveis</button>
-                </div>
-                <img class="imagem-home" src="../img/miaudota.JPG" alt="Cachorro caramelo e gato cinza" />
             </div>
         </section>
 
@@ -80,33 +55,34 @@
 
         <section id="grade">
             <div id="grade-caes">
-                <a class="imagens-grade" id="img-borda-left" href="#"><img src="../img/categorias/raça-pequena.jpg"
-                        alt="Cães de raças pequenas" /><br />Raças pequenas</a>
-                <a class="imagens-grade" href="#"><img src="../img/categorias/raça-media.jpg"
-                        alt="Cães de raças médias" /><br />Raças médias</a>
-                <a class="imagens-grade" href="#"><img src="../img/categorias/raça-grande.jpg"
-                        alt="Cães de raças grandes" /><br />Raças grandes</a>
-                <a class="imagens-grade" href="#"><img src="../img/categorias/cão-filhote.jpg"
-                        alt="Cães filhotes" /><br />Cães filhotes</a>
-                <a class="imagens-grade" href="#"><img src="../img/categorias/cao-adulto.jpg"
-                        alt="Cães adultos" /><br />Cães adultos</a>
-                <a class="imagens-grade" id="img-borda-right" href="#"><img src="../img/categorias/cão-idoso.jpg"
-                        alt="Cães idosos" /><br />Cães idosos</a>
+                <a class="imagens-grade" id="img-borda-left" href="resul.html?categoria=racas-pequenas"><img src="../img/categorias/raça-pequena.jpg" alt="Cães de raças pequenas"><br>Raças pequenas</a>
+                <a class="imagens-grade" href="resul.html?categoria=racas-medias"><img src="../img/categorias/raça-media.jpg" alt="Cães de raças médias"><br>Raças médias</a>
+                <a class="imagens-grade" href="resul.html?categoria=racas-grandes"><img src="../img/categorias/raça-grande.jpg" alt="Cães de raças grandes"><br>Raças grandes</a>
+                <a class="imagens-grade" href="resul.html?categoria=caes-filhotes"><img src="../img/categorias/cão-filhote.jpg" alt="Cães filhotes"><br>Cães filhotes</a>
+                <a class="imagens-grade" href="resul.html?categoria=caes-adultos"><img src="../img/categorias/cao-adulto.jpg" alt="Cães adultos"><br>Cães adultos</a>
+                <a class="imagens-grade" id="img-borda-right" href="resul.html?categoria=caes-idosos"><img src="../img/categorias/cão-idoso.jpg" alt="Cães idosos"><br>Cães idosos</a>
             </div>
 
             <div id="grade-gatos">
-                <a class="imagens-grade" href="#"><img src="../img/categorias/gato-raça.jpeg"
-                        alt="Gatos de raça" /><br />Gatos de raça</a>
-                <a class="imagens-grade" href="#"><img src="../img/categorias/gato mestiço.jpg"
-                        alt="Gatos mestiços" /><br />Gatos mestiços</a>
-                <a class="imagens-grade" href="#"><img src="../img/categorias/gato-filhote.jpg"
-                        alt="Gatos filhotes" /><br />Gatos filhotes</a>
-                <a class="imagens-grade gatos-adultos" href="#"><img src="../img/categorias/gato-adulto.png"
-                        alt="Gatos adultos" /><br />Gatos adultos</a>
-                <a class="imagens-grade gatos-idosos" href="#"><img src="../img/categorias/gato-idoso.jpg"
-                        alt="Gatos idosos" /><br />Gatos idosos</a>
+                <a class="imagens-grade" href="resul.html?categoria=gatos-raca"><img src="../img/categorias/gato-raça.jpeg" alt="Gatos de raça"><br>Gatos de raça</a>
+                <a class="imagens-grade" href="resul.html?categoria=gatos-mesticos"><img src="../img/categorias/gato mestiço.jpg" alt="Gatos mestiços"><br>Gatos mestiços</a>
+                <a class="imagens-grade" href="resul.html?categoria=gatos-filhotes"><img src="../img/categorias/gato-filhote.jpg" alt="Gatos filhotes"><br>Gatos filhotes</a>
+                <a class="imagens-grade gatos-adultos" href="resul.html?categoria=gatos-adultos"><img src="../img/categorias/gato-adulto.png" alt="Gatos adultos"><br>Gatos adultos</a>
+                <a class="imagens-grade gatos-idosos" href="resul.html?categoria=gatos-idosos"><img src="../img/categorias/gato-idoso.jpg" alt="Gatos idosos"><br>Gatos idosos</a>
+                </div>
+            </section>
+
+            <div id="fundo-cards">
+                <section id="cards-animais" class="grid-cards"></section>
+
+                <div id="detalhes-animal" class="modal-detalhes" style="display: none;">
+                    <div class="modal-conteudo">
+                        <span class="fechar-modal">&times;</span>
+                    <div id="detalhes-conteudo"></div>
+                    </div>
+                </div>
             </div>
-        </section>
+            
     </main>
 
     <footer>
@@ -117,7 +93,20 @@
         <p>&copy; 2025 Miaudota - Todos os direitos reservados.</p>
     </footer>
 
-    <script src="../scripts js/hamburguer.js"></script>
+<script src="../scripts js/utils_login.js"></script>
+<script src="../scripts js/utils_home.js"></script>
+<script src="../scripts js/utils_resul.js"></script>
+ 
+<section id="perfil-section" style="display: none;">
+    <div class="perfil-container">
+        <h3>Meu Perfil</h3>
+        <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+        <button id="logout-btn">Desconectar</button>
+    </div>
+</section>
+
 </body>
 
 </html>

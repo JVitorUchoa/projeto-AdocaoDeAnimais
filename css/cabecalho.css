@@ -1,0 +1,164 @@
+/*Configurações gerais*/
+a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+header {
+    background-color: #ff9800; 
+    padding: 35px 0px 1px 0px;
+    text-align: center;
+}
+
+#titulo{
+    font-size: clamp(30px, 5vw, 40px);
+    margin: 0px 0px 0px 10px;
+    padding: 0;
+    color: white;
+    font-family: Luckiest Guy;
+
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+
+/*Caixa de pesquisa e lupa*/
+#caixa{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+#caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #090908;
+    border-radius: 14px;
+    padding: 0 0 0 10px;
+    margin: 15px 10px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0; /*divide o espaço e encolher*/
+
+    min-width: 80px; /*permite encolher*/
+    max-width: 500px;
+
+    transition: all 0.3s ease;
+}
+
+#pesquisa {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    min-width: 0; /*permite que ele encolha*/
+}
+
+#pesquisa::-webkit-search-cancel-button {
+    display: none;
+}
+
+/*Tira o X padrão (de limpar tudo) do input.*/
+#lupa{
+    width: 15px;
+    height: 15px;
+    background-color: rgb(0, 0, 0);
+}
+
+.botao-lupa{
+    all: unset; /*Remove todos os estilos padrões*/
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-lupa:hover{
+    background-color: black !important;
+    transform: none;
+}
+
+
+/*Estilos pros tópico do Menu*/
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+nav li {
+    font-weight: 100;
+    font-size: clamp(11px, 4vw, 14px);
+    color: white !important;
+    padding: clamp(10px, 4vw, 14px) clamp(8px, 3vw, 10px);
+
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+nav li:hover {
+    background-color: #fb8c00 !important;
+}
+
+
+/*Simbolos de login, curtida e dúvidas*/
+#logar{
+    width: 30px;
+    height: auto;
+}
+#imagens-simbolos{
+    flex-wrap: nowrap;
+    display: flex;
+    margin: 0px 10px 0px 0px;
+    padding: 0;
+}
+.icones{
+    width: 28px;
+    height: auto;
+}
+#icone-login{
+    width: 30px;
+    height: auto;
+}
+
+
+/*Título "quebra" e vai pra cima, em telas menores*/
+#titulo-none{
+    display: none;
+}
+
+@media (max-width: 450px){
+    #titulo{
+        display: none;
+    }
+    #titulo-none{
+    font-size: clamp(30px, 5vw, 40px);
+    color: white;
+    font-family: Luckiest Guy;
+    display: block;
+    letter-spacing: 1px;
+    };
+}
+
+.menu-agrupado{
+    position: relative;
+}
+
+.menu-agrupado:hover #submenu{
+    display: block;
+}
+
+
+/**/

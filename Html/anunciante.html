@@ -5,60 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Miaudota - Seja um Anunciante</title>
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/anunciante.css" />
+  <link rel="stylesheet" href="../css/anunciante.css"/>
+  <link rel="stylesheet" href="../css/cabecalho.css">
 </head>
 
 <body>
-<header>
+<div id="bloqueio-login">
+  <div class="mensagem-bloqueio">
+    <h2>Você precisa estar logado para acessar esta página.</h2>
+    <button onclick="window.location.href='login.html'">Fazer Login</button>
+  </div>
+</div>
+
+
+    <header>
     <a id="titulo-none" href="home.html">MIAUDOTA</a>
     <div id="caixa">
         <a id="titulo" href="home.html">MIAUDOTA</a>
 
-        <form id="caixa-pesquisa" action="resultados.html" method="get">
+        <form id="caixa-pesquisa" action="resul.html" method="get">
             <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
             <button type="submit" class="botao-lupa">
                 <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
             </button>
         </form>
-      <div id="imagens-simbolos">
-            <!--Simbolo do Login-->
-            <a href="../Html/login.html"><img src="../img/icones/usuario.png" alt="Ícone de login" id="icone-login"></a>
+    <div id="imagens-simbolos">
+        <!-- Simbolo do Login -->
+        <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
 
-            <!--Simbolo de curtidos-->
-            <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones"></a>
+        <!-- Simbolo de curtidos -->
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" id="curtida"></a>
 
-            <!--Simbolo de ajuda-->
-            <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
-        </div>
+        <!-- Simbolo de ajuda -->
+        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
+    </div>
     </div>
 
-    <nav>
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-
-            <li class="menu-agrupado">Categorias
-                <ul id="submenu">
-                    <li><a href="resultados.html?pesquisa=gato">Gatos</a></li>
-                    <li><a href="resultados.html?pesquisa=cachorro">Cachorros</a></li>
-                    <li><a href="resultados.html?pesquisa=">Todos Animais</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Histórias de Adoção</a></li>
-            <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
-            <li><a href="#">Processo de Adoção</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Contatos</a></li>
-        </ul>
-        <form>
-            <span id="seta">
-                <img style="width:9%; max-width: 35px; display: none;" src="../img/caret.png">
-            </span>
-        </form>
-    </nav>
+<nav id="main-nav">
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Histórias de Adoção</a></li>
+        <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+        <li><a href="#">Processo de Adoção</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+    </ul>
+</nav>
     </header>
 
   <main id="container">
-    <h2 id="titulo-form">Seja um Anunciante</h2>
+    <div id="linha-titulo">
+      <h2 id="titulo-form">Seja um Anunciante</h2>
+      <a href="meus-anuncios.html" id="meus-anuncios-botao">Meus Anúncios</a>
+    </div>
+
 
      <div id="mensagem-sucesso" role="alert">
       Dados enviados com sucesso!
@@ -84,21 +83,45 @@
         <label for="tipo-animal">Tipo do Animal</label>
         <select id="tipo-animal" name="tipoAnimal" required>
           <option value="">Selecione</option>
-          <option value="gato">Gato</option>
-          <option value="cachorro">Cachorro</option>
-          <option value="outro">Outro</option>
+          <option value="racas-pequenas">Raças pequenas</option>
+          <option value="racas-medias">Raças médias</option>
+          <option value="racas-grandes">Raças grandes</option>
+          <option value="caes-filhotes">Cães filhotes</option>
+          <option value="caes-adultos">Cães adultos</option>
+          <option value="caes-idosos">Cães idosos</option>
+          <option value="gatos-raca">Gatos de raça</option>
+          <option value="gatos-mesticos">Gatos mestiços</option>
+          <option value="gatos-filhotes">Gatos filhotes</option>
+          <option value="gatos-adultos">Gatos adultos</option>
+          <option value="gatos-idosos">Gatos idosos</option>
+          <option value="outros">Outros</option>
         </select>
       </div>
 
       <div class="campo-form">
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+        <label for="descricao">Descrição do animal</label>
+        <textarea id="descricao" name="descricao" rows="4" placeholder="Fale um pouco sobre o animal: aparência, saúde, personalidade, o que ele gosta e se precisa de cuidados específicos." required></textarea>
+      </div>
+
+      <div class="campo-form">
+        <label for="fotos-animal">Fotos do Animal</label>
+        <input type="file" id="fotos-animal" name="fotos" accept="image/*" multiple max="1" required>
+          <div id="preview-imagens"></div> <!-- Container para pré-visualização -->
       </div>
 
       <button type="submit" id="botao-enviar">Enviar Anúncio</button>
     </form>
+    <section id="perfil-section" style="display: none;">
+    <div class="perfil-container">
+        <h3>Meu Perfil</h3>
+        <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+        <button id="logout-btn">Desconectar</button>
+    </div>
+</section>
 
-   
+<script src="../scripts js/utils_login.js"></script>
   </main>
 
   <script src="../scripts js/anunciante.js"></script>

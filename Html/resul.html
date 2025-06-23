@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animais para Adoção</title>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&family=Sevillana&family=Sriracha&family=Titan+One&display=swap');
+    </style>
+  <link rel="stylesheet" href="../css/resul.css">
+  <link rel="stylesheet" href="../css/cabecalho.css">
+</head>
+
+<body>
+    <header>
+    <a id="titulo-none" href="home.html">MIAUDOTA</a>
+    <div id="caixa">
+        <a id="titulo" href="home.html">MIAUDOTA</a>
+
+        <form id="caixa-pesquisa" action="resul.html" method="get">
+            <input type="search" id="pesquisa" name="busca" placeholder="Encontre um PET para amar">
+            <button type="submit" class="botao-lupa">
+                <img id="lupa" src="../img/lupa.png" alt="lupa de pesquisa">
+            </button>
+        </form>
+    <div id="imagens-simbolos">
+        <!-- Simbolo do Login -->
+        <a href="login.html" id="login-icon"><img src="../img/icones/usuario.png" id="icone-login"></a>
+
+        <!-- Simbolo de curtidos -->
+        <a href="#"><img src="../img/icones/gostar - Editado.png" alt="Ícone de curtidas" class="icones" id="curtida"></a>
+
+        <!-- Simbolo de ajuda -->
+        <a href="#"><img src="../img/icones/interrogação.png" alt="Ícone de ajuda" class="icones"></a>
+    </div>
+    </div>
+
+<nav id="main-nav">
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Histórias de Adoção</a></li>
+        <li><a href="../Html/anunciante.html">Seja Anunciante</a></li>
+        <li><a href="#">Processo de Adoção</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+    </ul>
+</nav>
+  </header>
+  <main>
+    <div id="fundo-cards">
+      <section id="cards-animais" class="grid-cards"></section>
+
+      <div id="detalhes-animal" class="modal-detalhes" style="display: none;">
+      <div class="modal-conteudo">
+        <span class="fechar-modal">&times;</span>
+      <div id="detalhes-conteudo"></div>
+      </div>
+      </div>
+    </div>
+  </main>
+  <section id="perfil-section" style="display: none;">
+    <div class="perfil-container">
+        <h3>Meu Perfil</h3>
+        <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+        <button id="logout-btn">Desconectar</button>
+    </div>
+</section>
+
+<script src="../scripts js/utils_login.js"></script>
+  
+  <script src="../scripts js/utils_resul.js"></script>
+</body>
+</html>

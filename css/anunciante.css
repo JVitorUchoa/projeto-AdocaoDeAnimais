@@ -27,182 +27,6 @@ body {
     flex-direction: column;
 }
 
-/*Cabeçalho*/
-a {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-}
-
-#seta {
- cursor: pointer;   
-}
-
-header {
-    background-color: #ff9800; 
-    padding: 35px 0px 1px 0px;
-    text-align: center;
-}
-
-#titulo{
-    font-size: clamp(30px, 5vw, 40px);
-    margin: 0px 0px 0px 10px;
-    padding: 0;
-    color: white;
-    font-family: Luckiest Guy;
-
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
-
-#caixa{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: nowrap;
-}
-
-#caixa-pesquisa {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #090908;
-    border-radius: 14px;
-    padding: 0 0 0 10px;
-    margin: 15px 10px;
-
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0; /*divide o espaço e encolher*/
-
-    min-width: 80px; /*permite encolher*/
-    max-width: 500px;
-
-    transition: all 0.3s ease;
-}
-
-#pesquisa {
-    flex: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    min-width: 0; /*permite que ele encolha*/
-}
-
-#pesquisa::-webkit-search-cancel-button {
-    display: none;
-}
-/*Tira o X padrão (de limpar tudo) do input.*/
-
-#lupa{
-    width: 15px;
-    height: 15px;
-    background-color: rgb(0, 0, 0);
-}
-
-.botao-lupa{
-    all: unset; /*Remove todos os estilos padrões*/
-    background-color: black;
-    width: 30px;
-    height: 30px;
-    border-radius: 40%;
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.botao-lupa:hover{
-    background-color: black !important;
-    transform: none;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-nav li {
-    font-weight: 100;
-    font-size: clamp(11px, 4vw, 14px);
-    color: white !important;
-    padding: clamp(10px, 4vw, 14px) clamp(8px, 3vw, 10px);
-
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-nav li:hover {
-    background-color: #fb8c00 !important;
-}
-
-#submenu{
-    display: none;
-    position: absolute;
-    list-style: none;
-
-    background-color: #ff9800 !important;
-    color: white;
-    margin-top: 9px !important;
-    left:0;
-    border-radius: 6px;
-    box-shadow: 0 3px 0px rgba(0, 0, 0, 0.093) !important;
-}
-
-#logar{
-    width: 30px;
-    height: auto;
-}
-
-#imagens-simbolos{
-    flex-wrap: nowrap;
-    display: flex;
-    margin: 0px 10px 0px 0px;
-    padding: 0;
-}
-
-.icones{
-    width: 28px;
-    height: auto;
-}
-
-#icone-login{
-    width: 30px;
-    height: auto;
-}
-
-#titulo-none{
-    display: none;
-}
-
-@media (max-width: 450px){
-    #titulo{
-        display: none;
-    }
-    #titulo-none{
-    font-size: clamp(30px, 5vw, 40px);
-    color: white;
-    font-family: Luckiest Guy;
-    display: block;
-    letter-spacing: 1px;
-    };
-}
-
-.menu-agrupado{
-    position: relative;
-}
-
-.menu-agrupado:hover #submenu{
-    display: block;
-}
-
 /* Main */
 main.container {
     max-width: 800px;
@@ -295,3 +119,178 @@ main h2 {
     display: none   ;
 }
 
+
+#preview-imagens {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+#preview-imagens img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.campo-form input[type="file"] {
+  margin-top: 5px;
+  width: 100%;
+}
+
+
+/*Pro bloqueio*/
+#bloqueio-login {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensagem-bloqueio {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: #333;
+}
+
+#bloqueio-login button {
+    background: #472f05;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#bloqueio-login button:hover {
+    background: #352907;
+}
+
+
+
+/*Caixa que agrupa título e botão*/
+#linha-titulo {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem para nova linha */
+  justify-content: center; /* Centraliza quando quebrar */
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px; /* Espaço entre os itens */
+}
+
+#titulo-form {
+  flex-grow: 1;
+  text-align: center;
+  min-width: min-content;
+  padding-left: 0;
+}
+
+/* Botão "Meus Anúncios" */
+#meus-anuncios-botao {
+  padding: 8px 10px;
+  background-color: #ff9900;
+  color: white;
+  border-radius: 8px; 
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 600px) {
+  #linha-titulo {
+    flex-direction: column; /* Empilha verticalmente */
+    text-align: center;
+  }
+  
+  #titulo-form {
+    margin-right: 0;
+    padding-left: 0;
+    order: 1; /* Garante que o título fique acima */
+  }
+  
+  #meus-anuncios-botao {
+    order: 2; /* Garante que o botão fique abaixo */
+    margin-top: 0px;
+    width: 90px;
+    height: 15px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+
+/*Pra permitir o deslogar*/
+/*Section de Mostrar perfil e Sair*/
+#perfil-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #f7961f, #df8013);
+    padding: 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    width: 320px;
+    max-width: 90%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.perfil-container {
+    text-align: center;
+}
+
+#perfil-section h3 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+#perfil-section p {
+    margin: 10px 0;
+    text-align: left;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#perfil-section p strong {
+    display: inline-block;
+    width: 70px;
+    font-weight: 600;
+    color: #fff3d1;
+}
+
+#logout-btn {
+    margin-top: 25px;
+    padding: 10px 24px;
+    background-color: #fff;
+    color: #df8013;
+    border: none;
+    border-radius: 30px;  
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: #f7f7f7;
+    transform: scale(1.05);
+}
